@@ -9,15 +9,7 @@
     <title>AquaTech | Cadastro</title>
 
 
-    <script src="./js/funcoes.js"></script>
 
-
-    <link rel="icon" href="./assets/icon/favicon2.ico">
-    <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
 </head>
 
 <body>
@@ -66,6 +58,18 @@
                         <span>Nome:</span>
                         <input id="nome_input" type="text" placeholder="Seu nome">
                     </div>
+
+
+                    <div class="campo">
+                        <span>cnpj:</span>
+                        <input id="cnpj_input" type="text" placeholder="cnpj">
+                    </div>
+                    <div class="campo">
+                        <span>telefone:</span>
+                        <input id="telefone_input" type="text" placeholder="telefone">
+                    </div>
+
+
                     <div class="campo">
                         <span>E-mail:</span>
                         <input id="email_input" type="text" placeholder="meuemail@provedor.com">
@@ -82,7 +86,7 @@
 
                 </div>
                 <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
+
                 </div>
 
                 <div id="div_erros_login"></div>
@@ -106,7 +110,7 @@
 
 <script>
     function cadastrar() {
-        aguardar();
+
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -114,13 +118,18 @@
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        var cnpjVar = cnpj_input.value;
+        var telefoneVar = telefone_input.value;
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
-            finalizarAguardar();
-            return false;
+
+        }else if (cnpjVar != 18 ) {
+            alert("cnpj invalido")
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
         }
         else {
             setInterval(sumirMensagem, 5000)
@@ -136,8 +145,12 @@
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
+                cnpjServer: cnpjVar,
+                telefoneServer: telefoneVar,
                 emailServer: emailVar,
-                senhaServer: senhaVar
+                 senhaServer: senhaVar
+
+
             })
         }).then(function (resposta) {
 
