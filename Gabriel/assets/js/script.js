@@ -34,3 +34,4 @@ mode.addEventListener('click', () => {
         footer.classList.remove('dark_mode');
     }
 })
+
