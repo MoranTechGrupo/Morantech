@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Climograma</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div style="width: 75%">
+      <canvas id="chart_climograma"></canvas>
+    </div>
+  </body>
+  <!-- <script> -->
+  <!-- var canvas = document.getElementById("chart_climograma");
+    new Chart(canvas, {
+      type: "line",
+      data: {
+        labels: ["1", "2", "3", "4", "5"],
+        datasets: [
+          {
+            label: "A",
+            yAxisID: "A",
+            data: [100, 96, 84, 76, 69],
+          },
+          {
+            label: "B",
+            yAxisID: "B",
+            data: [1, 1, 1, 1, 0],
+          },
+        ],
+      },
+      options: {
+        scales: {
+          yAxes: [
+            {
+              id: "A",
+              type: "linear",
+              position: "left",
+            },
+            {
+              id: "B",
+              type: "linear",
+              position: "right",
+              ticks: {
+                max: 1,
+                min: 0,
+              },
+            },
+          ],
+        },
+      },
+    }); -->
+  <!-- </script> -->
+  <script>
+    const labels = [
+      "Janeiro",
+      "Fevereiro",
+      "Março",
+      "Abril",
+      "Maio",
+      "Junho",
+      "Julho",
+      "Agosto",
+      "Setembro",
+      "Outubro",
+      "Novembro",
+      "Dezembro",
+    ];
+    
+    // CONST PARA SETAR VALOR MIN E MAX
+    // const dataConfig = {
+    //     count: labels.length,
+    //     min: -10,
+    //     max: 30,
+    //     from: [8, 10, 7, 6, 7, 5, 4, 6, 5, 3, 6, 8]
+    // };
+
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: "Temperatura",
+          backgroundColor: "#ff6384",
+          borderColor: "#ff6384",
+          yAxisID: "Temperatura",
+          order: 1,
+          data: [8, 10, 7, 6, 7, 5, 4, 6, 5, 3, 6, 8],
+        },
+        {
+          label: "Umidade",
+          backgroundColor: "#36a2eb",
+          borderColor: "#36a2eb",
+          yAxisID: "Umidade",
+          type: 'line',
+          order: 0,
+          data: [91, 85, 91, 93, 90, 94, 95, 92, 92, 96, 92, 90],
+        },
+      ],
+    };
+
+    const config = {
+      type: "bar",
+      data: data,
+      options: {
+        scales: {
+          yAxes: [
+            {
+              id: "Temperatura",
+              type: "linear",
+              position: "left",
+            },
+            {
+              id: "Umidade",
+              type: "linear",
+              position: "right",
+            },
+          ],
+        },
+      },
+    };
+
+    const chart_climograma = new Chart(
+      document.getElementById("chart_climograma"),
+      config
+    );
+  </script>
+</html>

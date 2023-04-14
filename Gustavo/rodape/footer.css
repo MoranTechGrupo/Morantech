@@ -14,9 +14,9 @@ body footer {
     height: 30vh;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 110px;
     
 }
 
@@ -32,6 +32,7 @@ body footer .list-2 {
     justify-content: space-around;
     gap: 20px;
 }
+
 footer a {
     text-decoration: none;
     color: black;
@@ -47,4 +48,17 @@ footer .box {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+footer .box .list-2 img {
+    height: 40px;
+}
+
+footer .box .list-2 .linkedin img {
+    height: 30px;
+
+}
+
+footer .box .list-2 .youtube img {
+    height: 45px;
 }

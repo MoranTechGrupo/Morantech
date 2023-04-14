@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="./css/cadastro.css">
+</head>
+<body>
+    <header>
+        <nav id="menu" class="menu">
+            <ul>
+                <li><a href="#"><img src="../assets/img/logo.png" alt=""></a></li> 
+                <li><a href="#">MoranTech</a></li>
+                <li><a href="#"><span class="active">HOME</span></a></li>
+                <li><a onblur="" href="simulador.html">CALCULADORA FINANCEIRA</a></li>
+                <li><a href="#">ÁREA DO CLIENTE </a></li>
+                <li><a href="#">SOBRE NÓS</a></li>
+                <li><a href="#">PRODUTOS</a></li>
+                <li><a href="#"><ion-icon name="person-circle-outline"></ion-icon></a></li>
+                <li> <a><i id="tema" class="fa-solid fa-moon"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <section class="img">
+            <img src="#" alt="img">
+        </section>
+        <section class="form">
+            <form>
+                <span>Nome Completo:</span> 
+                <input id="nomeC" class="nome inputs" placeholder="Nome"> 
+                <span>CNPJ:</span> 
+                <input id="cnpj" class="cnpj inputs" placeholder="00.000.000/0000-00">
+                <span>CEP:</span> 
+                <input id="cep" class="cep inputs" placeholder="00000-000"> 
+                <span>Telefone:</span> 
+                <input id="numero" class="numero inputs" placeholder="(00)00000-0000">
+                <span>Email:</span> 
+                <input id="email" class="email inputs" placeholder="seuemail@abcde.com"> 
+                <span>Senha:</span> 
+                <input type="password" id="senha" class="senha inputs" placeholder="*******"> 
+                <span> Confirme sua senha:</span> 
+                <input type="password" id="confimeSenha" class="senha inputs" placeholder="*******"> 
+                <input type="checkbox" id="conectado" class="conectado">
+                <span>Mantenha-me Conectado</span> <br>
+                <button type="submit" onclick="formulario()" class="cadastrar">Cadastrar</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
+
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

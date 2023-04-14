@@ -28,7 +28,7 @@ ul {
     display: flex;
     justify-content: center;
     list-style: none;
-    gap: 20px;
+    gap: 25px;
 }
 
 li {
@@ -84,8 +84,13 @@ a {
     justify-content: center;
     width: 450px;
     height: 500px;
+<<<<<<< HEAD
     background: #fa4f6c;
     margin-right: 50px;
+=======
+    background: #fd183e;
+    margin-right: 150px;
+>>>>>>> 5a426e6a899a6c645b3b4f4fab98f36446bbab87
     margin-top: 80px;
     padding: 40px;
     border-radius: 25px;
@@ -121,7 +126,10 @@ a {
     outline: none;
     border: 1px;
     cursor: pointer;
+<<<<<<< HEAD
     box-shadow: 5px 5px 3px #65af45;
+=======
+>>>>>>> 5a426e6a899a6c645b3b4f4fab98f36446bbab87
 }
 
 .titulo {
@@ -188,4 +196,10 @@ a {
 .left-container:hover {
     width: 650px;
     height: 420px;
+    transition: 0.5s;
+}
+
+li:hover {
+    font-size: 13pt;
+    transition: 0.5s;
 }
