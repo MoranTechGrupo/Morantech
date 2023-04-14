@@ -69,7 +69,7 @@ a {
 .left-container {
     width: 600px;
     height: 400px;
-    margin-left: 90px;
+    margin-left: 50px;
     background: #fa4f6c;
     border-radius: 25px;
     padding: 10px 40px 20px 40px;
@@ -84,8 +84,13 @@ a {
     justify-content: center;
     width: 450px;
     height: 500px;
+<<<<<<< HEAD
+    background: #fa4f6c;
+    margin-right: 50px;
+=======
     background: #fd183e;
     margin-right: 150px;
+>>>>>>> 5a426e6a899a6c645b3b4f4fab98f36446bbab87
     margin-top: 80px;
     padding: 40px;
     border-radius: 25px;
@@ -121,6 +126,10 @@ a {
     outline: none;
     border: 1px;
     cursor: pointer;
+<<<<<<< HEAD
+    box-shadow: 5px 5px 3px #65af45;
+=======
+>>>>>>> 5a426e6a899a6c645b3b4f4fab98f36446bbab87
 }
 
 .titulo {
