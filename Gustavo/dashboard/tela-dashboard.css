@@ -6,23 +6,36 @@ body {
 .header .navbar {
     background-color: rgb(228, 59, 59);
     height: 60px;
+    width: 100%;
 }
 
 .header .dashboard {
-    padding: 20px;
+    padding-top: 35px;
+    padding-bottom: 35px;
     height: 500px;
     width: 100%;
-    flex-direction: row;
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 50px;
 }
 
 .header .dashboard .grafico {
-    background-color: rgb(207, 201, 192);
-    border: 1px solid rgb(207, 201, 192);
-    border-radius: 10px;
-    width: 500px;
-    height: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh; 
+    width: 40vw;
+    background-color: rgb(250, 243, 233);
+    border: 1px solid rgb(250, 243, 233);
+    border-radius: 15px;
 }
+
+/* .header .dashboard .grafico canvas {
+    position: relative;
+    height: 40vh; 
+    width: 40vw;
+} */
