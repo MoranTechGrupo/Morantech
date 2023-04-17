@@ -1,14 +1,14 @@
-var usuarioModel = require("../models/usuarioModel");
+var enderecoModel = require("../models/enderecoModel");
 
 var sessoes = [];
 
 function testar(req, res) {
-    console.log("ENTRAMOS NA usuarioController");
+    console.log("ENTRAMOS NA enderecoController");
     res.json("ESTAMOS FUNCIONANDO!");
 }
 
 function listar(req, res) {
-    usuarioModel.listar()
+    enderecoModel.listar()
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -25,16 +25,17 @@ function listar(req, res) {
 }
 
 function entrar(req, res) {
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
+    var idEmpresa = req.body.idEmpresaServer;
 
-    if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
-        res.status(400).send("Sua senha está indefinida!");
+
+
+    if (rua == undefined) {
+        res.status(400).send("Sua rua está undefined!");
+    } else if (bairro == undefined) {
+        res.status(400).send("Seu bairro está indefinida!");
     } else {
 
-        usuarioModel.entrar(email, senha)
+        enderecoModel.entrar(idEmpresa)
             .then(
                 function (resultado) {
                     console.log(`\nResultados encontrados: ${resultado.length}`);
@@ -46,13 +47,13 @@ function entrar(req, res) {
                     } else if (resultado.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
-                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+                        res.status(403).send("Mais de um empresa com o mesmo login e senha!");
                     }
                 }
             ).catch(
                 function (erro) {
                     console.log(erro);
-                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    console.log("Houve um erro ao realizar o login! Erro: ", erro.sqlMessage);
                     res.status(500).json(erro.sqlMessage);
                 }
             );
@@ -62,25 +63,39 @@ function entrar(req, res) {
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nome = req.body.nomeServer; 
-    var cnpj = req.body.cnpjServer;
-    var telefone = req.body.telefoneServer;
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
+    var idEmpresa = req.body.idEmpresaServer;
+    var rua = req.body.ruaServer;
+    var bairro = req.body.bairroServer;
+    var numero = req.body.numeroServer;
+    var cidade = req.body.cidadeServer;
+    var UF = req.body.UFServer;
+    var caixaPostal = req.body.caixaPostalServer;
 
 
 
     // Faça as validações dos valores
-    if (nome == undefined) {
-        res.status(400).send("Seu nome está undefined!");
-    } else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } else {
+    if (idEmpresa == undefined) {
+        res.status(400).send("Seu rua está undefined!");
+    } else if (rua == undefined) {
+        res.status(400).send("Seu rua está undefined!");
+    } else if (bairro == undefined) {
+        res.status(400).send("Seu rua está undefined!");
+    } else if (numero == undefined) {
+        res.status(400).send("Seu rua está undefined!");
+    } else if (cidade == undefined) {
+        res.status(400).send("Seu rua está undefined!");
+    } else if (UF == undefined) {
+        res.status(400).send("Seu rua está undefined!");
+    } else if (caixaPostal == undefined) {
+        res.status(400).send("Seu rua está undefined!");
+    }
+    else {
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome,cnpj ,telefone, email, senha)
+        // Passe os valores como parâmetro e vá para o arquivo empresaModel.js
+
+
+        // empresaModel.cadastrar(nome ,cnpj , qtdSensor,telefone, email, senha)
+        enderecoModel.cadastrar(idEmpresa, rua, bairro, numero, cidade, UF, caixaPostal)
             .then(
                 function (resultado) {
                     res.json(resultado);
