@@ -35,7 +35,8 @@ function simule() {
     var lucroTotal = precoTotalMorango - perdaPorcRenda;
   
     // CÁLCULO COM MORANTECH
-    var economiaKgMorango = porcDesperdicioMedia - 5;
+    var economiaKgMorango = perdaKgMorango - (qtdMorangoKg * 0.05);
+
     var lucroTotalMoranthec = precoTotalMorango * 0.95;
     var economiaTotalMoranthec = lucroTotalMoranthec - lucroTotal;
   

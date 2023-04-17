@@ -227,9 +227,11 @@ a {
 
 
 .result {
-    height: 100px;
+    /* height: 100px; */
     margin-left: 550px;
-    width: 30%;
+    padding: 2%;
+    margin-top: 2%;
+    width: 35%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -241,17 +243,19 @@ a {
 
 .comMoran {
     background-color: #7ed957;
+width: 350px;
+margin: 1%;
 }
 
 
 .semMoran {
     background-color: #ff6a84;
+    width: 350px;
+margin: 1%;
 }
 
 
-.hidden {
-    display: none;
-}
+
 
 .right-container p {
     margin-top: 15px;

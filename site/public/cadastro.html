@@ -2,184 +2,154 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AquaTech | Cadastro</title>
-
-
-
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="assets/css/cadastro.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
+  <div class="container">
+    <div class="left-box">
+      <div class="titulo">
+        <h1>Cadastre-se</h1>
+      </div>
 
-    <!--header inicio-->
-    <div class="header">
-        <div class="container">
-            <h1 class="titulo">AquaTech</h1>
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Inicial</a>
-                </li>
-                <li>
-                    <a href="simulador.html">Simulador</a>
-                </li>
-                <li>|</li>
-                <li>
-                    <a href="login.html">Login</a>
-                </li>
-                <li class="agora">
-                    <a href="#">Cadastro</a>
-                </li>
-            </ul>
-        </div>
+      <img src="assets/img/mobile-login-animate.svg" alt="" />
     </div>
-    <!--header fim-->
-
-
-    <div class="login">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-            </div>
+    <div class="right-box">
+      <div class="form">
+        <div class="inputs">
+          <i class="fa-solid fa-user" style="color:#93989f"></i>
+          <input id="nome_input" class="nome inputs" placeholder="Nome Completo" /> <br>
+          <i class="fa-sharp fa-solid fa-building" style="color:#93989f"></i>
+          <input id="cnpj_input" class="cnpj inputs" placeholder="CNPJ" /> <br>
+          <!-- <i class="fa-solid fa-house" style="color:#93989f"></i>
+          <input id="cep_input" class="cep inputs" placeholder="CEP" /> <br> -->
+          <i class="fa-solid fa-phone" style="color:#93989f"></i>
+          <input id="telefone_input" class="numero inputs" placeholder="Telefone" /> <br>
+          <!-- <i class="fa-solid fa-envelope"style="color:#93989f"></i>
+           -->
+          <!-- <input id="email_input" class="email inputs" placeholder="E-mail" /> <br>
+          <i class="fa-solid fa-lock" style="color:#93989f"></i>
+          <input
+            type="password"
+            id="senha_input"
+            class="senha inputs"
+            placeholder="Senha"
+          /> <br>
+          <i class="fa-solid fa-lock" style="color: #93989f;"></i>
+          <input
+            type="password"
+            id="confirmacao_senha_input"
+            class="senha inputs"
+            placeholder="Confirme sua senha"
+          /> -->
         </div>
-        <div class="container">
-            <div class="card card-cadastro">
-                <h2>Bem-vindo!</h2>
-                <div class="formulario">
+
 
                     <!--
                          Para inserir mais um campo, copie uma das inputs abaixo.
                          Assim que inserir vá para o script abaixo. oi
                      -->
 
-                    <div class="campo">
-                        <span>Nome:</span>
-                        <input id="nome_input" type="text" placeholder="Seu nome">
-                    </div>
+        <button onclick="cadastrar()" class="cadastrar">
+          Cadastrar
+        </button>
 
-
-                    <div class="campo">
-                        <span>cnpj:</span>
-                        <input id="cnpj_input" type="text" placeholder="cnpj">
-                    </div>
-                    <div class="campo">
-                        <span>telefone:</span>
-                        <input id="telefone_input" type="text" placeholder="telefone">
-                    </div>
-
-
-                    <div class="campo">
-                        <span>E-mail:</span>
-                        <input id="email_input" type="text" placeholder="meuemail@provedor.com">
-                    </div>
-                    <div class="campo">
-                        <span>Senha:</span>
-                        <input id="senha_input" type="password" placeholder="******">
-                    </div>
-                    <div class="campo">
-                        <span>Confirmação da Senha:</span>
-                        <input id="confirmacao_senha_input" type="password" placeholder="******">
-                    </div>
-                    <button class="botao" onclick="cadastrar()">Cadastrar</button>
-
-                </div>
-                <div id="div_aguardar" class="loading-div">
-
-                </div>
-
-                <div id="div_erros_login"></div>
-            </div>
-        </div>
+      </div>
     </div>
-
-    <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-            <span class="version">v1.0.0</span>
-        </div>
-    </div>
-    <!--footer fim-->
-
-
+    <div id="mensagem_erro"></div>
 </body>
 
 </html>
 
+
+
+
 <script>
-    function cadastrar() {
+  function cadastrar() {
 
 
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
-        var nomeVar = nome_input.value;
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
-        var confirmacaoSenhaVar = confirmacao_senha_input.value;
-        var cnpjVar = cnpj_input.value;
-        var telefoneVar = telefone_input.value;
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = nome_input.value;
+    // var emailVar = email_input.value;
+    // var senhaVar = senha_input.value;
+    // var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var cnpjVar = cnpj_input.value;
+    var telefoneVar = telefone_input.value;
+    // var cepVar = cep_input.value;
+    // var qtdsersorVar = qtdsensor_input.value;
+    // var qtdSersorVar = 3;
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+    // if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+    //     cardErro.style.display = "block"
+    //     mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+    // }
+
+    if (nomeVar == "" || cnpjVar == "" || telefoneVar == "") {
+
+      mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+      alert(' campos em branco')
+    } else if (cnpjVar.length != 18) {
+      alert("cnpj invalido, o cnpj deve ter 18 caracteres");
+    } else {
 
 
-        }else if (cnpjVar != 18 ) {
-            alert("cnpj invalido")
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+
+      // Enviando o valor da nova input
+      fetch("/empresa/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeServer: nomeVar,
+          cnpjServer: cnpjVar,
+          telefoneServer: telefoneVar,
+          // emailServer: emailVar,
+          // senhaServer: senhaVar,
+          // qtdSensorServer: qtdSersorVar
+
+
+        })
+      }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          // cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000")
+
+          // limparFormulario();
+          // finalizarAguardar();
+        } else {
+          throw ("Houve um erro ao tentar realizar o cadastro!");
         }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
+      }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        // finalizarAguardar();
+      });
 
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                cnpjServer: cnpjVar,
-                telefoneServer: telefoneVar,
-                emailServer: emailVar,
-                 senhaServer: senhaVar
-
-
-            })
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                cardErro.style.display = "block";
-
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-                setTimeout(() => {
-                    window.location = "login.html";
-                }, "2000")
-
-                limparFormulario();
-                finalizarAguardar();
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
-
-        return false;
+      return false;
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
+  }
 
 </script>
+
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
