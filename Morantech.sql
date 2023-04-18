@@ -28,8 +28,8 @@ create table endereço (
 idEndereço int primary key auto_increment,
 fkEmpEd int,
 constraint fkEmpEd foreign key (fkEmpEd)
-references Empresa (idEmpresa),
-rua.avenida varchar(45),
+references Empresa(idEmpresa),
+rua varchar(45),
 bairro varchar(45),
 numero varchar(12),
 cidade varchar(45),
@@ -54,7 +54,8 @@ fkEmpUs int,
 constraint fkEmpUs foreign key (fkEmpUs)
 references Empresa(idEmpresa),
 constraint pkUsuario primary key (idUsuario, fkEmpUs),
-nome varchar(45)
+nome varchar(45),
+email varchar(45)
 ); 
 
 -- Login -- 
@@ -111,28 +112,50 @@ categoria varchar(45),
 métrica varchar(5)
 );
 
+insert into tipo values
+(null, 'temperatura','ºC'),
+(null, 'umidade', '%'),
+(null, 'umidade&temperatura','ºC,%');
+
+
 -- Sensor --
 
 create table sensor (
 idSensor int primary key auto_increment,
 modelo varchar(45),
-tipo varchar(45),
-situaçao char(2),
-dtManutençao date,
 fkTipo int,
 constraint fkTipo foreign key (fkTipo)
 references tipo(idTipo),
-fkPlaca char(8),
-constraint fkPlaca foreign key (fkPlaca)
-references transporte(placa),
-fkEmpSen int,
-constraint fkEmpSen foreign key (fkEmpSen)
-references Empresa(idEmpresa),
+situaçao char(2),
+dtManutençao date,
+fktransp int,
+constraint fktransp foreign key (fktransp)
+references transporte(idTransporte),
 minimo varchar(45),
 maximo varchar(45)
 );
 
---  Dados Sensor --
+insert into sensor values 
+(null, 'Dht11', 3, 'A', null, 1, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 2, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 3, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 4, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 5, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 6, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 7, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 8, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 9, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 10, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 11, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'I', '2023-04-25', 12, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 13, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 14, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 15, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'I', null, 16, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 17, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 18, '0 ºC,90%', '12ºC,95%');
+
+-- Dados Sensor --
 
 create table dadosSensor (
 idDados int auto_increment,
@@ -145,3 +168,35 @@ umidade decimal(4,2),
 dataHora timestamp
 );
 
+-- selects individuais
+
+select * from Empresa;
+select * from endereço;
+select * from usuario;
+select * from login;
+select * from transporte;
+select * from tipo;
+select * from sensor;
+select * from dadosSensor;
+
+-- selects joinados
+
+select * from Empresa join endereço
+on idEmpresa = fkEmpEd;
+
+select * from transporte join Empresa
+on fkEmp = idEmpresa;
+
+select * from sensor join transporte
+on fkTransp = idTransporte;
+
+select * from sensor join tipo 
+on fkTipo = idTipo;
+
+select * from sensor where situaçao like 'I';
+
+select nome as 'nome empresa' from Empresa join endereço 
+	on idEmpresa = fkEmpEd  where endereço.UF = 'SP' ;
+    
+select * from transporte join sensor 
+	on fktransp = idTransporte;
