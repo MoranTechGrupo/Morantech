@@ -1,0 +1,18 @@
+.texto {
+    display: none;
+    background-color:#ec6d98 ;
+    padding: 15px;
+    width: 40vw;
+    height: 40px;
+}
+
+.asterisco{
+    color: #ff0055;
+    cursor: pointer;
+}
+
+.asterisco:hover .texto {
+ display: flex;
+ transition: 0.5s;
+
+}

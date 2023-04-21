@@ -26,9 +26,11 @@
       <h2>Digite os dados pedidos abaixo e faça sua simulação:</h2>
       <div>
         Quantos<b> Kg</b> de morangos serão transportados em um caminhão?
-        <input id="input_qtdMorangos" /><br />
+        <input id="input_qtdMorangos" /><br /><br>
         Digite o valor pelo <b>Kg</b> do morango:
-        <input id="input_valorMorango" /><br />
+        <input id="input_valorMorango" /><br /><br>
+        Insira sua porcentagem estimada de perda:
+        <input type="number" min="1" max="100" id="input_porcEstimadaCliente"><br>
         <button onclick="simule()" class="botao">clique e simule</button>
         <p id="p_resultado"></p>
       </div>
@@ -46,15 +48,16 @@
 
 <script>
   function simule() {
+    var porcentagem = (Number(input_porcEstimadaCliente.value) / 100)
     var qtdM = Number(input_qtdMorangos.value);
 
     var valorMorango = Number(input_valorMorango.value);
 
-    var perdaMorango = qtdM * 0.3;
+    var perdaMorango = qtdM * porcentagem;
     var perdaMoran = qtdM * 0.05;
 
     var custoTotal = qtdM * valorMorango;
-    var perdaTotal = custoTotal * 0.3;
+    var perdaTotal = custoTotal * porcentagem;
 
     var custo = custoTotal - perdaTotal;
 

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="tela-dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <div class="navbar"></div>
+    </div>
+    <h1 class="titulo">Dashboard</h1>
+      <div class="dashboard">
+        <div id="caminhao1" class="grafico">
+          <canvas id="myChart1"></canvas>
+        </div>
+        <div id="caminhao2" class="grafico">
+          <canvas id="myChart2"></canvas>
+        </div>
+        <div id="caminhao3" class="grafico">
+          <canvas id="myChart3"></canvas>
+        </div>
+        <div id="caminhao4" class="grafico">
+          <canvas id="myChart4"></canvas>
+        </div>
+        <div id="caminhao5" class="grafico">
+          <canvas id="myChart5"></canvas>
+        </div>
+
+        <div class="grafico">
+          <h3>Tabela - Caminhões</h3>
+          <div class="tabela">
+            <div class="idCaminhoes">
+              <h4>Caminhão</h4>
+              <span>ABC1234</span>
+              <span>DEF1234</span>
+              <span>GHI1234</span>
+              <span>JKL1234</span>
+              <span>MNO1234</span>
+            </div>
+            <div class="temperatura">
+              <h4>Temperatura</h4>
+              <span>7°C</span>
+              <span>8°C</span>
+              <span>17°C</span>
+              <span>15°C</span>
+              <span>4°C</span>
+            </div>
+            <div class="umidade">
+              <h4>Umidade</h4>
+              <span>92%</span>
+              <span>91%</span>
+              <span>79%</span>
+              <span>83%</span>
+              <span>95%</span>
+            </div>
+            <div class="indicativo">
+              <h4>Status</h4>
+              <span>Ideal</span>
+              <span>Ideal</span>
+              <span>Crítico</span>
+              <span>Crítico</span>
+              <span>Ideal</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!-- <div class="grafico">
+          <canvas id="myChart2"></canvas>
+        </div>
+        <div class="grafico">
+          <canvas id="myChart3" class="status"></canvas>
+        </div>
+        <div class="info">
+          <div class="umidade">
+            <h2>Umidade nas últimas 24h</h2>
+            <span>Menor registro: 77°C</span>
+            <span>Maior registro: 96°C</span>
+          </div>
+          <div class="temperatura">
+            <h2>Temperatura nas últimas 24h</h2>
+            <span>Menor registro: 1°C</span>
+            <span>Maior registro: 13°C</span>
+          </div>
+        </div> -->
+      </div>
+    
+  </body>
+  <script>
+    // Gráfico caminhão 1
+    const labels1 = ["12:00", "12:05", "12:10","12:15","12:20","12:25","12:30","12:35","12:40","12:45"];
+
+    const data1 = {
+      labels: labels1,
+      datasets: [
+        {
+          label: "Temperatura",
+          backgroundColor: "#ff6384",
+          borderColor: "#ff6384",
+          data: [21, 24, 28, 23, 20, 17, 15, 12, 8, 7],
+        },
+        {
+          label: "Umidade",
+          backgroundColor: "#36a2eb",
+          borderColor: "#36a2eb",
+          data: [80, 73, 66, 76, 80, 83, 86, 89, 91, 92],
+        },
+      ],
+    };
+
+    const config1 = {
+      type: "line",
+      data: data1,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: "top",
+          },
+          title: {
+            display: true,
+            text: "Caminhão 1 (ABC1234)",
+          },
+        },
+      },
+    };
+
+    const myChart1 = new Chart(document.getElementById("myChart1"), config1);
+
+    // Gráfico caminhão 2
+    const labels2 = ["12:00", "12:05", "12:10","12:15","12:20","12:25","12:30","12:35","12:40","12:45"];
+
+    const data2 = {
+      labels: labels2,
+      datasets: [
+        {
+          label: "Temperatura",
+          backgroundColor: "#ff6384",
+          borderColor: "#ff6384",
+          data: [15, 11, 8, 5, 9, 13, 15, 12, 8, 8],
+        },
+        {
+          label: "Umidade",
+          backgroundColor: "#36a2eb",
+          borderColor: "#36a2eb",
+          data: [82, 90, 92, 95, 91, 87, 84, 89, 91, 91],
+        },
+      ],
+    };
+
+    const config2 = {
+      type: "line",
+      data: data2,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: "top",
+          },
+          title: {
+            display: true,
+            text: "Caminhão 2 (DEF1234)",
+          },
+        },
+      },
+    };
+
+    const myChart2 = new Chart(document.getElementById("myChart2"), config2);
+
+    // Gráfico caminhão 3
+    const labels3 = ["12:00", "12:05", "12:10","12:15","12:20","12:25","12:30","12:35","12:40","12:45"];
+
+    const data3 = {
+      labels: labels3,
+      datasets: [
+        {
+          label: "Temperatura",
+          backgroundColor: "#ff6384",
+          borderColor: "#ff6384",
+          data: [4, 3, 5, 7, 8, 10, 12, 14, 16, 17],
+        },
+        {
+          label: "Umidade",
+          backgroundColor: "#36a2eb",
+          borderColor: "#36a2eb",
+          data: [95, 96, 95, 93, 93, 91, 89, 85, 82, 79],
+        },
+      ],
+    };
+
+    const config3 = {
+      type: "line",
+      data: data3,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: "top",
+          },
+          title: {
+            display: true,
+            text: "Caminhão 3 (GHI1234)",
+          },
+        },
+      },
+    };
+
+    const myChart3 = new Chart(document.getElementById("myChart3"), config3);
+
+    // Gráfico caminhão 4
+    const labels4 = ["12:00", "12:05", "12:10","12:15","12:20","12:25","12:30","12:35","12:40","12:45"];
+
+    const data4 = {
+      labels: labels4,
+      datasets: [
+        {
+          label: "Temperatura",
+          backgroundColor: "#ff6384",
+          borderColor: "#ff6384",
+          data: [18, 22, 20, 17, 15, 12, 9, 11, 14, 15],
+        },
+        {
+          label: "Umidade",
+          backgroundColor: "#36a2eb",
+          borderColor: "#36a2eb",
+          data: [77, 73, 76, 80, 85, 89, 91, 89, 85, 83],
+        },
+      ],
+    };
+
+    const config4 = {
+      type: "line",
+      data: data4,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: "top",
+          },
+          title: {
+            display: true,
+            text: "Caminhão 4 (JKL1234)",
+          },
+        },
+      },
+    };
+
+    const myChart4 = new Chart(document.getElementById("myChart4"), config4);
+
+    // Gráfico caminhão 5
+    const labels5 = ["12:00", "12:05", "12:10","12:15","12:20","12:25","12:30","12:35","12:40","12:45"];
+
+    const data5 = {
+      labels: labels5,
+      datasets: [
+        {
+          label: "Temperatura",
+          backgroundColor: "#ff6384",
+          borderColor: "#ff6384",
+          data: [7, 12, 13, 17, 20, 15, 13, 12, 9, 4],
+        },
+        {
+          label: "Umidade",
+          backgroundColor: "#36a2eb",
+          borderColor: "#36a2eb",
+          data: [92, 88, 85, 80, 76, 83, 86, 89, 92, 95],
+        },
+      ],
+    };
+
+    const config5 = {
+      type: "line",
+      data: data5,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: "top",
+          },
+          title: {
+            display: true,
+            text: "Caminhão 5 (MNO1234)",
+          },
+        },
+      },
+    };
+
+    const myChart5 = new Chart(document.getElementById("myChart5"), config5);
+
+    // Gráfico de Barra
+    // const labels2 = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"];
+
+    // const data2 = {
+    //   labels: labels2,
+    //   datasets: [
+    //     {
+    //       label: "Temperatura Média",
+    //       backgroundColor: "#ff6384",
+    //       borderColor: "#ff6384",
+    //       data: [22, 24, 27, 23, 20, 18],
+    //     },
+    //     {
+    //       label: "Umidade Média",
+    //       backgroundColor: "#36a2eb",
+    //       borderColor: "#36a2eb",
+    //       data: [90, 89, 93, 87, 88, 82],
+    //     },
+    //   ],
+    // };
+
+    // const config2 = {
+    //   type: "bar",
+    //   data: data2,
+    //   options: {
+    //     responsive: true,
+    //     plugins: {
+    //       legend: {
+    //         position: "top",
+    //       },
+    //       title: {
+    //         display: true,
+    //         text: "Média de Temperatura e Umidade nas últimas 24h",
+    //       },
+    //     },
+    //   },
+    // };
+
+    // const myChart2 = new Chart(document.getElementById("myChart2"), config2);
+
+    // // Gráfico de pizza
+    // const labels3 = ["Ideal", "Alerta", "Crítico"];
+
+    // const data3 = {
+    //   labels: labels3,
+    //   datasets: [
+    //     {
+    //       label: "Sensores",
+    //       backgroundColor: ["green", "orange", "red"],
+    //       borderColor: ["green", "orange", "red"],
+    //       data: [8, 3, 2],
+    //     },
+    //   ],
+    // };
+
+    // const config3 = {
+    //   type: "pie",
+    //   data: data3,
+    //   options: {
+    //     responsive: true,
+    //     plugins: {
+    //       legend: {
+    //         position: "top",
+    //       },
+    //       title: {
+    //         display: true,
+    //         text: "Status médio dos sensores",
+    //       },
+    //     },
+    //   },
+    // };
+
+    // const myChart3 = new Chart(document.getElementById("myChart3"), config3);
+  </script>
+</html>
