@@ -1,5 +1,8 @@
 
+
+
 function simule() {
+
   var qtdMorangoKg = Number(input_qtdMorangoKg.value);
   var precoMorangoKg = Number(input_valorMorango.value);
   var porcDesperdicioCliente = input_porcEstimadaCliente.value;
@@ -38,11 +41,24 @@ function simule() {
   document.getElementById("resultado").classList.remove("hidden")
 
   resultado.innerHTML += `<style> .result {
-    background-color: #ed78c2;
+    background-color: #ff81ad;
+   }
+   h4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-right: 25px;
    }
     </style>`
   
-  semMoranT.innerHTML += `<h4>SEM A TECNOLOGIA MORANTECH</h4>
+  semMoranT.innerHTML += `<style>
+  .semMoran {
+    background: #fff;
+  }
+  </style>
+  
+  <h4>SEM A TECNOLOGIA MORANTECH</h4>
 Haveria uma perda de <b style="color: red">${perdaKgMorango}Kg</b> de morango; <br>
 Isso representa <b style="color: red">R$ ${perdaPorcRenda}</b> perdidos; <br>
 Ao final do transporte receberia no total <b style="color: red">R$ ${lucroTotal}</b>
