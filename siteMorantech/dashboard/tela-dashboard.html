@@ -42,20 +42,20 @@
               <span>MNO1234</span>
             </div>
             <div class="temperatura">
-              <h4>Temperatura</h4>
-              <span>7°C</span>
-              <span>8°C</span>
-              <span>17°C</span>
-              <span>15°C</span>
-              <span>4°C</span>
+              <h4>Temp   (ideal)</h4>
+              <span>7°C (4-9°C)</span>
+              <span>8°C (4-9°C)</span>
+              <span>17°C (4-9°C)</span>
+              <span>15°C (4-9°C)</span>
+              <span>4°C (4-9°C)</span>
             </div>
             <div class="umidade">
-              <h4>Umidade</h4>
-              <span>92%</span>
-              <span>91%</span>
-              <span>79%</span>
-              <span>83%</span>
-              <span>95%</span>
+              <h4>Umid (ideal)</h4>
+              <span>92% (90-95%)</span>
+              <span>91% (90-95%)</span>
+              <span>79% (90-95%)</span>
+              <span>83% (90-95%)</span>
+              <span>95% (90-95%)</span>
             </div>
             <div class="indicativo">
               <h4>Status</h4>
@@ -66,27 +66,93 @@
               <span>Ideal</span>
             </div>
           </div>
-          
         </div>
         
-        <!-- <div class="grafico">
-          <canvas id="myChart2"></canvas>
-        </div>
-        <div class="grafico">
-          <canvas id="myChart3" class="status"></canvas>
-        </div>
         <div class="info">
-          <div class="umidade">
-            <h2>Umidade nas últimas 24h</h2>
-            <span>Menor registro: 77°C</span>
-            <span>Maior registro: 96°C</span>
+          <h3>Temperatura e umidade durante o trajeto dos caminhões</h3>
+          <div class="caminhoes">
+            <div class="caminhao">
+              <h4>Caminhão 1</h4>
+              <div class="dados">
+                <div class="temperatura">
+                  <h4>Temperatura</h4>
+                  <span>Menor: 1°C</span>
+                  <span>Maior: 13°C</span>
+                </div>
+                <div class="divisao"></div>
+                <div class="umidade">
+                  <h4>Umidade</h4>
+                  <span>Menor: 77°C</span>
+                  <span>Maior: 96°C</span>
+                </div>
+              </div>
+            </div>
+            <div class="caminhao">
+              <h4>Caminhão 2</h4>
+              <div class="dados">
+                <div class="temperatura">
+                  <h4>Temperatura</h4>
+                  <span>Menor: 2°C</span>
+                  <span>Maior: 19°C</span>
+                </div>
+                <div class="divisao"></div>
+                <div class="umidade">
+                  <h4>Umidade</h4>
+                  <span>Menor: 72°C</span>
+                  <span>Maior: 97°C</span>
+                </div>
+              </div>
+            </div>
+            <div class="caminhao">
+              <h4>Caminhão 3</h4>
+              <div class="dados">
+                <div class="temperatura">
+                  <h4>Temperatura</h4>
+                  <span>Menor: 5°C</span>
+                  <span>Maior: 17°C</span>
+                </div>
+                <div class="divisao"></div>
+                <div class="umidade">
+                  <h4>Umidade</h4>
+                  <span>Menor: 77°C</span>
+                  <span>Maior: 94°C</span>
+                </div>
+              </div>
+            </div>
+            <div class="caminhao">
+              <h4>Caminhão 4</h4>
+              <div class="dados">
+                <div class="temperatura">
+                  <h4>Temperatura</h4>
+                  <span>Menor: 0°C</span>
+                  <span>Maior: 16°C</span>
+                </div>
+                <div class="divisao"></div>
+                <div class="umidade">
+                  <h4>Umidade</h4>
+                  <span>Menor: 81°C</span>
+                  <span>Maior: 97°C</span>
+                </div>
+              </div>
+            </div>
+            <div class="caminhao">
+              <h4>Caminhão 5</h4>
+              <div class="dados">
+                <div class="temperatura">
+                  <h4>Temperatura</h4>
+                  <span>Menor: 3°C</span>
+                  <span>Maior: 11°C</span>
+                </div>
+                <div class="divisao"></div>
+                <div class="umidade">
+                  <h4>Umidade</h4>
+                  <span>Menor: 86°C</span>
+                  <span>Maior: 96°C</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="temperatura">
-            <h2>Temperatura nas últimas 24h</h2>
-            <span>Menor registro: 1°C</span>
-            <span>Maior registro: 13°C</span>
-          </div>
-        </div> -->
+        </div>
       </div>
     
   </body>
@@ -102,12 +168,14 @@
           backgroundColor: "#ff6384",
           borderColor: "#ff6384",
           data: [21, 24, 28, 23, 20, 17, 15, 12, 8, 7],
+          yAxisId: 'temp'
         },
         {
           label: "Umidade",
           backgroundColor: "#36a2eb",
           borderColor: "#36a2eb",
           data: [80, 73, 66, 76, 80, 83, 86, 89, 91, 92],
+          yAxisId: 'umid'
         },
       ],
     };
@@ -126,6 +194,16 @@
             text: "Caminhão 1 (ABC1234)",
           },
         },
+        // scales: {
+        //   temp: {
+        //     type: "linear",
+        //     position: "left"
+        //   },
+        //   umid: {
+        //     type: "linear",
+        //     position: "right"
+        //   }
+        // }
       },
     };
 
