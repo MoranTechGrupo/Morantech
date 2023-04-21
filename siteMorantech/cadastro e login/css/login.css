@@ -14,6 +14,7 @@ body {
     background-image: linear-gradient(to right, rgb(251, 92, 161) , rgb(255, 150, 196));
 }
 
+
 .container {
     display : flex;
     justify-content: space-between;
@@ -22,16 +23,9 @@ body {
     height: 80vh;
     border-radius: 40px;
     box-shadow: 10px 15px 25px #8e4357;
+    
 }
 
-.right-box {
-    display: flex;
-    justify-content: center;
-    background-color: #f2f0f0;
-    width: 60%;
-    height: 80vh;
-    border-radius:0px 40px 40px 0px ;
-}
 
 .left-box {
     background-color: #ff627ddd;
@@ -41,8 +35,20 @@ body {
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center;  
 }
+
+
+.right-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f0f0;
+    width: 60%;
+    height: 80vh;
+    border-radius:0px 40px 40px 0px ;  
+}
+
 
 .right-box form {
     display: flex;
@@ -52,6 +58,7 @@ body {
     width: 60%;
     height: 50%;
 }
+
 
 input {
     width: 70%;
@@ -64,6 +71,23 @@ input {
     color: #444444;
     
 }
+
+a {
+    padding: 8px;
+    border-radius: 25px;
+    margin-top: 5px;
+    width: fit-content;
+    background: #cfcfcf;
+    cursor: pointer;
+    text-decoration: none;
+    color: #444444;
+
+}
+
+.entrar {
+    margin-bottom: 40px;
+}
+
 
 button {
     width: 40%;
@@ -85,25 +109,24 @@ button:hover {
     transition: 0.5s;
 }
 
-.cadastrar {
-    margin-bottom: 45px;
+.titulo {
+    display: flex;
+    justify-content: center;
 }
 
-a {
-    padding: 8px;
-    border-radius: 25px;
-    margin-top: 5px;
-    width: fit-content;
-    background: #cfcfcf;
-    cursor: pointer;
-    text-decoration: none;
-    color: #444444;
-
+h2 {
+    font-size: 25pt;
+    margin-bottom: 30px;
+    margin-right: 150px;
 }
-
 
 h1 {
     color: #f2f0f0;
     font-size: 30pt;
+    margin-top: 30px;
 }
 
+img {
+    width: 80%;
+    height: 100%;
+}

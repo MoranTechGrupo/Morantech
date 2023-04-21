@@ -15,18 +15,21 @@
     <header>
       <nav id="menu" class="menu">
         <ul>
-          <!-- <li><a href="#"><img src="../assets/img/logo.png" alt=""></a></li> -->
-          <li><a href="index.html">MoranTech</a></li>
+          <li><a href="../pagInicial/index.html">MoranTech</a></li>
           <li><a href="../pagInicial/index.html">HOME</a></li>
-          <li><a href="simuladorFinal.html" class="active">CALCULADORA FINANCEIRA</a></li>
-          <li><a href="#">ÁREA DO CLIENTE </a></li>
-          <li><a href="#">SOBRE NÓS</a></li>
-          <li><a href="#">PRODUTOS</a></li>
           <li>
-            <a href="../cadastro e login/cadastro2.html"
-              ><ion-icon name="person-circle-outline"></ion-icon
-            ></a>
+            <a href="simuladorFinal.html" class="active"
+              >CALCULADORA FINANCEIRA</a
+            >
           </li>
+         
+          <li><a href="/Matheus/somos.html">SOBRE NÓS</a></li>
+          <li><a href="#">PRODUTOS</a></li>
+           <li>
+            <a href="../cadastro e login/cadastro2.html">CADASTRE-SE </a>
+          </li>
+          <li> <a href="../cadastro e login/login.html"><i class="fa-solid fa-circle-user"></i></a></li>
+          <li> <a><i id="tema" class="fa-solid fa-moon"></i></a></li> 
         </ul>
       </nav>
     </header>
@@ -34,27 +37,21 @@
     <div class="container">
       <div class="left-container">
         <h1 class="titulo">Simulador Financeiro <br />MoranTech</h1>
-       <img src="../images/investment-data-animate.svg" alt="investimento">
+        <img src="../images/investment-data-animate.svg" alt="investimento" />
       </div>
 
       <div class="right-container">
-        <span>Quantidade de Morango que será Transportada:</span>
-        <input
-          id="input_qtdMorangoKg"
-          placeholder="(Kg)"
-        />
-        <span>Informe o valor pra o Kg do morango:</span>
-        <input
-          id="input_valorMorango"
-          placeholder="(R$)"
-        />
-        <span>Informe sua porcentagem estimada de perda:</span>
+        <span class="info">Quantidade de Morango que será Transportada:</span>
+        <input id="input_qtdMorangoKg" placeholder="Informe em Kg" />
+        <span class="info">Informe o valor por Kg do morango:</span>
+        <input id="input_valorMorango" placeholder="Informe em R$" />
+        <span class="info">Informe sua estimativa de perda:</span>
         <input
           type="number"
           min="1"
           max="100"
           id="input_porcEstimadaCliente"
-          placeholder="(%)"
+          placeholder="Informe em %"
         />
         <br />
         <button onclick="simule()" class="botao">Simular</button>
