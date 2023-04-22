@@ -200,3 +200,15 @@ select nome as 'nome empresa' from Empresa join endereço
     
 select * from transporte join sensor 
 	on fktransp = idTransporte;
+    
+select  e.idEmpresa,
+		e.nome,
+		e.cnpj,
+		e.telefone,
+        r.rua,
+        r.bairro,
+        r.UF 
+        from Empresa as e join endereço as r on 
+        e.idEmpresa = r.fkEmpEd; 
+        
+	
