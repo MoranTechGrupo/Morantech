@@ -300,6 +300,79 @@ ion-icon:hover {
 
 
 
+/*  */
+
+
+.caixa_texto_total .caixa_texto h1 {
+    text-align: center;
+    font-size: 30px;
+    
+    color: var(--letra_color_primaria_tm_light);
+    border-bottom: 1px solid var(--borda_color_tm_light);
+    padding-bottom: 20px;
+}
+
+.caixa_texto_total {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.caixa_texto {
+    width: 82%;
+}
+
+.caixa_texto p {
+    margin: 1%;
+}
+
+.caixa_texto_total hr{
+    height: 4px;
+    background: #d30023;
+    margin-bottom: 2%;
+}
+
+.caixa_foco_total {
+    display: flex;
+    justify-content: space-around;
+    /* align-items: start; */
+    margin-bottom: 30px;
+    margin-left: 30px;
+width: 95%;
+    border-top: 2px solid #d30023;
+    border-bottom: 2px solid #d30023;
+    padding: 1%;
+}
+
+
+.caixa_foco_importante {
+    width: 300px;
+    padding: 1.5%;
+    border: 2px solid #d30023;
+    background: #fd4261dd;
+    color: white;
+    outline: 2px solid #8d0018;
+    transition: outline-offset 200ms ease;
+    transition: 0.8s;
+}
+
+.caixa_foco_importante:hover,
+.caixa_foco_importante:focus {
+   
+
+    outline: 2px solid #ffffff;
+
+    outline-offset: -16px;
+    border-radius: 12px;
+}
+
+.caixa_foco_importante p span{
+    font-size: 18px;
+    font-weight: 800;
+}
+
+
 
 footer {
     background: var(--bg_color_tm_light);

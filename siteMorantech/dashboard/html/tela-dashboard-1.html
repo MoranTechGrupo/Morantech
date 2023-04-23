@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../css/tela-dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="header">
+    <div class="navbar"></div>
+  </div>
+
+  <h1 class="titulo">Overview</h1>
+
+  <div class="dashboard">
+
+ <div href="../html/tela-dashboard-2.html" id="caminhao1" class="grafico">
+      <canvas id="myChart1"></canvas>
+    </div>
+    <div id="caminhao2" class="grafico">
+      <canvas id="myChart2"></canvas>
+    </div>
+    <div id="caminhao3" class="grafico">
+      <canvas id="myChart3"></canvas>
+    </div>
+    <div id="caminhao4" class="grafico">
+      <canvas id="myChart4"></canvas>
+    </div>
+    <div id="caminhao5" class="grafico">
+      <canvas id="myChart5"></canvas>
+    </div>
+
+    <div class="grafico">
+      <h3>Tabela - Caminhões</h3>
+      <div class="tabela">
+        <div class="idCaminhoes">
+          <h4>Caminhão</h4>
+          <span>ABC1234</span>
+          <span>DEF1234</span>
+          <span>GHI1234</span>
+          <span>JKL1234</span>
+          <span>MNO1234</span>
+        </div>
+        <div class="temperatura">
+          <h4>Temp (ideal)</h4>
+          <span>7°C (4-9°C)</span>
+          <span>8°C (4-9°C)</span>
+          <span>17°C (4-9°C)</span>
+          <span>15°C (4-9°C)</span>
+          <span>4°C (4-9°C)</span>
+        </div>
+        <div class="umidade">
+          <h4>Umid (ideal)</h4>
+          <span>92% (90-95%)</span>
+          <span>91% (90-95%)</span>
+          <span>79% (90-95%)</span>
+          <span>83% (90-95%)</span>
+          <span>95% (90-95%)</span>
+        </div>
+        <div class="indicativo">
+          <h4>Status</h4>
+          <span>Ideal</span>
+          <span>Ideal</span>
+          <span>Crítico</span>
+          <span>Crítico</span>
+          <span>Ideal</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="info">
+      <h3>Temperatura e umidade durante o trajeto dos caminhões</h3>
+      <div class="caminhoes">
+        <div class="caminhao">
+          <h4>Caminhão 1</h4>
+          <div class="dados">
+            <div class="temperatura">
+              <h4>Temperatura</h4>
+              <span>Menor: 1°C</span>
+              <span>Maior: 13°C</span>
+            </div>
+            <div class="divisao"></div>
+            <div class="umidade">
+              <h4>Umidade</h4>
+              <span>Menor: 77°C</span>
+              <span>Maior: 96°C</span>
+            </div>
+          </div>
+        </div>
+        <div class="caminhao">
+          <h4>Caminhão 2</h4>
+          <div class="dados">
+            <div class="temperatura">
+              <h4>Temperatura</h4>
+              <span>Menor: 2°C</span>
+              <span>Maior: 19°C</span>
+            </div>
+            <div class="divisao"></div>
+            <div class="umidade">
+              <h4>Umidade</h4>
+              <span>Menor: 72°C</span>
+              <span>Maior: 97°C</span>
+            </div>
+          </div>
+        </div>
+        <div class="caminhao">
+          <h4>Caminhão 3</h4>
+          <div class="dados">
+            <div class="temperatura">
+              <h4>Temperatura</h4>
+              <span>Menor: 5°C</span>
+              <span>Maior: 17°C</span>
+            </div>
+            <div class="divisao"></div>
+            <div class="umidade">
+              <h4>Umidade</h4>
+              <span>Menor: 77°C</span>
+              <span>Maior: 94°C</span>
+            </div>
+          </div>
+        </div>
+        <div class="caminhao">
+          <h4>Caminhão 4</h4>
+          <div class="dados">
+            <div class="temperatura">
+              <h4>Temperatura</h4>
+              <span>Menor: 0°C</span>
+              <span>Maior: 16°C</span>
+            </div>
+            <div class="divisao"></div>
+            <div class="umidade">
+              <h4>Umidade</h4>
+              <span>Menor: 81°C</span>
+              <span>Maior: 97°C</span>
+            </div>
+          </div>
+        </div>
+        <div class="caminhao">
+          <h4>Caminhão 5</h4>
+          <div class="dados">
+            <div class="temperatura">
+              <h4>Temperatura</h4>
+              <span>Menor: 3°C</span>
+              <span>Maior: 11°C</span>
+            </div>
+            <div class="divisao"></div>
+            <div class="umidade">
+              <h4>Umidade</h4>
+              <span>Menor: 86°C</span>
+              <span>Maior: 96°C</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script CHART JS -->
+<script src="../js/chartjs1.js"></script>
+
+</body>
+
+</html>
