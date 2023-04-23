@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(250, 243, 233);
+    padding-bottom: 20px;
+}
+
+.header .navbar {
+    background-color: rgb(228, 59, 59);
+    height: 60px;
+    width: 100%;
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+}
+
+ .dashboard {
+    padding-top: 15px;
+    padding-bottom: 35px;
+    height: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+ .dashboard .grafico {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1px;
+    height: 30vh; 
+    width: 30vw;
+    color: black;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 15px;
+    /* box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2); */
+}
+
+.dashboard .comparativo {
+    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.6);
+}
+
+.dashboard .caminhao1 {
+    box-shadow: 2px 2px 10px 1px rgba(0, 255, 0, 0.8);
+}
+.dashboard .caminhao2 {
+    box-shadow: 2px 2px 10px 1px rgba(238, 255, 1, 0.8);
+}
+.dashboard .caminhao3 {
+    box-shadow: 2px 2px 10px 1px rgba(255, 0, 0, 0.8);
+}
+.dashboard .caminhao4 {
+    box-shadow: 2px 2px 10px 1px rgba(255, 0, 0, 0.8);
+}
+.dashboard .caminhao5 {
+    box-shadow: 2px 2px 10px 1px rgba(0, 255, 0, 0.8);
+}
+
+.dashboard .grafico h3 {
+    height: fit-content;
+}
+.dashboard .tabela {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    width: 70%;
+}
+
+.dashboard .indicativo {
+    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2);
+    gap: 15px;
+}
+
+.dashboard .indicativo .colunas {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.dashboard .indicativo .temperatura {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.dashboard .indicativo .umidade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.dashboard .indicativo .status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.dashboard .status .critico {
+    background-color: red;
+    color: red;
+}
+.dashboard .status .alerta {
+    background-color: yellow;
+    color: yellow;
+}
+.dashboard .status .ideal {
+    background-color: green;
+    color: green;
+}
+
+.dashboard .tempo-real {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    height: 30vh; 
+    width: 70%;
+    color: black;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard .tabela .trajeto {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+}
+
+.dashboard .tabela .idCaminhoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.dashboard .tabela .temperatura {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.dashboard .tabela .umidade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.dashboard .tabela .status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.dashboard .tabela .status .ideal {
+    background-color: green;
+    color: green;
+}
+
+.dashboard .tabela .status .alerta {
+    background-color: yellow;
+    color: yellow;
+}
+
+.dashboard .tabela .status .critico {
+    background-color: red;
+    color: red;
+}
+
+.dashboard .info {
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.dashboard .info .caminhao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 7px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.dashboard .info .caminhoes {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.dashboard .info .caminhao .dados {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.dashboard .info .caminhao .dados .temperatura {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.dashboard .info .caminhao .dados .umidade {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.dashboard .info .caminhao .dados .divisao {
+    border-right: 1px solid black;
+    height: 65px;
+}

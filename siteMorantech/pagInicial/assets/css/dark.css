@@ -87,6 +87,10 @@
     color: var(--letra_color_primaria_tm_dark);
 }
 
+.dark_mode .caixa_texto_total .caixa_texto h1{
+    color: var(--letra_color_primaria_tm_dark);
+}
+
 .dark_mode .caixas_servicos_total .caixa_servico {
     background-color: var(--bg_color_tm_dark);
     color: var(--letra_color_primaria_tm_dark);
@@ -95,6 +99,18 @@
 
 .dark_mode .servico .caixa_servico i {
     color: var(--letra_color_primaria_tm_dark);
+}
+
+.dark_mode .caixa_texto_total .caixa_foco_importante{
+    background: var(--bg_color_tm_dark);
+    color: var(--letra_color_primaria_tm_dark);
+    box-shadow: none;
+}
+
+.dark_mode .caixa_foco_total {
+   
+    border-top: 2px solid var(--borda_color_tm_dark);
+    border-bottom: 2px solid var(--borda_color_tm_dark);
 }
 
 .dark_mode .footer {
@@ -139,3 +155,5 @@
     color: #156785;
 
 }
+
+

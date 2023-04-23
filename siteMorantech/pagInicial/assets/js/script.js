@@ -8,6 +8,7 @@ var sectBI = document.getElementById('section_banner_inicial');
 var secC = document.getElementById('section_caixa');
 var servico = document.getElementById('servico');
 var footer = document.getElementById('footer');
+var sobreNos = document.getElementById('SobreNos_caixa');
 
 mode.addEventListener('click', () => {
     if (mode.classList.contains('fa-moon')) {
@@ -20,7 +21,8 @@ mode.addEventListener('click', () => {
         secC.classList.add('dark_mode');
         servico.classList.add('dark_mode');
         footer.classList.add('dark_mode');
-        
+        sobreNos.classList.add('dark_mode');
+
 
     }
     else {
@@ -33,6 +35,7 @@ mode.addEventListener('click', () => {
         secC.classList.remove('dark_mode');
         servico.classList.remove('dark_mode');
         footer.classList.remove('dark_mode');
+        sobreNos.classList.remove('dark_mode');
     }
 })
 
