@@ -9,10 +9,78 @@ body {
     padding-bottom: 20px;
 }
 
-.header .navbar {
-    background-color: rgb(228, 59, 59);
+:root {
+    --bg_color_tm_light: #f1ebeb;
+    --bg_page_tm_light: #ffd5d58a;
+    --borda_color_tm_light: #fa4f6c;
+    --letra_dest_color_segundaria_tm_light: #f63858;
+    --letra_color_primaria_tm_light: #1e1e1e;
+    --sombra_tm_light: #1e1e1e;
+}
+
+.menu {
+    /* background: var(--bg_color_tm_light); */
+    transition: 0.6s;
+}
+
+.menu ul li a {
+    color: var(--letra_color_primaria_tm_light);
+    text-decoration: none;
+}
+
+.active {
+    padding-left: 6px;
+    padding-right: 6px;
+    border-bottom: 2px solid var(--borda_color_tm_light);
+}
+
+.menu ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    /* background: #ad1212; */
+    border-bottom: var(--borda_color_tm_light) solid 2px;
+    padding: 10px;
     height: 60px;
-    width: 100%;
+    font-weight: 400;
+}
+
+.menu ul li {
+    font-size: 15px;
+    transition: 0.6s;
+}
+
+.menu ul li a img {
+    width: 100px;
+    transition: 0.6s;
+}
+
+ion-icon:hover {
+    color: #65e030;
+}
+
+.menu ul li ion-icon {
+    font-size: 40px;
+    transition: 0.6s;
+}
+
+.menu ul li i {
+    font-size: 25px;
+    transition: 0.6s;
+    width: 25px;
+    /* background: #001eff; */
+    cursor: pointer;
+}
+
+.menu ul li a img:hover {
+    width: 120px;
+    transition: 0.6s;
+}
+
+.menu ul li:hover {
+    font-size: 20px;
+    transition: 0.6s;
 }
 
 .titulo {
@@ -40,7 +108,7 @@ body {
     align-items: center;
     flex-direction: column;
     gap: 1px;
-    height: 30vh; 
+    height: 40vh; 
     width: 30vw;
     color: black;
     background-color: white;

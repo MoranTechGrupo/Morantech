@@ -20,23 +20,53 @@
   </div>
   <h1 class="titulo">Dashboard</h1>
   <div class="dashboard">
-    <div id="caminhao1" class="grafico">
+    <div class="grafico caminhao1">
       <canvas id="myChart1"></canvas>
     </div>
-    <div id="caminhao2" class="grafico">
+    <div class="grafico caminhao2">
       <canvas id="myChart2"></canvas>
     </div>
-    <div id="caminhao3" class="grafico">
+    <div class="grafico caminhao3">
       <canvas id="myChart3"></canvas>
     </div>
-    <div id="caminhao4" class="grafico">
+    <div class="grafico caminhao4">
       <canvas id="myChart4"></canvas>
     </div>
-    <div id="caminhao5" class="grafico">
+    <div class="grafico caminhao5">
       <canvas id="myChart5"></canvas>
     </div>
 
-    <div class="grafico">
+    <div class="grafico indicativo">
+      <h3>Indicativos dos sensores</h3>
+      <div class="colunas">
+        <div class="temperatura">
+          <h4>Temperatura</h4>
+          <span>Abaixo de 0°C</span>
+          <span>0°C - 3°C</span>
+          <span>4°C - 9°C</span>
+          <span>10°C - 12°C</span>
+          <span>Acima de 12°C</span>
+        </div>
+        <div class="umidade">
+          <h4>Umidade</h4>
+          <span>Abaixo de 88%</span>
+          <span>88% - 89.9%</span>
+          <span>90% - 94.9%</span>
+          <span>95% - 96%</span>
+          <span>Acima de 96%</span>
+        </div>
+        <div class="status">
+          <h4>Indicativo</h4>
+          <span class="critico">......</span>
+          <span class="alerta">......</span>
+          <span class="ideal">......</span>
+          <span class="alerta">......</span>
+          <span class="critico">......</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tempo-real">
       <h3>Tabela - Caminhões</h3>
       <div class="tabela">
         <div class="idCaminhoes">
@@ -47,29 +77,37 @@
           <span>JKL1234</span>
           <span>MNO1234</span>
         </div>
+        <div class="trajeto">
+          <h4>Trajeto</h4>
+          <span>Holambra(SP) - São Paulo(SP)</span>
+          <span>Itu(SP) - Campinas(SP)</span>
+          <span>Três Corações(MG) - Belo Horizonte(MG)</span>
+          <span>Taubaté(SP) - Curitiba(PR)</span>
+          <span>Vitória(ES) - Rio de Janeiro(RJ)</span>
+        </div>
         <div class="temperatura">
-          <h4>Temp (ideal)</h4>
-          <span>7°C (4-9°C)</span>
-          <span>8°C (4-9°C)</span>
-          <span>17°C (4-9°C)</span>
-          <span>15°C (4-9°C)</span>
-          <span>4°C (4-9°C)</span>
+          <h4>Temperatura</h4>
+          <span>7°C</span>
+          <span>8°C</span>
+          <span>17°C</span>
+          <span>15°C</span>
+          <span>4°C</span>
         </div>
         <div class="umidade">
-          <h4>Umid (ideal)</h4>
-          <span>92% (90-95%)</span>
-          <span>91% (90-95%)</span>
-          <span>79% (90-95%)</span>
-          <span>83% (90-95%)</span>
-          <span>95% (90-95%)</span>
+          <h4>Umidade</h4>
+          <span>92%</span>
+          <span>91%</span>
+          <span>79%</span>
+          <span>83%</span>
+          <span>95%</span>
         </div>
-        <div class="indicativo">
+        <div class="status">
           <h4>Status</h4>
-          <span>Ideal</span>
-          <span>Ideal</span>
-          <span>Crítico</span>
-          <span>Crítico</span>
-          <span>Ideal</span>
+          <span class="ideal">......</span>
+          <span class="alerta">......</span>
+          <span class="critico">......</span>
+          <span class="critico">......</span>
+          <span class="ideal">......</span>
         </div>
       </div>
     </div>
@@ -241,7 +279,7 @@
         label: "Umidade (%)",
         backgroundColor: "#36a2eb",
         borderColor: "#36a2eb",
-        data: [82, 90, 92, 95, 91, 87, 84, 89, 91, 91],
+        data: [82, 88, 91, 93, 95, 98, 94, 92, 91, 88],
         yAxisID: 'y_umid2'
       },
     ],

@@ -83,6 +83,9 @@ body {
     /* background: #001eff; */
     cursor: pointer;
 }
+ion-icon:hover {
+    color: #65e030;
+}
 
 .menu ul li a img:hover {
     width: 120px;
