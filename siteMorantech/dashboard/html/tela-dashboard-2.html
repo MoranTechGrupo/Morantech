@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styleDashboard2.css">
+    <link rel="stylesheet" href="../css/tela-dashboard2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Dashboard2</title>
@@ -15,84 +15,70 @@
     <!-- NAVEBAR -->
     <div class="header">
         <ul class="navebar">
-            <!--  <li class="logo">
-                <img src="../assets/img/logo.png" alt="">
-            </li> -->
-
-            <li class="user">
-                <a href="#" class="icons"><i class="fa-solid fa-user"></i></a>
-                <a> ZezéMorango </a>
+            <li class="caminhao">
+                <a href="#" class="icons"><i class="fa-sharp fa-solid fa-truck"></i></a>
+                <a> Caminhão (ABC1234) </a>
+                    <div class="data">
+                        <input class="input_data" type="date" value="2023-04-24" min="2000-01-01">
+                    </div>
             </li>
         </ul>
 
         <div class="navebar1">
             <ul>
                 <li class="icons1">
-                    <a href="../pages/dashboard.html"><i class="fa-solid fa-house"></i></a>
+                    <a><i class="fa-sharp fa-solid fa-location-dot"></i></a> <!-- endereço empresa -->
                     <a href="#"><i class="fa-solid fa-users"></i></a> <!-- link cadastro funcionario -->
+                    <a href="../html/tela-dashboard-1.html"><i class="fa-solid fa-house"></i></a> <!-- overview -->
                 </li>
             </ul>
+        </div>
+    </div>
 
-            <div class="search-box">
-                <input id="input_transporte" class="input" placeholder="Pesquisar ..."> <!-- link -->
-                <a class="lupa">
-                    <img class="lupaRosa" src="../assets/img/icons8-loupe-64.png" alt="" width="30px" height="30px">
-                    <img class="lupaBranca" src="../assets/img/icons8-loupe-64 (1).png" alt="" width="30px"
-                        height="30px">
-                </a>
+    <div class="container1">
+
+        <!-- CHART JS -->
+        <div class="box">
+            <canvas id="Chart_climograma"></canvas>
+        </div>
+
+        <div class="container2">
+            <div class="container">
+                <div class="card">
+                    <span> Placa: ABC1234 </span>
+                    <span> Modelo: Sprint 2016 </span>
+                    <span> Sensor: DHT11 </span>
+                    <span> Saída: Holambra </span>
+                    <span> Destino: São Paulo </span>
+                </div>
+            </div>
+
+            <div class="container_alertas">
+                <div class="dados">
+                    <div class="temperatura">
+                        <span><b>Temperatura</b></span>
+                        <span>Menor: 2°C</span>
+                        <span>Maior: 19°C</span>
+                    </div>
+                    <div class="divisao"></div>
+                    <div class="umidade">
+                        <span><b>Umidade</b></span>
+                        <span>Menor: 72°C</span>
+                        <span>Maior: 97°C</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="titulo">
-        <h1>TRANSPORTE XPTO</h1>
     </div>
 
-    <input class="input_data" type="date" min="2000-01-01">
 
-    <div class="localizacao">
-        <a> <b>Local de saída: </b>Zézinho Moranguete </a>
-        <a> <b>Destino: </b>CEASA </a>
-    </div>
-    
-    
-    <!-- CHART JS -->
-    <div class="header1">
-        
-        <div class="card">
-            <div class="box">
-                <canvas id="Chart_climograma"></canvas>
-            </div>
-            
-            <div class="grafico1">
-                <canvas id="myChart6"></canvas>
-            </div>
-            <!-- <div class="grafico2">
-                <canvas id="myChart4"></canvas>
-            </div> -->
-            <!-- <div class="grafico">
-                <canvas id="myChart5" class="status"></canvas>
-            </div> -->
-        </div>
-        
-    </div>
-    
-        <div class="media">
-            <div class="caixa">
-                <a class="titulo">TEMPERATURA MÉDIA</a>
-                <a class="dado"> 9°C </a>
-            </div>
-    
-            <div class="caixa">
-                <a class="titulo">UMIDADE MÉDIA</a>
-                <a class="dado"> 92% </a>
-            </div>
-        </div>
 </body>
 
 </html>
 
-<!--~ Codigos JavaScripts  para a criação dos icons no site-->
+<!--~ Codigos JavaScripts dos icons no site-->
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
