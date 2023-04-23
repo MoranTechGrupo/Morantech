@@ -12,7 +12,11 @@
 
 <body>
   <div class="header">
-    <div class="navbar"></div>
+    <div class="navbar">
+      <div id="b_usuario"></div>
+      <div id="b_id"></div>
+      <a href="../cadastroUser.html">Cadastrar usuario</a>
+    </div>
   </div>
   <h1 class="titulo">Dashboard</h1>
   <div class="dashboard">
@@ -196,7 +200,7 @@
           display: true,
           text: "Caminhão 1 (ABC1234)",
         },
-      }, 
+      },
       scales: {
         y_umid: {
           type: 'linear',
@@ -537,3 +541,10 @@
 </script>
 
 </html>
+
+<script>
+  var nomeEmpresa = sessionStorage.NOME_EMPRESA;
+  var idEmpresa = sessionStorage.ID_EMPRESA;
+  b_usuario.innerHTML = nomeEmpresa
+  b_id.innerHTML = idEmpresa;
+</script>

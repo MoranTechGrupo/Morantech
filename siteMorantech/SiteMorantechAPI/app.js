@@ -10,7 +10,11 @@ var app = express();
 
 var indexRouter = require("./src/routes/index");
 var empresaRouter = require("./src/routes/empresa");
+var usuarioRouter = require("./src/routes/user");
+// var usuarioRouter = require("./src/routes/usuario");
 var enderecoRouter = require("./src/routes/endereco");
+
+
 
 
 
@@ -26,6 +30,7 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/empresa", empresaRouter);
 app.use("/endereco",enderecoRouter);
+app.use("/user",usuarioRouter);
 
 app.use("/avisos", avisosRouter);
 app.use("/medidas", medidasRouter)
