@@ -6,37 +6,78 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard</title>
-  <link rel="stylesheet" href="../css/tela-dashboard.css">
+  <link rel="stylesheet" href="../css/tela-dashboard.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-  <div class="header">
-    <div class="navbar"></div>
-  </div>
+  <header>
+    <nav id="menu" class="menu">
+        <ul>
+            <li><a href="#"><img src="/siteMorantech/images/morantechreal-transformed.png" style="width: 160px;" alt=""></a></li>
+            <li><a href="./index.html">MoranTech</a></li>
+            <li><a href="#"><span class="active">HOME</span></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#">CADASTRAR FUNCIONÁRIO</a></li>
+            <li><a href="#SobreNos_caixa">CADASTRAR ENDEREÇO</a></li>
+            <li><a href="#">FEEDBACK</a></li>
+            <li><a href="../cadastro e login/login.html"><ion-icon name="person-circle-outline"></ion-icon></a></li>
+            <li> <a><i id="tema" class="fa-solid fa-moon"></i></a></li>
 
-  <h1 class="titulo">Overview</h1>
+        </ul>
+    </nav>
+  </header>
 
+  <h1 class="titulo">Dashboard</h1>
   <div class="dashboard">
-
- <div href="../html/tela-dashboard-2.html" id="caminhao1" class="grafico">
+    <div class="grafico caminhao1">
       <canvas id="myChart1"></canvas>
     </div>
-    <div id="caminhao2" class="grafico">
+    <div class="grafico caminhao2">
       <canvas id="myChart2"></canvas>
     </div>
-    <div id="caminhao3" class="grafico">
+    <div class="grafico caminhao3">
       <canvas id="myChart3"></canvas>
     </div>
-    <div id="caminhao4" class="grafico">
+    <div class="grafico caminhao4">
       <canvas id="myChart4"></canvas>
     </div>
-    <div id="caminhao5" class="grafico">
+    <div class="grafico caminhao5">
       <canvas id="myChart5"></canvas>
     </div>
 
-    <div class="grafico">
-      <h3>Tabela - Caminhões</h3>
+    <div class="grafico indicativo">
+      <h3>Indicativos dos sensores</h3>
+      <div class="colunas">
+        <div class="temperatura">
+          <h4>Temperatura</h4>
+          <span>Abaixo de 0°C</span>
+          <span>0°C - 3°C</span>
+          <span>4°C - 9°C</span>
+          <span>10°C - 12°C</span>
+          <span>Acima de 12°C</span>
+        </div>
+        <div class="umidade">
+          <h4>Umidade</h4>
+          <span>Abaixo de 88%</span>
+          <span>88% - 89.9%</span>
+          <span>90% - 94.9%</span>
+          <span>95% - 96%</span>
+          <span>Acima de 96%</span>
+        </div>
+        <div class="status">
+          <h4>Indicativo</h4>
+          <span class="critico">......</span>
+          <span class="alerta">......</span>
+          <span class="ideal">......</span>
+          <span class="alerta">......</span>
+          <span class="critico">......</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tempo-real">
+      <h3>Situação dos caminhões</h3>
       <div class="tabela">
         <div class="idCaminhoes">
           <h4>Caminhão</h4>
@@ -46,29 +87,37 @@
           <span>JKL1234</span>
           <span>MNO1234</span>
         </div>
+        <div class="trajeto">
+          <h4>Trajeto</h4>
+          <span>Holambra(SP) - São Paulo(SP)</span>
+          <span>Itu(SP) - Campinas(SP)</span>
+          <span>Três Corações(MG) - Belo Horizonte(MG)</span>
+          <span>Taubaté(SP) - Curitiba(PR)</span>
+          <span>Vitória(ES) - Rio de Janeiro(RJ)</span>
+        </div>
         <div class="temperatura">
-          <h4>Temp (ideal)</h4>
-          <span>7°C (4-9°C)</span>
-          <span>8°C (4-9°C)</span>
-          <span>17°C (4-9°C)</span>
-          <span>15°C (4-9°C)</span>
-          <span>4°C (4-9°C)</span>
+          <h4>Temperatura</h4>
+          <span>7°C</span>
+          <span>8°C</span>
+          <span>17°C</span>
+          <span>15°C</span>
+          <span>4°C</span>
         </div>
         <div class="umidade">
-          <h4>Umid (ideal)</h4>
-          <span>92% (90-95%)</span>
-          <span>91% (90-95%)</span>
-          <span>79% (90-95%)</span>
-          <span>83% (90-95%)</span>
-          <span>95% (90-95%)</span>
+          <h4>Umidade</h4>
+          <span>92%</span>
+          <span>91%</span>
+          <span>79%</span>
+          <span>83%</span>
+          <span>95%</span>
         </div>
-        <div class="indicativo">
+        <div class="status">
           <h4>Status</h4>
-          <span>Ideal</span>
-          <span>Ideal</span>
-          <span>Crítico</span>
-          <span>Crítico</span>
-          <span>Ideal</span>
+          <span class="ideal">......</span>
+          <span class="alerta">......</span>
+          <span class="critico">......</span>
+          <span class="critico">......</span>
+          <span class="ideal">......</span>
         </div>
       </div>
     </div>
@@ -160,9 +209,313 @@
     </div>
   </div>
 
-  <!-- Script CHART JS -->
-<script src="../js/chartjs1.js"></script>
-
 </body>
+<script>
+
+  // Gráfico caminhão 1
+  const labels1 = ["12:00", "12:05", "12:10", "12:15", "12:20", "12:25", "12:30", "12:35", "12:40", "12:45"];
+
+  const data1 = {
+    labels: labels1,
+    datasets: [
+      {
+        label: "Temperatura (°C)",
+        backgroundColor: "#ff6384",
+        borderColor: "#ff6384",
+        data: [21, 24, 28, 23, 20, 17, 15, 12, 8, 7],
+        yAxisID: 'y_temp'
+      },
+      {
+        label: "Umidade (%)",
+        backgroundColor: "#36a2eb",
+        borderColor: "#36a2eb",
+        data: [80, 73, 66, 76, 80, 83, 86, 89, 91, 92],
+        yAxisID: 'y_umid'
+      },
+    ],
+  };
+
+  const config1 = {
+    type: "line",
+    data: data1,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+        },
+        title: {
+          display: true,
+          text: "Caminhão 1 (ABC1234)",
+        },
+      }, 
+      scales: {
+        y_umid: {
+          type: 'linear',
+          position: 'right',
+          ticks: {
+            max: 95,
+            min: 90
+          }
+        },
+        y_temp: {
+          type: 'linear',
+          position: 'left',
+          ticks: {
+            max: 12,
+            min: 0
+          }
+        }
+      }
+    }
+  };
+
+  const myChart1 = new Chart(document.getElementById("myChart1"), config1);
+
+  // Gráfico caminhão 2
+  const labels2 = ["12:00", "12:05", "12:10", "12:15", "12:20", "12:25", "12:30", "12:35", "12:40", "12:45"];
+
+  const data2 = {
+    labels: labels2,
+    datasets: [
+      {
+        label: "Temperatura (°C)",
+        backgroundColor: "#ff6384",
+        borderColor: "#ff6384",
+        data: [15, 11, 8, 5, 2, 0, 3, 6, 8, 11],
+        yAxisID: 'y_temp2'
+      },
+      {
+        label: "Umidade (%)",
+        backgroundColor: "#36a2eb",
+        borderColor: "#36a2eb",
+        data: [82, 88, 91, 93, 95, 98, 94, 92, 91, 88],
+        yAxisID: 'y_umid2'
+      },
+    ],
+  };
+
+  const config2 = {
+    type: "line",
+    data: data2,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+        },
+        title: {
+          display: true,
+          text: "Caminhão 2 (DEF1234)",
+        },
+      },
+      scales: {
+        y_umid2: {
+          type: 'linear',
+          position: 'right',
+          ticks: {
+            max: 95,
+            min: 90
+          }
+        },
+        y_temp2: {
+          type: 'linear',
+          position: 'left',
+          ticks: {
+            max: 12,
+            min: 0
+          }
+        }
+      }
+    }
+  };
+
+  const myChart2 = new Chart(document.getElementById("myChart2"), config2);
+
+  // Gráfico caminhão 3
+  const labels3 = ["12:00", "12:05", "12:10", "12:15", "12:20", "12:25", "12:30", "12:35", "12:40", "12:45"];
+
+  const data3 = {
+    labels: labels3,
+    datasets: [
+      {
+        label: "Temperatura",
+        backgroundColor: "#ff6384",
+        borderColor: "#ff6384",
+        data: [4, 3, 5, 7, 8, 10, 12, 14, 16, 17],
+        yAxisID: 'y_temp'
+      },
+      {
+        label: "Umidade",
+        backgroundColor: "#36a2eb",
+        borderColor: "#36a2eb",
+        data: [95, 96, 95, 93, 93, 91, 89, 85, 82, 79],
+        yAxisID: 'y_umid'
+      },
+    ],
+  };
+
+  const config3 = {
+    type: "line",
+    data: data3,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+        },
+        title: {
+          display: true,
+          text: "Caminhão 3 (GHI1234)",
+        },
+      },
+      scales: {
+        y_umid: {
+          type: 'linear',
+          position: 'right',
+          ticks: {
+            max: 95,
+            min: 90
+          }
+        },
+        y_temp: {
+          type: 'linear',
+          position: 'left',
+          ticks: {
+            max: 12,
+            min: 0
+          }
+        }
+      }
+    },
+  };
+
+  const myChart3 = new Chart(document.getElementById("myChart3"), config3);
+
+  // Gráfico caminhão 4
+  const labels4 = ["12:00", "12:05", "12:10", "12:15", "12:20", "12:25", "12:30", "12:35", "12:40", "12:45"];
+
+  const data4 = {
+    labels: labels4,
+    datasets: [
+      {
+        label: "Temperatura",
+        backgroundColor: "#ff6384",
+        borderColor: "#ff6384",
+        data: [18, 22, 20, 17, 15, 12, 9, 11, 14, 15],
+        yAxisID: 'y_temp'
+
+      },
+      {
+        label: "Umidade",
+        backgroundColor: "#36a2eb",
+        borderColor: "#36a2eb",
+        data: [77, 73, 76, 80, 85, 89, 91, 89, 85, 83],
+        yAxisID: 'y_umid'
+      },
+    ],
+  };
+
+  const config4 = {
+    type: "line",
+    data: data4,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+        },
+        title: {
+          display: true,
+          text: "Caminhão 4 (JKL1234)",
+        },
+      },
+      scales: {
+        y_umid: {
+          type: 'linear',
+          position: 'right',
+          ticks: {
+            max: 95,
+            min: 90
+          }
+        },
+        y_temp: {
+          type: 'linear',
+          position: 'left',
+          ticks: {
+            max: 12,
+            min: 0
+          }
+        }
+      }
+    },
+  };
+
+  const myChart4 = new Chart(document.getElementById("myChart4"), config4);
+
+  // Gráfico caminhão 5
+  const labels5 = ["12:00", "12:05", "12:10", "12:15", "12:20", "12:25", "12:30", "12:35", "12:40", "12:45"];
+
+  const data5 = {
+    labels: labels5,
+    datasets: [
+      {
+        label: "Temperatura",
+        backgroundColor: "#ff6384",
+        borderColor: "#ff6384",
+        data: [7, 12, 13, 17, 20, 15, 13, 12, 9, 4],
+        yAxisID: 'y_temp'
+      },
+      {
+        label: "Umidade",
+        backgroundColor: "#36a2eb",
+        borderColor: "#36a2eb",
+        data: [92, 88, 85, 80, 76, 83, 86, 89, 92, 95],
+        yAxisID: 'y_umid'
+      },
+    ],
+  };
+
+  const config5 = {
+    type: "line",
+    data: data5,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+        },
+        title: {
+          display: true,
+          text: "Caminhão 5 (MNO1234)",
+        },
+      },
+      scales: {
+        y_umid: {
+          type: 'linear',
+          position: 'right',
+          ticks: {
+            max: 95,
+            min: 90
+          }
+        },
+        y_temp: {
+          type: 'linear',
+          position: 'left',
+          ticks: {
+            max: 12,
+            min: 0
+          }
+        }
+      }
+    },
+  };
+
+  const myChart5 = new Chart(document.getElementById("myChart5"), config5);
+
+</script>
 
 </html>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

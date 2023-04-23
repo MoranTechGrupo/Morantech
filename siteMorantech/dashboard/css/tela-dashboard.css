@@ -1,12 +1,86 @@
-body, * {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.header .navbar {
-    background-color: rgb(228, 59, 59);
+body {
+    background-color: rgb(250, 243, 233);
+    padding-bottom: 20px;
+}
+
+:root {
+    --bg_color_tm_light: #f1ebeb;
+    --bg_page_tm_light: #ffd5d58a;
+    --borda_color_tm_light: #fa4f6c;
+    --letra_dest_color_segundaria_tm_light: #f63858;
+    --letra_color_primaria_tm_light: #1e1e1e;
+    --sombra_tm_light: #1e1e1e;
+}
+
+.menu {
+    /* background: var(--bg_color_tm_light); */
+    transition: 0.6s;
+}
+
+.menu ul li a {
+    color: var(--letra_color_primaria_tm_light);
+    text-decoration: none;
+}
+
+.active {
+    padding-left: 6px;
+    padding-right: 6px;
+    border-bottom: 2px solid var(--borda_color_tm_light);
+}
+
+.menu ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    /* background: #ad1212; */
+    border-bottom: var(--borda_color_tm_light) solid 2px;
+    padding: 10px;
     height: 60px;
-    width: 100%;
+    font-weight: 400;
+}
+
+.menu ul li {
+    font-size: 15px;
+    transition: 0.6s;
+}
+
+.menu ul li a img {
+    width: 100px;
+    transition: 0.6s;
+}
+
+ion-icon:hover {
+    color: #65e030;
+}
+
+.menu ul li ion-icon {
+    font-size: 40px;
+    transition: 0.6s;
+}
+
+.menu ul li i {
+    font-size: 25px;
+    transition: 0.6s;
+    width: 25px;
+    /* background: #001eff; */
+    cursor: pointer;
+}
+
+.menu ul li a img:hover {
+    width: 120px;
+    transition: 0.6s;
+}
+
+.menu ul li:hover {
+    font-size: 20px;
+    transition: 0.6s;
 }
 
 .titulo {
@@ -32,20 +106,37 @@ body, * {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30vh; 
-    width: 30vw;
-    color: black;
-    background-color: rgb(250, 243, 233);
-    border: 1px solid rgb(250, 243, 233);
-    border-radius: 15px;
-    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2);
-}
-
-.dashboard .grafico {
-    display: flex;
     flex-direction: column;
     gap: 1px;
+    height: 40vh; 
+    width: 30vw;
+    color: black;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 15px;
+    /* box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2); */
 }
+
+.dashboard .comparativo {
+    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.6);
+}
+
+.dashboard .caminhao1 {
+    box-shadow: 2px 2px 10px 1px rgba(0, 255, 0, 0.8);
+}
+.dashboard .caminhao2 {
+    box-shadow: 2px 2px 10px 1px rgba(238, 255, 1, 0.8);
+}
+.dashboard .caminhao3 {
+    box-shadow: 2px 2px 10px 1px rgba(255, 0, 0, 0.8);
+}
+.dashboard .caminhao4 {
+    box-shadow: 2px 2px 10px 1px rgba(255, 0, 0, 0.8);
+}
+.dashboard .caminhao5 {
+    box-shadow: 2px 2px 10px 1px rgba(0, 255, 0, 0.8);
+}
+
 .dashboard .grafico h3 {
     height: fit-content;
 }
@@ -53,6 +144,77 @@ body, * {
     display: flex;
     flex-direction: row;
     gap: 25px;
+    width: 70%;
+}
+
+.dashboard .indicativo {
+    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2);
+    gap: 15px;
+}
+
+.dashboard .indicativo .colunas {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.dashboard .indicativo .temperatura {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.dashboard .indicativo .umidade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.dashboard .indicativo .status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.dashboard .status .critico {
+    background-color: red;
+    color: red;
+}
+.dashboard .status .alerta {
+    background-color: yellow;
+    color: yellow;
+}
+.dashboard .status .ideal {
+    background-color: green;
+    color: green;
+}
+
+.dashboard .tempo-real {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    height: 30vh; 
+    width: 70%;
+    color: black;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard .tabela .trajeto {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
 }
 
 .dashboard .tabela .idCaminhoes {
@@ -76,20 +238,35 @@ body, * {
     gap: 5px;
 }
 
-.dashboard .tabela .indicativo {
+.dashboard .tabela .status {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
 }
 
+.dashboard .tabela .status .ideal {
+    background-color: green;
+    color: green;
+}
+
+.dashboard .tabela .status .alerta {
+    background-color: yellow;
+    color: yellow;
+}
+
+.dashboard .tabela .status .critico {
+    background-color: red;
+    color: red;
+}
+
 .dashboard .info {
-    background-color: rgb(250, 243, 233);
-    border: 1px solid rgb(250, 243, 233);
+    background-color: white;
+    border: 1px solid white;
     border-radius: 15px;
     box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2);
     padding: 10px;
-    width: 99%;
+    width: 98%;
     display: flex;
     flex-direction: column;
     justify-content: center;
