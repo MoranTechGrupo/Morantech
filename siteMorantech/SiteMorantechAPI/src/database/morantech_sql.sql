@@ -1,5 +1,6 @@
 create database Morantech;
 
+
 use Morantech;
 
 -- Empresas --
@@ -8,19 +9,20 @@ create table Empresa (
 idEmpresa int primary key auto_increment,
 nome varchar(45) not null,
 cnpj char(18) not null,
-qtdSensores varchar(45),
 telefone varchar(15) not null,
-StatusEmp char(1)
+StatusEmp char(1),
+senha varchar(45)
 );
 
+
 insert into Empresa values
-(null, 'Trans morango S.A', '78.745.125/0001-56', 2, '(11) 2487-7845', 'A'),
-(null, 'Morangos Delícia Ltda', '12.345.678/0001-90', 3, '(21) 98765-4321', 'A'),
-(null, 'Fazenda Morango Feliz S.A', '23.456.789/0001-12', 1, '(31) 2765-4321', 'A'),
-(null, 'Morango Doce Sabor Eireli', '34.567.890/0001-34', 5, '(41) 98765-9321', 'A'),
-(null, 'Morangos Frescos Ltda', '45.678.901/0001-56', 4, '(51) 93623-1235', 'A'),
-(null, 'Sabor do Morango Ltda', '56.789.012/0001-78', 1,'(71) 2123-8750', 'I'),
-(null, 'Cultivar Morangos Agropecuária', '67.890.123/0001-90', 2, '(11) 93103-0091', 'A');
+(null, 'Trans morango S.A', '78.745.125/0001-56', '(11) 2487-7845', 'A','abc111'),
+(null, 'Morangos Delícia Ltda', '12.345.678/0001-90', '(21) 98765-4321', 'A','def222'),
+(null, 'Fazenda Morango Feliz S.A', '23.456.789/0001-12', '(31) 2765-4321', 'A','casa123'),
+(null, 'Morango Doce Sabor Eireli', '34.567.890/0001-34', '(41) 98765-9321', 'A','bambu'),
+(null, 'Morangos Frescos Ltda', '45.678.901/0001-56', '(51) 93623-1235', 'A','meumorango'),
+(null, 'Sabor do Morango Ltda', '56.789.012/0001-78','(71) 2123-8750', 'I','melhorsaborXD'),
+(null, 'Cultivar Morangos Agropecuária', '67.890.123/0001-90', '(11) 93103-0091', 'A','carrosF');
 
 -- endereços Empresas --
 
@@ -28,8 +30,8 @@ create table endereço (
 idEndereço int primary key auto_increment,
 fkEmpEd int,
 constraint fkEmpEd foreign key (fkEmpEd)
-references Empresa (idEmpresa),
-rua.avenida varchar(45),
+references Empresa(idEmpresa),
+rua varchar(45),
 bairro varchar(45),
 numero varchar(12),
 cidade varchar(45),
@@ -54,20 +56,23 @@ fkEmpUs int,
 constraint fkEmpUs foreign key (fkEmpUs)
 references Empresa(idEmpresa),
 constraint pkUsuario primary key (idUsuario, fkEmpUs),
-nome varchar(45)
+nome varchar(45),
+email varchar(45)
 ); 
 
 -- Login -- 
 
 create table login (
 idLogin int auto_increment,
-fkUsuario int,
+
+fkUsuario int ,
 constraint FkUsuario foreign key (fkUsuario)
 references usuario(idUsuario),
+
 fkEmpLo int,
 constraint fkEmpLo foreign key (fkEmpLo)
 references Empresa(idEmpresa),
-constraint pkLogin primary key (idLogin, fkUsuario, fkEmpLo),
+constraint pkLogin primary key (idLogin, fkEmpLo),
 email varchar(45),
 senha varchar(45)
 );
@@ -106,33 +111,56 @@ insert into transporte values
 -- Tipo --
 
 create table tipo (
-idTipo int primary key auto_increment,
+idTipo int primary 
+key auto_increment,
 categoria varchar(45),
 métrica varchar(5)
 );
+
+insert into tipo values
+(null, 'temperatura','ºC'),
+(null, 'umidade', '%'),
+(null, 'umidade&temperatura','ºC,%');
+
 
 -- Sensor --
 
 create table sensor (
 idSensor int primary key auto_increment,
 modelo varchar(45),
-tipo varchar(45),
-situaçao char(2),
-dtManutençao date,
 fkTipo int,
 constraint fkTipo foreign key (fkTipo)
 references tipo(idTipo),
-fkPlaca char(8),
-constraint fkPlaca foreign key (fkPlaca)
-references transporte(placa),
-fkEmpSen int,
-constraint fkEmpSen foreign key (fkEmpSen)
-references Empresa(idEmpresa),
+situaçao char(2),
+dtManutençao date,
+fktransp int,
+constraint fktransp foreign key (fktransp)
+references transporte(idTransporte),
 minimo varchar(45),
 maximo varchar(45)
 );
 
---  Dados Sensor --
+insert into sensor values 
+(null, 'Dht11', 3, 'A', null, 1, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 2, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 3, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 4, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 5, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 6, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 7, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 8, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 9, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 10, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 11, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'I', '2023-04-25', 12, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 13, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 14, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 15, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'I', null, 16, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 17, '0 ºC,90%', '12ºC,95%'),
+(null, 'Dht11', 3, 'A', null, 18, '0 ºC,90%', '12ºC,95%');
+
+-- Dados Sensor --
 
 create table dadosSensor (
 idDados int auto_increment,
@@ -144,3 +172,84 @@ temperatura decimal(4,2),
 umidade decimal(4,2),
 dataHora timestamp
 );
+
+insert into dadosSensor values 
+
+(null, 1, 5.6, 91.2, '2023-04-04 12:40:00'),
+(null, 1, 5.2, 92.5, '2023-04-04 12:45:00'),
+(null, 3, 8.2, 94.8, '2023-04-04 12:45:00'),
+(null, 3, 7.9, 90.1, '2023-04-04 12:50:00'),
+(null, 5, 9.3, 95.8, '2023-04-05 12:03:00'),
+(null, 5, 9.5, 98.2, '2023-04-05 12:08:00'),
+(null, 2, 10.2, 97.5, '2023-04-04 12:50:00');
+
+-- selects individuais
+
+select * from Empresa;
+select * from endereço;
+select * from usuario;
+select * from login;
+select * from transporte;
+select * from tipo;
+select * from sensor;
+select * from dadosSensor;
+
+-- selects joinados
+
+select * from Empresa join endereço
+on idEmpresa = fkEmpEd;
+
+select * from transporte join Empresa
+on fkEmp = idEmpresa;
+
+select * from sensor join transporte
+on fkTransp = idTransporte;
+
+select * from sensor join tipo 
+on fkTipo = idTipo;
+
+select * from sensor where situaçao like 'I';
+
+select nome as 'nome empresa' from Empresa join endereço 
+	on idEmpresa = fkEmpEd  where endereço.UF = 'SP' ;
+    
+select * from transporte join sensor 
+	on fktransp = idTransporte;
+    
+-- Select renomeados --
+    
+select  e.idEmpresa,
+		e.nome,
+		e.cnpj,
+		e.telefone,
+        r.rua,
+        r.bairro,
+        r.UF 
+        from Empresa as e join endereço as r on 
+        e.idEmpresa = r.fkEmpEd; 
+        
+select e.idEmpresa,
+		e.nome,
+        e.cnpj,
+        e.telefone,
+        t.placa,
+        t.modelo
+        from Empresa as e join transporte as t on
+        e.idEmpresa = t.fkEmp;
+        
+        
+select e.idEmpresa,
+		e.nome,
+        e.cnpj,
+        e.telefone,
+        t.placa,
+        t.modelo,
+        s.idSensor,
+        s.situaçao,
+        d.temperatura,
+        d.umidade,
+        d.dataHora
+        from Empresa as e join transporte as t on 
+        e.idEmpresa = t.fkEmp join sensor as s on 
+        t.idTransporte = fktransp join dadosSensor as d on
+        s.idSensor = d.fkSensor;
