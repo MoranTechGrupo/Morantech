@@ -12,31 +12,23 @@
 </head>
 
 <body>
-    <!-- NAVEBAR -->
-    <div class="header">
-        <ul class="navebar">
-            <li class="caminhao">
-                <a href="#" class="icons"><i class="fa-sharp fa-solid fa-truck"></i></a>
-                <a> Caminhão (ABC1234) </a>
-                    <div class="data">
-                        <input class="input_data" type="date" value="2023-04-24" min="2000-01-01">
-                    </div>
-            </li>
-        </ul>
-
-        <div class="navebar1">
+    <header>
+        <nav id="menu" class="menu">
             <ul>
-                <li class="icons1">
-                    <a><i class="fa-sharp fa-solid fa-location-dot"></i></a> <!-- endereço empresa -->
-                    <a href="#"><i class="fa-solid fa-users"></i></a> <!-- link cadastro funcionario -->
-                    <a href="../html/tela-dashboard-1.html"><i class="fa-solid fa-house"></i></a> <!-- overview -->
-                </li>
+                <li><a href="#"><img src="/siteMorantech/images/morantechreal-transformed.png" style="width: 160px;" alt=""></a></li>
+                <li><a href="./index.html">MoranTech</a></li>
+                <li><a href="../html/tela-dashboard-1.html"><span class="active">HOME</span></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#">CADASTRAR FUNCIONÁRIO</a></li>
+                <li><a href="#SobreNos_caixa">CADASTRAR ENDEREÇO</a></li>
+                <li><a href="#">FEEDBACK</a></li>
             </ul>
-        </div>
-    </div>
+        </nav>
+      </header>
 
     <div class="container1">
-        
+        <a href="#" class="icons"><i class="fa-solid fa-truck"></i></a>
+
         <!-- CHART JS -->
         <div class="box">
             <canvas id="Chart_climograma"></canvas>
@@ -45,11 +37,11 @@
         <div class="container2">
             <div class="container">
                 <div class="card">
-                    <span> Placa: ABC1234 </span>
-                    <span> Modelo: Sprint 2016 </span>
-                    <span> Sensor: DHT11 </span>
-                    <span> Saída: Holambra </span>
-                    <span> Destino: São Paulo </span>
+                    <span> <b>Placa:</b>ABC1234 </span>
+                    <span> <b>Modelo:</b> Sprint 2016 </span>
+                    <span> <b>Sensor:</b> DHT11 </span>
+                    <span> <b>Saída:</b> Holambra </span>
+                    <span> <b>Destino:</b> São Paulo </span>
                 </div>
             </div>
 

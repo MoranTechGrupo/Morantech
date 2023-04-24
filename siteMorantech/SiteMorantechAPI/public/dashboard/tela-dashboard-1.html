@@ -6,18 +6,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard</title>
-  <link rel="stylesheet" href="tela-dashboard.css" />
+  <link rel="stylesheet" href="tela-dashboard-1.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-  <div class="header">
-    <div class="navbar">
-      <div id="b_usuario"></div>
-      <div id="b_id"></div>
-      <a href="../cadastroUser.html">Cadastrar usuario</a>
-    </div>
-  </div>
+  <header>
+    <nav id="menu" class="menu">
+        <ul>
+            <li><a href="#"><img src="/siteMorantech/images/morantechreal-transformed.png" style="width: 160px;" alt=""></a></li>
+            <li><a href="../index.html">MoranTech</a></li>
+            <li><a href="#">HOME</a></li>
+            
+            <li><a href="#">CADASTRAR FUNCIONÁRIO</a></li>
+            <li><a href="cadastroEndereco.html">CADASTRAR ENDEREÇO</a></li>
+            <li><a href="#">FEEDBACK</a></li>
+            <li><a href="#"><div id="b_empresa"></div></a></li>
+            <li> <a><i id="tema" class="fa-solid fa-moon"></i></a></li>
+
+        </ul>
+    </nav>
+  </header>
+
   <h1 class="titulo">Dashboard</h1>
   <div class="dashboard">
     <div class="grafico caminhao1">
@@ -67,7 +77,7 @@
     </div>
 
     <div class="tempo-real">
-      <h3>Tabela - Caminhões</h3>
+      <h3>Situação dos caminhões</h3>
       <div class="tabela">
         <div class="idCaminhoes">
           <h4>Caminhão</h4>
@@ -238,7 +248,7 @@
           display: true,
           text: "Caminhão 1 (ABC1234)",
         },
-      },
+      }, 
       scales: {
         y_umid: {
           type: 'linear',
@@ -503,86 +513,16 @@
 
   const myChart5 = new Chart(document.getElementById("myChart5"), config5);
 
-    // Gráfico de Barra
-    // const labels2 = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"];
-
-    // const data2 = {
-    //   labels: labels2,
-    //   datasets: [
-    //     {
-    //       label: "Temperatura Média",
-    //       backgroundColor: "#ff6384",
-    //       borderColor: "#ff6384",
-    //       data: [22, 24, 27, 23, 20, 18],
-    //     },
-    //     {
-    //       label: "Umidade Média",
-    //       backgroundColor: "#36a2eb",
-    //       borderColor: "#36a2eb",
-    //       data: [90, 89, 93, 87, 88, 82],
-    //     },
-    //   ],
-    // };
-
-    // const config2 = {
-    //   type: "bar",
-    //   data: data2,
-    //   options: {
-    //     responsive: true,
-    //     plugins: {
-    //       legend: {
-    //         position: "top",
-    //       },
-    //       title: {
-    //         display: true,
-    //         text: "Média de Temperatura e Umidade nas últimas 24h",
-    //       },
-    //     },
-    //   },
-    // };
-
-    // const myChart2 = new Chart(document.getElementById("myChart2"), config2);
-
-    // // Gráfico de pizza
-    // const labels3 = ["Ideal", "Alerta", "Crítico"];
-
-    // const data3 = {
-    //   labels: labels3,
-    //   datasets: [
-    //     {
-    //       label: "Sensores",
-    //       backgroundColor: ["green", "orange", "red"],
-    //       borderColor: ["green", "orange", "red"],
-    //       data: [8, 3, 2],
-    //     },
-    //   ],
-    // };
-
-    // const config3 = {
-    //   type: "pie",
-    //   data: data3,
-    //   options: {
-    //     responsive: true,
-    //     plugins: {
-    //       legend: {
-    //         position: "top",
-    //       },
-    //       title: {
-    //         display: true,
-    //         text: "Status médio dos sensores",
-    //       },
-    //     },
-    //   },
-    // };
-
-    // const myChart3 = new Chart(document.getElementById("myChart3"), config3);
 </script>
 
 </html>
 
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 <script>
-  var nomeEmpresa = sessionStorage.NOME_EMPRESA;
-  var idEmpresa = sessionStorage.ID_EMPRESA;
-  b_usuario.innerHTML = nomeEmpresa
-  b_id.innerHTML = idEmpresa;
+   var nomeEmpresa =  sessionStorage.NOME_EMPRESA;
+var idEmpresa = sessionStorage.ID_EMPRESA; 
+b_empresa.innerHTML = `<h2>Ola ${nomeEmpresa}</h2>`;
+// b_id.innerHTML = idEmpresa;
 </script>

@@ -19,7 +19,7 @@ body {
 }
 
 .menu {
-    /* background: var(--bg_color_tm_light); */
+    background: #ffe3e7;
     transition: 0.6s;
 }
 

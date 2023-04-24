@@ -1,6 +1,7 @@
-body {
-    margin: 0; 
+* {
+    margin: 0;
     padding: 0;
+<<<<<<< HEAD
     background-color: rgb(250, 243, 233);
 }
 
@@ -9,32 +10,55 @@ body {
     margin: auto;
     display: flex;
     background: rgb(228, 59, 59);
+=======
+    box-sizing: border-box;
 }
 
-.header {
-    border-bottom: 2px rgb(228, 59, 59) solid;
+body {
+    background-color: rgb(250, 243, 233);
+    padding-bottom: 20px;
 }
 
-.header a {
+/* NABEBAR */
+ :root {
+    --bg_color_tm_light: #f1ebeb;
+    --bg_page_tm_light: #ffd5d58a;
+    --borda_color_tm_light: #fa4f6c;
+    --letra_dest_color_segundaria_tm_light: #f63858;
+    --letra_color_primaria_tm_light: #1e1e1e;
+    --sombra_tm_light: #1e1e1e;
+>>>>>>> 141e5133212e62ffec3c8a3803560dca1650cf9c
+}
+
+.menu {
+    background: #ffe3e7;
+    transition: 0.6s;
+}
+
+.menu ul li a {
+    color: var(--letra_color_primaria_tm_light);
     text-decoration: none;
-    color: rgb(255, 255, 255);
 }
 
-.navebar {
-    width: 100%; 
-    padding: 10px;
-    padding-top: 15px;
-    height: 5px;
+.active {
+    padding-left: 6px;
+    padding-right: 6px;
+    border-bottom: 2px solid var(--borda_color_tm_light);
+}
+
+.menu ul {
     display: flex;
-    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
     list-style: none;
-} 
-
-.data {
+    /* background: #ad1212; */
+    border-bottom: var(--borda_color_tm_light) solid 2px;
     padding: 10px;
+    height: 60px;
+    font-weight: 400;
 }
 
+<<<<<<< HEAD
 .input_data {
     width: 200px;
     height: 40px;
@@ -48,49 +72,44 @@ body {
 
     background: rgb(253, 209, 217);
     border:rgb(251, 203, 211);    
+=======
+.menu ul li {
+    font-size: 15px;
+    transition: 0.6s;
+>>>>>>> 141e5133212e62ffec3c8a3803560dca1650cf9c
 }
 
-
-.header .navebar .cadastro {
-    display: flex;
-    padding-left: 350px;
-    gap: 13px;
+.menu ul li a img {
+    width: 100px;
+    transition: 0.6s;
 }
 
-.navebar .caminhao {
-    padding-top: 7px;
-    padding-left: 3%;
-    gap: 10px;
-    display: flex;
-    align-items: center;
+ion-icon:hover {
+    color: #65e030;
 }
 
-.navebar .caminhao .icons i{
-    font-size: 35px;
-    color: rgb(255, 255, 255);
+.menu ul li ion-icon {
+    font-size: 40px;
+    transition: 0.6s;
 }
 
-.navebar .caminhao a{
-    font-size: 30px;
-    font-weight: bold;
+.menu ul li i {
+    font-size: 25px;
+    transition: 0.6s;
+    width: 25px;
+    /* background: #001eff; */
+    cursor: pointer;
 }
 
-.navebar1 {
-    padding-right: 2%;
-    display: flex;
-    flex-direction: row-reverse;
+.menu ul li a img:hover {
+    width: 120px;
+    transition: 0.6s;
 }
 
-.navebar1 .icons1 {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    padding-top: 5%;
-    font-size: 32px;
+.menu ul li:hover {
+    font-size: 20px;
+    transition: 0.6s;
 }
-
-
 
 /*  */
 .container1 {
@@ -99,6 +118,10 @@ body {
     gap: 70px;
 }
 
+.icons .box {
+    display: flex;
+    flex-direction: column;
+}
 .container1 .box {
     margin-left: 80px; 
     margin-top: 80px;
@@ -108,7 +131,11 @@ body {
     height: 60vh; 
     width: 60vw;
     color: black;
+<<<<<<< HEAD
     background-color: white;
+=======
+    background-color: rgb(255, 255, 255);
+>>>>>>> 141e5133212e62ffec3c8a3803560dca1650cf9c
     border: 1px solid rgba(245, 7, 7, 0.248);
     border-radius: 15px;
     box-shadow: 2px 2px 10px 1px rgba(245, 7, 7, 0.489);
@@ -134,11 +161,11 @@ body {
 .card span{
     padding: 10px;
     display:  flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
+    gap: 5px;
     font-size: 20px;
-    align-items: center;
     font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
 }
 
 .container2 .container .container_alertas {
@@ -177,7 +204,7 @@ body {
     padding: 10px;
     display: flex;
     flex-direction: row;
-    gap: 15px;
+    /* gap: 15px; */
 }
 
 .container1 .container_alertas .dados .temperatura {
