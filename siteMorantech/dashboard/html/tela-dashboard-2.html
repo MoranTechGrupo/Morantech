@@ -1,86 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/tela-dashboard2.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/tela-dashboard2.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Dashboard2</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- NAVEBAR -->
     <div class="header">
-        <ul class="navebar">
-            <li class="caminhao">
-                <a href="#" class="icons"><i class="fa-sharp fa-solid fa-truck"></i></a>
-                <a> Caminhão (ABC1234) </a>
-                    <div class="data">
-                        <input class="input_data" type="date" value="2023-04-24" min="2000-01-01">
-                    </div>
-            </li>
-        </ul>
-
-        <div class="navebar1">
-            <ul>
-                <li class="icons1">
-                    <a><i class="fa-sharp fa-solid fa-location-dot"></i></a> <!-- endereço empresa -->
-                    <a href="#"><i class="fa-solid fa-users"></i></a> <!-- link cadastro funcionario -->
-                    <a href="../html/tela-dashboard-1.html"><i class="fa-solid fa-house"></i></a> <!-- overview -->
-                </li>
-            </ul>
-        </div>
+      <ul class="navebar">
+        <li class="caminhao">
+          <a href="#" class="icons"
+            ><i class="fa-sharp fa-solid fa-truck" style="color: #fa4f6c"></i
+          ></a>
+          <a> Caminhão (ABC1234) </a>
+          <div class="data">
+            <input
+              class="input_data"
+              type="date"
+              value="2023-04-24"
+              min="2000-01-01"
+            />
+          </div>
+        </li>
+      </ul>
     </div>
+   <!-- <div class="navebar1">
+      <ul>
+        <li>
+          <a href="#"
+            ><img
+              src="/siteMorantech/images/morantechreal-transformed.png"
+              style="width: 160px"
+              alt=""
+          /></a>
+        </li>
+        <li><a href="./index.html">MoranTech</a></li>
+        <li>
+          <a href="../html/tela-dashboard-1.html"
+            ><span class="active">HOME</span></a
+          >
+        </li>
+        <li><a href="#"></a></li>
+        <li><a href="#">CADASTRAR FUNCIONÁRIO</a></li>
+        <li><a href="#SobreNos_caixa">CADASTRAR ENDEREÇO</a></li>
+        <li><a href="#">FEEDBACK</a></li>
+      </ul>
+    </div> -->
 
     <div class="container1">
 
-        <!-- CHART JS -->
-        <div class="box">
-            <canvas id="Chart_climograma"></canvas>
+      <!-- CHART JS -->
+      <div class="box">
+        <canvas id="Chart_climograma"></canvas>
+      </div>
+
+      <div class="container2">
+        <div class="container">
+          <div class="card">
+            <span> <b>Placa:</b>ABC1234 </span>
+            <span> <b>Modelo:</b> Sprint 2016 </span>
+            <span> <b>Sensor:</b> DHT11 </span>
+            <span> <b>Saída:</b> Holambra </span>
+            <span> <b>Destino:</b> São Paulo </span>
+          </div>
         </div>
 
-        <div class="container2">
-            <div class="container">
-                <div class="card">
-                    <span> Placa: ABC1234 </span>
-                    <span> Modelo: Sprint 2016 </span>
-                    <span> Sensor: DHT11 </span>
-                    <span> Saída: Holambra </span>
-                    <span> Destino: São Paulo </span>
-                </div>
+        <div class="container_alertas">
+          <div class="dados">
+            <div class="temperatura">
+              <span><b>Temperatura</b></span>
+              <span>Menor: 2°C</span>
+              <span>Maior: 19°C</span>
             </div>
-
-            <div class="container_alertas">
-                <div class="dados">
-                    <div class="temperatura">
-                        <span><b>Temperatura</b></span>
-                        <span>Menor: 2°C</span>
-                        <span>Maior: 19°C</span>
-                    </div>
-                    <div class="divisao"></div>
-                    <div class="umidade">
-                        <span><b>Umidade</b></span>
-                        <span>Menor: 72°C</span>
-                        <span>Maior: 97°C</span>
-                    </div>
-                </div>
+            <div class="divisao"></div>
+            <div class="umidade">
+              <span><b>Umidade</b></span>
+              <span>Menor: 72°C</span>
+              <span>Maior: 97°C</span>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-
-    </div>
-
-
-</body>
-
+  </body>
 </html>
 
 <!--~ Codigos JavaScripts dos icons no site-->
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script
+  type="module"
+  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+  nomodule
+  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+></script>
 
 <!-- Script CHART JS -->
 <script src="../js/chartjs2.js"></script>

@@ -1,61 +1,89 @@
-body {
+* {
     margin: 0; 
     padding: 0;
-    background-color: rgb(248, 246, 244);
+    box-sizing: border-box;
 }
 
-/* NABEBAR */
+
+body {
+    width: 100%;
+    background-color: rgb(250, 243, 233);
+}
+
+/* NAVEBAR */
 .header {
-    margin: auto;
+    color: #fa4f6c;
     display: flex;
-    background: rgb(228, 59, 59);
+    width: 100%;
+    background: rgb(248, 243, 236);
 }
 
-.header {
-    border-bottom: 2px rgb(228, 59, 59) solid;
+.header ul {
+    background: rgb(248, 243, 236);
+    list-style: none;
+    border-bottom: #fa4f6c solid 2px;
+    padding: 40px;
+    height: 60px;
+    font-weight: 400;
 }
 
-.header a {
+.fa-truck {
+    color: #fa4f6c;
+}
+
+.header li a {
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: #fa4f6c;
 }
 
-.navebar {
-    width: 100%; 
+ul {
+    width: 100%;
     padding: 10px;
     padding-top: 15px;
-    height: 5px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    list-style: none;
-} 
+    height: 50px;
 
-.data {
+    background: #ffe3e7;
+    box-sizing: border-box;
+}
+
+li {
+    font-weight: 800;
+}
+
+  ul {
+    font-size: 20pt;
+    display: flex;
+    list-style: none;
+    /* background: #ad1212; */
+    border-bottom: #fa4f6c solid 2px;
     padding: 10px;
+    height: 60px;
+    font-weight: 400;
 }
 
 .input_data {
-    width: 200px;
-    height: 40px;
-    border-radius: 6px;
+    width: 240px;
+    height: 42px;
+    border-radius: 8px;
     
     font-size: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
 
-    background: rgb(253, 209, 217);
-    border:rgb(251, 203, 211);    
-}
+    margin-left: 15px;
 
-
-.header .navebar .cadastro {
     display: flex;
-    padding-left: 350px;
-    gap: 13px;
+    justify-content: center;
+
+
+    background: rgb(253, 209, 217);
+    border: none;  
 }
 
-.navebar .caminhao {
+
+
+.navebar .caminhao  {
+    color: #fa4f6c;
     padding-top: 7px;
     padding-left: 3%;
     gap: 10px;
@@ -63,31 +91,36 @@ body {
     align-items: center;
 }
 
-.navebar .caminhao .icons i{
-    font-size: 35px;
-    color: rgb(255, 255, 255);
+
+
+.menu ul li i {
+    font-size: 25px;
+    transition: 0.6s;
+    width: 25px;
+    /* background: #001eff; */
+    cursor: pointer;
 }
 
-.navebar .caminhao a{
-    font-size: 30px;
-    font-weight: bold;
-}
 
 .navebar1 {
-    padding-right: 2%;
     display: flex;
     flex-direction: row-reverse;
 }
 
+.icons1 {
+    padding-right: 35px;
+    padding-bottom: 5px;
+}
+
 .navebar1 .icons1 {
+    color: #fa4f6c;
     list-style: none;
     display: flex;
     flex-direction: row;
-    gap: 25px;
+    gap: 35px;
     padding-top: 5%;
     font-size: 32px;
 }
-
 
 
 /*  */
@@ -97,6 +130,10 @@ body {
     gap: 70px;
 }
 
+.icons .box {
+    display: flex;
+    flex-direction: column;
+}
 .container1 .box {
     margin-left: 80px; 
     margin-top: 80px;
@@ -106,7 +143,7 @@ body {
     height: 60vh; 
     width: 60vw;
     color: black;
-    background-color: rgb(250, 243, 233);
+    background-color: white;
     border: 1px solid rgba(245, 7, 7, 0.248);
     border-radius: 15px;
     box-shadow: 2px 2px 10px 1px rgba(245, 7, 7, 0.489);
@@ -119,23 +156,25 @@ body {
 }
 
 .card {
+    padding-top: 25px;
     width: 21vw;
     height: 30vh;
     margin-top: 80px;
     margin-left: 0;
-    background: #dcdada;
-    border: 1px solid #dcdada;
+    background: white;
+    border: 1px solid white;
     border-radius: 15px;
+    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.6);
 }
 
 .card span{
     padding: 10px;
     display:  flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
+    gap: 5px;
     font-size: 20px;
-    align-items: center;
     font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
 }
 
 .container2 .container .container_alertas {
@@ -155,9 +194,10 @@ body {
     height: 18vh;
     margin-top: 80px;
     margin-left: 0;
-    background: #dcdada;
-    border: 1px solid #dcdada;
+    background: white;
+    border: 1px solid white;
     border-radius: 15px;
+    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.6);
 }
 
 .dados span{
@@ -165,6 +205,7 @@ body {
     display:  flex;
     flex-direction: column;
     gap: 10px;
+    padding-left: 40px;
     font-size: 19px;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -173,7 +214,7 @@ body {
     padding: 10px;
     display: flex;
     flex-direction: row;
-    gap: 15px;
+    /* gap: 15px; */
 }
 
 .container1 .container_alertas .dados .temperatura {
