@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css"><!-- ? css padão \(⌐■_■)ノ -->
-    <link rel="stylesheet" href="css/style.css"> <!--? css pagina dark mode \(⌐■_■)ノ-->
+    <link rel="stylesheet" href="./assets/css/style.css"><!-- ? css padrão \(⌐■_■)ノ -->
+    <link rel="stylesheet" href="./assets/css/dark.css"> <!--? css pagina dark mode \(⌐■_■)ノ-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>MoranTech</title>
 
@@ -16,14 +16,14 @@
     <header>
         <nav id="menu" class="menu">
             <ul>
-                <!-- <li><a href="#"><img src="../assets/img/logo.png" alt=""></a></li> -->
-                <li><a href="#">MoranTech</a></li>
+                <li><a href="#"><img src="../images/morantechreal-transformed.png" style="width: 160px;" alt=""></a></li>
+                <!-- <li><a href="./index.html">MoranTech</a></li> -->
                 <li><a href="#"><span class="active">HOME</span></a></li>
-                <li><a onblur="" href="/siteMorantech/simulador/simuladorFinal.html">CALCULADORA FINANCEIRA</a></li>
-                <li><a href="../cadastro e login/cadastro2.html">ÁREA DO CLIENTE </a></li>
-                <li><a href="">SOBRE NÓS</a></li>
+                <li><a href="../simulador/simuladorFinal.html">CALCULADORA FINANCEIRA</a></li>
+                <li><a href="../cadastro e login/cadastro2.html">CADASTRE-SE</a></li>
+                <li><a href="#SobreNos_caixa">SOBRE NÓS</a></li>
                 <li><a href="#">PRODUTOS</a></li>
-                <li><a href="#"><ion-icon name="person-circle-outline"></ion-icon></a></li>
+                <li><a href="../cadastro e login/login.html"><ion-icon name="person-circle-outline"></ion-icon></a></li>
                 <li> <a><i id="tema" class="fa-solid fa-moon"></i></a></li>
 
 
@@ -33,7 +33,7 @@
 
     <section id="section_banner_inicial" class="section_banner_inicial">
         <div class="imagem_banner_inicial">
-            <img src="images/morango_banner.jpg" alt="">
+            <img src="./assets/img/morango_banner.jpg" alt="">
         </div>
         <div class="texto_banner_inicial">
             <h1>A segurança tecnologica para o seu morango...</h1><br><br>
@@ -49,42 +49,35 @@
 
         <div class="caixa_introducao">
             <div class="imagem_caixa">
-                <img src="images/plantacaoMorango.jpg" alt="">
-            </div>
-            <h2>Plantação de morango</h2>
+                <img src="./assets/img/undraw_navigator_a479.svg" alt="">
+            </div><br>
+            <h2>Transporte do morango</h2><br>
             <p class="texto_caixa_introducao">
-                A plantação de morango é importante não só do ponto de vista econômico, como também do ponto de vista
-                nutricional e alimentar. A plantação de morango é uma importante fonte de emprego e renda para muitas
-                comunidades rurais, contribuindo para o desenvolvimento local.
+                O transporte dos morangos é realizado com controle de temperatura e a umidade do ambiente. 
             </p>
-            <span>Ver mais...</span>
 
         </div>
 
         <div class="caixa_introducao">
             <div class="imagem_caixa">
-                <img src="images/TransporteMorango.webp" alt="">
-            </div>
-            <h2>Transporte do morango</h2>
+                <img src="./assets/img/undraw_design_components_9vy6.svg" alt="">
+            </div><br>
+            <h2>Saiba como funciona os sensores</h2><br>
             <p class="texto_caixa_introducao">
-                O transporte do morango é um aspecto fundamental da cadeia produtiva dessa fruta, pois é preciso
-                garantir que ela chegue aos mercados e consumidores finais em perfeitas condições de qualidade e
-                frescor.
+               Com a nossa empresa o seu negocio terá um controle total da temperatura e da umidade dos seus transportes de morango por meio de sensores de temperatura e de umidade que serão colocados dentro de seus caminhões.
             </p>
-            <span>Ver mais...</span>
 
         </div>
 
         <div class="caixa_introducao">
             <div class="imagem_caixa">
-                <img src="images/vendamorango.jfif" alt="">
-            </div>
-            <h2>Venda do morango</h2>
+                <img src="./assets/img/grafico.svg" alt="">
+            </div><br>
+            <h2>Fique no controle</h2><br>
             <p class="texto_caixa_introducao">
-                A venda do morango é uma etapa crucial na cadeia produtiva do morango. É importante que o morango seja
-                apresentado ao consumidor final em boas condições de qualidade, aparência e sabor da fruta.
+                Tenha um controle total dos dados registrados dos seus transportes por meio de uma tela exclusivamente moldada para a sua empresa.
             </p>
-            <span>Ver mais...</span>
+            
 
 
         </div>
@@ -100,36 +93,96 @@
 
             <div class="caixa_servico" date-aos="fade-up" data-aos-delay="100">
                 <!--^ Temperatura -->
-                <i class="fa-solid fa-temperature-half"></i> <br><br>
+                <i class="fa-solid fa-temperature-half"></i> <br>
                 <p>Trabalhamos com o sensor <b>DHT11</b> que capta, ao mesmo tempo, a temperatura e umidade do ambiente, para auxilia-lo no controle do
                     seu produto.</p>
             </div>
 
             <div class="caixa_servico"><br>
                 <!--^ Monitoramento -->
-                <i class="fa-sharp fa-solid fa-chart-line"></i> <br><br>
+                <i class="fa-sharp fa-solid fa-chart-line"></i> <br>
                 <p>Ao fazer o login, o usuário terá acesso a uma dashboard intuitiva, na qual será possível visualizar os dados 
                 captados pelos sensores, visualizando gráficos que ajudam no monitoramento de seu transporte.</p>
             </div>
 
             <div class="caixa_servico">
                 <!--^ Suporte -->
-                <i class="fa-solid fa-handshake-angle"></i></i> <br><br>
-                <p>Nossa equipe sempre estará disponível e pronta para dar todo o suporte necessário a qualquer momento,
-                além de realizar um treinamento para todos os usuários que terão contato tanto com o sensor quanto com o site. </p>
+                <i class="fa-solid fa-handshake-angle"></i></i> <br>
+                <p>Nossa equipe sempre estará disponível e pronta para dar todo o suporte necessário a qualquer momento, além de realizar um treinamento para todos os usuários que terão contato tanto com o sensor quanto com o site. </p>
             </div>
 
             <div class="caixa_servico">
                 <!--^ Resultados -->
-                <i class="fa-solid fa-arrow-up-right-dots"></i> <br><br>
-                <p>Com os nossos sensores, visamos que os adventos com temperatura e umi- <br>dade no seu transporte reduza cada vez mais, além de que
+                <i class="fa-solid fa-arrow-up-right-dots"></i> <br>
+                <p>Com os nossos sensores, visamos que os adventos com temperatura e umidade no seu transporte reduza cada vez mais, além de que
                    estimamos que a sua perda de produto seja de até 5%, influência assim no aumento do seu lucro! </p>
             </div>
 
             
         </div>
     </section>
+    <div id="SobreNos_caixa" class="caixa_texto_total">
 
+        <div class="caixa_texto">
+            <br><br><br><br>
+            <h1>Quem somos</h1>
+    
+            <p>
+                Em 2022 e 2023 nos encontramos saindo de uma pandemia onde nossos comércios vinham sendo reabertos e a
+                economia tomando forma novamente. Produtores e agrônomos vinham sendo derrotados pela falta de demanda e
+                prejuízos pela constante falta de matéria para suas plantações.
+            </p><br>
+            <p>Quando voltamos a rota normal de comercialização houve um grande avanço de transporte de frutas, porem as
+                estruturas para tal não tinham sido inovadas para suportar sua demanda, gerando assim prejuízos e
+                transtornos para nós empreendedores quanto para clientes finais.</p><br>
+    
+            <p>Em março de 2023 nasce uma ideia! Uma linha de raciocino que possivelmente iria alavancar e inovar as
+                tecnologias do transporte de frutas. Foram meses de pesquisas até percebermos que o maior prejuízo de
+                insumos era na área do Morango, seja ele por Umidade ou até mesmo temperatura, criando assim a Morantech
+                especialista em analises e monitoramento em transportes de morango.</p><br>
+    
+            <p>Somos pioneiros em foco no produtor e distribuidor de morangos pelo Brasil, visando sempre qualidade e
+                companheirismo com nossos clientes, não visamos apenas empresas, mas nossa visão vem de olhar mais a
+                fundo,
+                mais a dentro de apenas um transporte e concorrência, visamos famílias, visamos pais e mães que trazem
+                sustento para suas casas. Temos orgulho em sermos inovadores Morantech e trazermos qualidade a nossa
+                maior
+                riqueza que é o agro.</p><br>
+            <div class="caixa_foco_total">
+                <div class="caixa_foco_importante">
+                    <p><span>Missão:</span> A Morantech nasceu quando houve a necessidade de nos atualizarmos no transporte
+                    de Morangos
+                    pelo Brasil, trazendo qualidade e uma melhor agilidade em analises e decisões referente a prejuízos
+                    de morango
+                    em seu transporte.<br>
+                    </p><br>
+                </div>
+    
+                <div class="caixa_foco_importante">
+                    <p><span>Visão:</span> Em nosso futuro visamos evidenciar como a tecnologia é nossa aliada em algumas
+                        decisões
+                        trazendo benefícios a nossa produção e transporte, crescendo a cada ano e nos tornando
+                        referência em
+                        território nacional com transparência e honestidade.</p><br>
+    
+                </div>
+    
+                <div class="caixa_foco_importante">
+                    <p><span>Valores:</span> Temos como raízes a transparência e honestidade pois sabemos que nos bastidores
+                        de grandes
+                        produtores e distribuidores há famílias, que fazem de seu esforço para trazer sustento para suas
+                        casas, em
+                        nossa companhia não abrimos mão da parceria, lealdade, honestidade e transparência, sabemos que
+                        assim
+                        chegaremos muito mais longe e atingiremos nossos objetivos como Empresa.</p>
+                </div>
+            </div>
+    
+    <!-- <hr> -->
+        </div>
+    </div>
+    
+    
     <footer id="footer" class="footer">
         <ul class="contato">
             <li>
@@ -153,13 +206,8 @@
             </li><br>
             <ul class="redes">
                 <li><a href="#"><i class="fa-brands fa-facebook icones_redes facebook"></a></i></li>
-                <!-- 
-                <li>
-                    <a href="#">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                </li> 
-             -->
+          
+            
                 <li><a href="#"><i class="fa-brands fa-square-instagram icones_redes instagram"></i></a></li>
                 <li><a target="_blank" href="https://github.com/MoranTechGrupo/Morantech.git"><i class="fa-brands fa-github icones_redes github"></a></i></li>
                 <li><a href="#"><i class="fa-brands fa-linkedin icones_redes linkedin "></a></i></li>
@@ -173,7 +221,7 @@
 </html>
 
 <!--~ Arquivo JavaScript original  -->
-<script src="js/script.js"></script>
+<script src="./assets/js/script.js"></script>
 
 <!--~ Codigos JavaScripts  para a criação dos icons no site-->
 

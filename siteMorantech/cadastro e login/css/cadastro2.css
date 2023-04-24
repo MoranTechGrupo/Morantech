@@ -67,21 +67,38 @@ input {
 
 button {
     width: 40%;
-    padding: 15px;
+    padding: 14px;
     color: #fff;
     margin-top: 10px;
     background-color: #7ed957;
-    box-shadow: 10px 14px 20px #5ca13e;
+    box-shadow: 10px 10px 20px #71a75a;
     border: none;
     border-radius: 20px;
+    font-size: 12pt;
     font-weight: 800;
     cursor: pointer;
 }
 
 button:hover {
-    width: 42%;
-    padding: 17px;
+    width: 41%;
+    padding: 15px;
     transition: 0.5s;
+}
+
+.cadastrar {
+    margin-bottom: 45px;
+}
+
+a {
+    padding: 8px;
+    border-radius: 25px;
+    margin-top: 5px;
+    width: fit-content;
+    background: #cfcfcf;
+    cursor: pointer;
+    text-decoration: none;
+    color: #444444;
+
 }
 
 

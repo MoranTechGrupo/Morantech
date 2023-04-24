@@ -15,17 +15,19 @@
     <header>
       <nav id="menu" class="menu">
         <ul>
-          <!-- <li><a href="#"><img src="../assets/img/logo.png" alt=""></a></li> -->
-          <li><a href="index.html">MoranTech</a></li>
-          <li><a href="/Gabriel/pages/index.html">HOME</a></li>
-          <li><a href="simuladorFinal.html" class="active">CALCULADORA FINANCEIRA</a></li>
-          <li><a href="#">ÁREA DO CLIENTE </a></li>
-          <li><a href="sobreNos.html">SOBRE NÓS</a></li>
-          <li><a href="#">PRODUTOS</a></li>
+          <li><a href="../pagInicial/index.html"><img src="../images/morantechreal-transformed.png" style="width: 160px; height: 150px;" alt=""></a></li>
+          <li><a href="../pagInicial/index.html">HOME</a></li>
           <li>
-            <a href="cadastro.html"
-              ><ion-icon name="person-circle-outline"></ion-icon
-            ></a>
+            <a href="simuladorFinal.html" class="active"
+              >CALCULADORA FINANCEIRA</a
+            >
+          </li>
+
+          <li>
+            <a href="../cadastro e login/cadastro2.html">CADASTRE-SE </a>
+          </li>
+          <li>
+            <a href="../cadastro e login/login.html"><ion-icon name="person-circle-outline"></ion-icon></a>
           </li>
         </ul>
       </nav>
@@ -34,27 +36,21 @@
     <div class="container">
       <div class="left-container">
         <h1 class="titulo">Simulador Financeiro <br />MoranTech</h1>
-       <img src="../images/investment-data-animate.svg" alt="investimento">
+        <img src="../images/investment-data-animate.svg" alt="investimento" />
       </div>
 
       <div class="right-container">
-        <span>Quantidade de Morango que será Transportada:</span>
-        <input
-          id="input_qtdMorangoKg"
-          placeholder="(Kg)"
-        />
-        <span>Informe o valor pra o Kg do morango:</span>
-        <input
-          id="input_valorMorango"
-          placeholder="(R$)"
-        />
-        <span>Informe sua porcentagem estimada de perda:</span>
+        <span class="info">Quantidade de Morango que será Transportada:</span>
+        <input id="input_qtdMorangoKg" placeholder="Informe em Kg" />
+        <span class="info">Informe o valor por Kg do morango:</span>
+        <input id="input_valorMorango" placeholder="Informe em R$" />
+        <span class="info">Informe sua estimativa de perda:</span>
         <input
           type="number"
           min="1"
           max="100"
           id="input_porcEstimadaCliente"
-          placeholder="(%)"
+          placeholder="Informe em %"
         />
         <br />
         <button onclick="simule()" class="botao">Simular</button>
@@ -106,3 +102,6 @@
     <script src="js/simulador2.js"></script>
   </body>
 </html>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

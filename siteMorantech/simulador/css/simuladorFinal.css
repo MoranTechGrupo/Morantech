@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: ; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 
@@ -11,7 +11,7 @@ body {
     flex-wrap: wrap;
     width: 100vw;
     height: 100vh;
-   background-image: linear-gradient(to right, rgb(251, 92, 161) , rgb(255, 150, 196));
+    background-image: linear-gradient(to right, rgb(251, 92, 161) , rgb(255, 150, 196));
 }
 
 
@@ -19,8 +19,9 @@ body {
 
 
 :root {
-    --bg_color_tm_light: #ffc3d5;
-    --bg_page_tm_light: #e961958a;
+    /*color: #84fb51ca;*/
+    --bg_color_tm_light: #f1ebeb;
+    --bg_page_tm_light: #ffd5d58a;
     --borda_color_tm_light: #fa4f6c;
     --letra_dest_color_segundaria_tm_light: #f63858;
     --letra_color_primaria_tm_light: #1e1e1e;
@@ -67,9 +68,8 @@ body {
     transition: 0.6s;
 }
 
-ion-icon:hover {
-    color: #65e030;
-}
+
+
 
 .menu ul li ion-icon {
     font-size: 40px;
@@ -83,6 +83,9 @@ ion-icon:hover {
     /* background: #001eff; */
     cursor: pointer;
 }
+ion-icon:hover {
+    color: #65e030;
+}
 
 .menu ul li a img:hover {
     width: 120px;
@@ -95,6 +98,10 @@ ion-icon:hover {
     transition: 0.6s;
 }
 
+.info {
+    color: #444444;
+}
+
 
 .container {
     margin-left: 150px;
@@ -104,7 +111,7 @@ ion-icon:hover {
     width: 80vw;
     justify-content: space-between;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 25px;
     margin-bottom: 20px;
     margin-top: 20px;
     box-shadow: 10px 15px 25px #8e4357;
@@ -117,11 +124,12 @@ ion-icon:hover {
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   background-color: #fa4f6c;
+   background-color: #ff627ddd;
    border-radius: 20px 0px 0px 20px;
 }
 
 .titulo {
+    color: #fff;
     font-size: 25pt;
     font-weight: 600;
     margin-bottom: 25px;
@@ -139,7 +147,7 @@ ion-icon:hover {
 
 input {
     border: none;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #fb4d6add;
     outline: none;
     padding: 8px;
     width: 50%;
@@ -161,6 +169,11 @@ button {
     cursor: pointer;
     box-shadow: 10px 10px 20px #5ca13e;
     font-size: 12pt;
+}
+button:hover {
+    width: 46%;
+    padding: 17px;
+    transition: 0.5s;
 }
 
 .result {
@@ -188,7 +201,7 @@ button {
 }
 
 span {
-    font-weight: 600;
+    font-weight: 500;
     font-size: large;
     margin-bottom: 5px;
 }
