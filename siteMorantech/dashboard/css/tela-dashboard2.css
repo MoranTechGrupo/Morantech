@@ -97,28 +97,13 @@ li {
     font-size: 25px;
     transition: 0.6s;
     width: 25px;
-    /* background: #001eff; */
     cursor: pointer;
 }
 
-
-.navebar1 {
+.home .icons1 {
+    color: #fa4f6c;
     display: flex;
     flex-direction: row-reverse;
-}
-
-.icons1 {
-    padding-right: 35px;
-    padding-bottom: 5px;
-}
-
-.navebar1 .icons1 {
-    color: #fa4f6c;
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    gap: 35px;
-    padding-top: 5%;
     font-size: 32px;
 }
 
@@ -134,6 +119,7 @@ li {
     display: flex;
     flex-direction: column;
 }
+
 .container1 .box {
     margin-left: 80px; 
     margin-top: 80px;
@@ -211,10 +197,8 @@ li {
 }
 
  .dados {
-    padding: 10px;
     display: flex;
     flex-direction: row;
-    /* gap: 15px; */
 }
 
 .container1 .container_alertas .dados .temperatura {
@@ -232,9 +216,5 @@ li {
     align-items: center;
     gap: 2px;
 }
- 
-.container1 .container_alertas .dados .divisao {
-    border: 1px solid black;
-    height: 120px;
-}
+
 

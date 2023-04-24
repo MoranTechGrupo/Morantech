@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard</title>
-  <link rel="stylesheet" href="../css/tela-dashboard.css" />
+  <link rel="stylesheet" href="../css/tela-dashboard-1.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -15,34 +15,36 @@
     <nav id="menu" class="menu">
         <ul>
             <li><a href="#"><img src="/siteMorantech/images/morantechreal-transformed.png" style="width: 160px;" alt=""></a></li>
-            <li><a href="./index.html">MORANTECH</a></li>
-            <li><a href="#"><span class="active">HOME</span></a></li>
-            <li><a href="#"></a></li>
+            <li><a href="../index.html">MoranTech</a></li>
+            <li><a href="#">HOME</a></li>
+            
             <li><a href="#">CADASTRAR FUNCIONÁRIO</a></li>
-            <li><a href="#">CADASTRAR ENDEREÇO</a></li>
+            <li><a href="cadastroEndereco.html">CADASTRAR ENDEREÇO</a></li>
             <li><a href="#">FEEDBACK</a></li>
-            <li><a href="#"><ion-icon name="person-circle-outline"></ion-icon></a></li>
+            <li><a href="#"><div id="b_empresa"></div></a></li>
+            <li> <a><i id="tema" class="fa-solid fa-moon"></i></a></li>
+
         </ul>
     </nav>
   </header>
 
-  <h1 class="titulo">Dashboard - Morangos Brasil</h1>
+  <h1 class="titulo">Dashboard</h1>
   <div class="dashboard">
-    <div class="grafico caminhao1">
+    <a href="../html/tela-dashboard-2.html" class="grafico caminhao1">
       <canvas id="myChart1"></canvas>
-    </div>
-    <div class="grafico caminhao2">
+    </a>
+    <a  href="../html/tela-dashboard-2.html" class="grafico caminhao2">
       <canvas id="myChart2"></canvas>
-    </div>
-    <div class="grafico caminhao3">
+    </a>
+    <a  href="../html/tela-dashboard-2.html" class="grafico caminhao3">
       <canvas id="myChart3"></canvas>
-    </div>
-    <div class="grafico caminhao4">
+    </a>
+    <a  href="../html/tela-dashboard-2.html" class="grafico caminhao4">
       <canvas id="myChart4"></canvas>
-    </div>
-    <div class="grafico caminhao5">
+    </a>
+    <a  href="../html/tela-dashboard-2.html" class="grafico caminhao5">
       <canvas id="myChart5"></canvas>
-    </div>
+    </a>
 
     <div class="grafico indicativo">
       <h3>Indicativos dos sensores</h3>
@@ -62,14 +64,6 @@
           <span>90% - 94.9%</span>
           <span>95% - 96%</span>
           <span>Acima de 96%</span>
-        </div>
-        <div class="descricao">
-          <h4>Descrição</h4>
-          <span>Crítico</span>
-          <span>Alerta</span>
-          <span>Ideal</span>
-          <span>Alerta</span>
-          <span>Crítico</span>
         </div>
         <div class="status">
           <h4>Indicativo</h4>
@@ -129,7 +123,7 @@
     </div>
 
     <div class="info">
-      <h3>Temperatura e umidade durante o trajeto atual dos caminhões</h3>
+      <h3>Temperatura e umidade durante o trajeto dos caminhões</h3>
       <div class="caminhoes">
         <div class="caminhao">
           <h4>Caminhão 1</h4>
@@ -525,3 +519,10 @@
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<script>
+   var nomeEmpresa =  sessionStorage.NOME_EMPRESA;
+var idEmpresa = sessionStorage.ID_EMPRESA; 
+b_empresa.innerHTML = `<h2>Ola ${nomeEmpresa}</h2>`;
+// b_id.innerHTML = idEmpresa;
+</script>
