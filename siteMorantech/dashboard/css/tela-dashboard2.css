@@ -1,30 +1,108 @@
-body {
-    margin: 0; 
+* {
+    margin: 0;
     padding: 0;
-    background-color: rgb(248, 246, 244);
+    box-sizing: border-box;
+}
+
+
+body {
+    width: 100vw;
+    background-color: rgb(250, 243, 233);
+}
+
+:root {
+    --bg_color_tm_light: #f1ebeb;
+    --bg_page_tm_light: #ffd5d58a;
+    --borda_color_tm_light: #fa4f6c;
+    --letra_dest_color_segundaria_tm_light: #f63858;
+    --letra_color_primaria_tm_light: #1e1e1e;
+    --sombra_tm_light: #1e1e1e;
+}
+
+.menu {
+    /* background: var(--bg_color_tm_light); */
+    transition: 0.6s;
+}
+
+.menu ul li a {
+    color: var(--letra_color_primaria_tm_light);
+    text-decoration: none;
+}
+
+.active {
+    padding-left: 6px;
+    padding-right: 6px;
+    border-bottom: 2px solid var(--borda_color_tm_light);
+}
+
+
+.menu ul li {
+    font-size: 15px;
+    transition: 0.6s;
+}
+
+.menu ul li a img {
+    width: 100px;
+    transition: 0.6s;
+}
+
+ion-icon:hover {
+    color: #65e030;
+}
+
+.menu ul li ion-icon {
+    font-size: 40px;
+    transition: 0.6s;
+}
+
+.menu ul li i {
+    font-size: 25px;
+    transition: 0.6s;
+    width: 25px;
+    /* background: #001eff; */
+    cursor: pointer;
+}
+
+.menu ul li a img:hover {
+    width: 120px;
+    transition: 0.6s;
+}
+
+.menu ul li:hover {
+    font-size: 20px;
+    transition: 0.6s;
 }
 
 /* NABEBAR */
 .header {
-    margin: auto;
+    color: #fa4f6c;
     display: flex;
-    background: rgb(228, 59, 59);
+    background: rgb(250, 243, 233);
 }
 
-.header {
-    border-bottom: 2px rgb(228, 59, 59) solid;
+.header ul {
+    list-style: none;
+    border-bottom: var(--borda_color_tm_light) solid 2px;
+    padding: 40px;
+    height: 60px;
+    font-weight: 400;
+
 }
 
-.header a {
+.fa-truck {
+    color: #fa4f6c;
+}
+
+.header li a {
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: #fa4f6c;
 }
 
-.navebar {
-    width: 100%; 
+ul {
+    width: 100%;
     padding: 10px;
     padding-top: 15px;
-    height: 5px;
+    height: 50px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -36,16 +114,16 @@ body {
 }
 
 .input_data {
-    width: 200px;
-    height: 40px;
-    border-radius: 6px;
+    width: 240px;
+    height: 42px;
+    border-radius: 8px;
     
     font-size: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-
+    margin-left: 15px;
     background: rgb(253, 209, 217);
-    border:rgb(251, 203, 211);    
+    border: none;  
 }
 
 
@@ -55,7 +133,8 @@ body {
     gap: 13px;
 }
 
-.navebar .caminhao {
+.navebar .caminhao  {
+    color: #fa4f6c;
     padding-top: 7px;
     padding-left: 3%;
     gap: 10px;
@@ -74,16 +153,21 @@ body {
 }
 
 .navebar1 {
-    padding-right: 2%;
     display: flex;
     flex-direction: row-reverse;
 }
 
+.icons1 {
+    padding-right: 35px;
+    padding-bottom: 5px;
+}
+
 .navebar1 .icons1 {
+    color: var(--letra_color_primaria_tm_light);
     list-style: none;
     display: flex;
     flex-direction: row;
-    gap: 25px;
+    gap: 35px;
     padding-top: 5%;
     font-size: 32px;
 }
