@@ -15,10 +15,11 @@ body {
     color: #fa4f6c;
     display: flex;
     width: 100%;
-    background: rgb(250, 243, 233);
+    background: rgb(248, 243, 236);
 }
 
 .header ul {
+    background: rgb(248, 243, 236);
     list-style: none;
     border-bottom: #fa4f6c solid 2px;
     padding: 40px;
@@ -45,15 +46,19 @@ ul {
     box-sizing: border-box;
 }
 
+li {
+    font-weight: 800;
+}
+
   ul {
     font-size: 20pt;
     display: flex;
     list-style: none;
     /* background: #ad1212; */
-    border-bottom: var(--borda_color_tm_light) solid 2px;
+    border-bottom: #fa4f6c solid 2px;
     padding: 10px;
     height: 60px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .input_data {
@@ -108,7 +113,7 @@ ul {
 }
 
 .navebar1 .icons1 {
-    color: var(--letra_color_primaria_tm_light);
+    color: #fa4f6c;
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -151,6 +156,7 @@ ul {
 }
 
 .card {
+    padding-top: 25px;
     width: 21vw;
     height: 30vh;
     margin-top: 80px;
@@ -199,6 +205,7 @@ ul {
     display:  flex;
     flex-direction: column;
     gap: 10px;
+    padding-left: 40px;
     font-size: 19px;
     font-family: Arial, Helvetica, sans-serif;
 }
