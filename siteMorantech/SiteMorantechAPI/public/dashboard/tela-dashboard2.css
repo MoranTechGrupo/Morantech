@@ -59,6 +59,7 @@ li {
     padding: 10px;
     height: 60px;
     font-weight: 400;
+    justify-content: space-between;
 }
 
 .input_data {
@@ -105,6 +106,7 @@ li {
     display: flex;
     flex-direction: row-reverse;
     font-size: 32px;
+    
 }
 
 

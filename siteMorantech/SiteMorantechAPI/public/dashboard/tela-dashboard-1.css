@@ -172,6 +172,13 @@ ion-icon:hover {
     gap: 5px;
 }
 
+.dashboard .indicativo .descricao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
 .dashboard .indicativo .status {
     display: flex;
     flex-direction: column;
