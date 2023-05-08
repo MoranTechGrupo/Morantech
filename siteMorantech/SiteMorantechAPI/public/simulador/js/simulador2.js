@@ -47,9 +47,9 @@ function simule() {
   </style>
   
   <h4>SEM A TECNOLOGIA MORANTECH</h4>
-Haveria uma perda de <b style="color: red">${perdaKgMorango}Kg</b> de morango; <br>
+Haverá uma perda de <b style="color: red">${perdaKgMorango}Kg</b> de morango; <br>
 Isso representa <b style="color: red">R$ ${perdaPorcRenda}</b> perdidos; <br>
-Ao final do transporte receberia no total <b style="color: red">R$ ${lucroTotal}</b>
+Ao final do transporte receberá no total <b style="color: red">R$ ${lucroTotal}</b>
 .`;
 
 comMoranT.innerHTML += `<style>
@@ -60,9 +60,9 @@ comMoranT.innerHTML += `<style>
 }
 </style>
 <h4>COM A TECNOLOGIA MORANTECH</h4> 
-<b style="color: green">${economiaKgMorango}kg</b> de morango deixariam de ser perdidos; <br>
-Haveria um lucro de <b style="color: green">R$ ${economiaTotalMoranthec}</b>; <br>
-Ao final do transporte receberia no total um lucro de <b style="color: green">R$ ${lucroTotalMoranthec}</b>.`;
+<b style="color: green">${economiaKgMorango}kg</b> de morango vão deixar de ser perdidos; <br>
+Vai haver um lucro de <b style="color: green">R$ ${economiaTotalMoranthec}</b>; <br>
+Ao final do transporte receberá no total um lucro de <b style="color: green">R$ ${lucroTotalMoranthec}</b>.`;
 }
   if (qtdMorangoKg <= 0) {
     alert("Por favor, digite uma quantidade de Kg válida!");

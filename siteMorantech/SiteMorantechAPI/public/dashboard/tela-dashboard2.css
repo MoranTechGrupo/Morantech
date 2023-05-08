@@ -1,106 +1,114 @@
 * {
-    margin: 0;
+    margin: 0; 
     padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    width: 100%;
     background-color: rgb(250, 243, 233);
 }
 
 /* NAVEBAR */
 .header {
-    margin: auto;
+    color: #fa4f6c;
     display: flex;
-    background: rgb(228, 59, 59);
-    box-sizing: border-box;
+    width: 100%;
+    background: rgb(248, 243, 236);
 }
 
-body {
-    background-color: rgb(250, 243, 233);
-    padding-bottom: 20px;
-}
-
-/* NABEBAR */
- :root {
-    --bg_color_tm_light: #f1ebeb;
-    --bg_page_tm_light: #ffd5d58a;
-    --borda_color_tm_light: #fa4f6c;
-    --letra_dest_color_segundaria_tm_light: #f63858;
-    --letra_color_primaria_tm_light: #1e1e1e;
-    --sombra_tm_light: #1e1e1e;
-}
-
-.menu {
-    background: #ffe3e7;
-    transition: 0.6s;
-}
-
-.menu ul li a {
-    color: var(--letra_color_primaria_tm_light);
-    text-decoration: none;
-}
-
-.active {
-    padding-left: 6px;
-    padding-right: 6px;
-    border-bottom: 2px solid var(--borda_color_tm_light);
-}
-
-.menu ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.header ul {
+    background: rgb(248, 243, 236);
     list-style: none;
-    /* background: #ad1212; */
-    border-bottom: var(--borda_color_tm_light) solid 2px;
-    padding: 10px;
+    border-bottom: #fa4f6c solid 2px;
+    padding: 40px;
     height: 60px;
     font-weight: 400;
 }
 
+.fa-truck {
+    color: #fa4f6c;
+}
+
+.header li a {
+    text-decoration: none;
+    color: #fa4f6c;
+}
+
+ul {
+    width: 100%;
+    padding: 10px;
+    padding-top: 15px;
+    height: 50px;
+
+    background: #ffe3e7;
+    box-sizing: border-box;
+}
+
+li {
+    font-weight: 800;
+}
+
+  ul {
+    font-size: 20pt;
+    display: flex;
+    list-style: none;
+    /* background: #ad1212; */
+    border-bottom: #fa4f6c solid 2px;
+    padding: 10px;
+    height: 60px;
+    font-weight: 400;
+    justify-content: space-between;
+}
+
 .input_data {
-    width: 200px;
-    height: 40px;
-    border-radius: 6px;
+    width: 240px;
+    height: 42px;
+    border-radius: 8px;
     
     font-size: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
+
+    margin-left: 15px;
+
     display: flex;
     justify-content: center;
 
+
     background: rgb(253, 209, 217);
-    border:rgb(251, 203, 211);    
+    border: none;  
 }
 
-.menu ul li a img {
-    width: 100px;
-    transition: 0.6s;
+
+
+.navebar .caminhao  {
+    color: #fa4f6c;
+    padding-top: 7px;
+    padding-left: 3%;
+    gap: 10px;
+    display: flex;
+    align-items: center;
 }
 
-ion-icon:hover {
-    color: #65e030;
-}
 
-.menu ul li ion-icon {
-    font-size: 40px;
-    transition: 0.6s;
-}
 
 .menu ul li i {
     font-size: 25px;
     transition: 0.6s;
     width: 25px;
-    /* background: #001eff; */
     cursor: pointer;
 }
 
-.menu ul li a img:hover {
-    width: 120px;
-    transition: 0.6s;
+.home .icons1 {
+    color: #fa4f6c;
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 32px;
+    
 }
 
-.menu ul li:hover {
-    font-size: 20px;
-    transition: 0.6s;
-}
 
 /*  */
 .container1 {
@@ -113,6 +121,7 @@ ion-icon:hover {
     display: flex;
     flex-direction: column;
 }
+
 .container1 .box {
     margin-left: 80px; 
     margin-top: 80px;
@@ -135,6 +144,7 @@ ion-icon:hover {
 }
 
 .card {
+    padding-top: 25px;
     width: 21vw;
     height: 30vh;
     margin-top: 80px;
@@ -183,15 +193,14 @@ ion-icon:hover {
     display:  flex;
     flex-direction: column;
     gap: 10px;
+    padding-left: 40px;
     font-size: 19px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
  .dados {
-    padding: 10px;
     display: flex;
     flex-direction: row;
-    /* gap: 15px; */
 }
 
 .container1 .container_alertas .dados .temperatura {
@@ -209,7 +218,6 @@ ion-icon:hover {
     align-items: center;
     gap: 2px;
 }
- 
 .container1 .container_alertas .dados .divisao {
     border: 1px solid black;
     height: 120px;

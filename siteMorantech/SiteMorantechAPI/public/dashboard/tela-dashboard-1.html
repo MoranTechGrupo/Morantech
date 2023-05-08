@@ -14,13 +14,13 @@
   <header>
     <nav id="menu" class="menu">
         <ul>
-            <li><a href="#"><img src="/siteMorantech/images/morantechreal-transformed.png" style="width: 160px;" alt=""></a></li>
-            <li><a href="../index.html">MoranTech</a></li>
+            <li><a href="../index.html"><img src="../images/morantechreal-transformed.png" style="width: 160px;" alt=""></a></li>
+            <!-- <li><a href="../index.html">MoranTech</a></li> -->
             <li><a href="#">HOME</a></li>
             
-            <li><a href="#">CADASTRAR FUNCIONÁRIO</a></li>
-            <li><a href="cadastroEndereco.html">CADASTRAR ENDEREÇO</a></li>
-            <li><a href="#">FEEDBACK</a></li>
+            <li><a href="../cadastroUser.html">CADASTRAR FUNCIONÁRIO</a></li>
+            <li><a href="../cadastroEndereco.html">CADASTRAR ENDEREÇO</a></li>
+            <li><a href="../cadastrouser.html">FEEDBACK</a></li>
             <li><a href="#"><div id="b_empresa"></div></a></li>
             <li> <a><i id="tema" class="fa-solid fa-moon"></i></a></li>
 
@@ -30,21 +30,21 @@
 
   <h1 class="titulo">Dashboard</h1>
   <div class="dashboard">
-    <div class="grafico caminhao1">
+    <a href="tela-dashboard-2.html" class="grafico caminhao1">
       <canvas id="myChart1"></canvas>
-    </div>
-    <div class="grafico caminhao2">
+    </a>
+    <a  href="../html/tela-dashboard-2.html" class="grafico caminhao2">
       <canvas id="myChart2"></canvas>
-    </div>
-    <div class="grafico caminhao3">
+    </a>
+    <a  href="../html/tela-dashboard-2.html" class="grafico caminhao3">
       <canvas id="myChart3"></canvas>
-    </div>
-    <div class="grafico caminhao4">
+    </a>
+    <a  href="../html/tela-dashboard-2.html" class="grafico caminhao4">
       <canvas id="myChart4"></canvas>
-    </div>
-    <div class="grafico caminhao5">
+    </a>
+    <a  href="../html/tela-dashboard-2.html" class="grafico caminhao5">
       <canvas id="myChart5"></canvas>
-    </div>
+    </a>
 
     <div class="grafico indicativo">
       <h3>Indicativos dos sensores</h3>
@@ -64,6 +64,14 @@
           <span>90% - 94.9%</span>
           <span>95% - 96%</span>
           <span>Acima de 96%</span>
+        </div>
+        <div class="descricao">
+          <h4>Descrição</h4>
+          <span class="critico">Crítico</span>
+          <span class="alerta">Alerta</span>
+          <span class="ideal">Ideal</span>
+          <span class="alerta">Alerta</span>
+          <span class="critico">Crítico</span>
         </div>
         <div class="status">
           <h4>Indicativo</h4>
@@ -111,6 +119,7 @@
           <span>83%</span>
           <span>95%</span>
         </div>
+        
         <div class="status">
           <h4>Status</h4>
           <span class="ideal">......</span>
@@ -514,7 +523,6 @@
   const myChart5 = new Chart(document.getElementById("myChart5"), config5);
 
 </script>
-
 </html>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
