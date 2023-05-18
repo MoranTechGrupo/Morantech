@@ -430,9 +430,9 @@ create table dadosSensor (
     fkSensor int,
     constraint fkSensor foreign key (fkSensor) references sensor(idSensor),
     constraint pkDados primary key (idDados, fkSensor),
-    temperatura decimal(4, 2),
-    umidade decimal(4, 2),
-    dataHora timestamp
+    temperatura decimal(5, 2),
+    umidade decimal(5, 2),
+    dataHora timestamp default current_timestamp 
 );
 
 insert into
@@ -520,14 +520,6 @@ where
     situaçao like 'I';
 
 select
-    nome as 'nome empresa'
-from
-    Empresa
-    join endereço on idEmpresa = fkEmpEd
-where
-    endereço.UF = 'SP';
-
-select
     *
 from
     transporte
@@ -578,3 +570,5 @@ from
 -- insertUser 
 -- 67890
 -- insert
+
+select * from dadosSensor;
