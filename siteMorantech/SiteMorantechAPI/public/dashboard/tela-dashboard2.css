@@ -218,5 +218,7 @@ li {
     align-items: center;
     gap: 2px;
 }
-
-
+.container1 .container_alertas .dados .divisao {
+    border: 1px solid black;
+    height: 120px;
+}
