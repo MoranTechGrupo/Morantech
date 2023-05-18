@@ -1,28 +1,22 @@
- /* CLIMOGRAMA */
+const labels6 = ["12:00", "12:05", "12:10", "12:15", "12:20", "12:25", "12:30", "12:35", "12:40", "12:45"];
 
- const canvas = document.getElementById('Chart_climograma');
- const mixedChart = new Chart(canvas, {
-   data: {
-     labels: ['12:05', '12:10', '12:15', '12:20', '12:25', '12:30', '12:35', '12:40', '12:45'],
-     datasets: [{
-       type: 'bar',
-       tension: 0.4, /* curvatura da linha */
-       label: 'Umidade (%)',
-       data: [90, 91.5, 92, 95, 97, 91.4, 92, 90, 93],
-       backgroundColor:  'rgba(54,162, 235, 0.3)',
-       borderColor: 'rgba(54,162, 235, 0.3)',
-       yAxisID: 'y_umid'
-     }, {
-       type: 'line',
-       label: 'Temperatura (°C)',
-       data: [0, 2, 3, 10, 14, 10, 5, 8, 10],
-       backgroundColor: '#E6005A',
-       borderColor: '#E6005A',
-       tension: 0.4,
-       yAxisID: 'y_temp' /* configurar o eixo y */
-     }],
-   },
-   options: {
+const data6 = {
+  labels: labels6,
+  datasets: [
+    {
+      label: "Temperatura",
+      backgroundColor: "#ff6384",
+      borderColor: "#ff6384",
+      data: [7, 12, 13, 17, 20, 15, 13, 12, 9, 4],
+      yAxisID: 'y_temp'
+    },
+  ],
+};
+ 
+const config6 = {
+  type: "line",
+  data: data6,
+  options: {
     responsive: true,
     plugins: {
       legend: {
@@ -30,26 +24,69 @@
       },
       title: {
         display: true,
-        text: "Temperatura e Umidade nas últimas 24h",
+        text: "Caminhão 5 (MNO1234)",
       },
     },
-     scales: {
-       y_umid: {
-         type: 'linear',
-         position: 'right',
-         ticks: {  
-           max: 95,
-           min: 90
-         }
-       },
-       y_temp: {
-         type: 'linear',
-         position: 'left',
-         ticks: {  
-           max: 12,
-           min: 0
-         }
-       }
-     }
-   }
- });
+    scales: {
+      y_temp: {
+        type: 'linear',
+        position: 'left',
+        ticks: {
+          max: 12,
+          min: 0
+      },
+      }
+    }
+  }
+  };
+const myChart1 = new Chart(document.getElementById("temperatura_historico"), config6);
+
+const data7 = {
+  labels: labels7,
+  datasets: [
+    {
+      label: "Umidade",
+      backgroundColor: "#36a2eb",
+      borderColor: "#36a2eb",
+      data: [92, 88, 85, 80, 76, 83, 86, 89, 92, 95],
+      yAxisID: 'y_umid'
+    },
+  ],
+};
+ 
+const config7 = {
+  type: "line",
+  data: data7,
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "Caminhão 5 (MNO1234)",
+      },
+    },
+    scales: {
+      y_umid: {
+        type: 'linear',
+        ticks: {
+          max: 95,
+          min: 90
+        }
+      },
+      y_temp: {
+        type: 'linear',
+        position: 'left',
+        ticks: {
+          max: 12,
+          min: 0
+        }
+      }
+    }
+  },
+};
+const myChart2 = new Chart(document.getElementById("umidade_historico"), config7);
+ 
+ 
