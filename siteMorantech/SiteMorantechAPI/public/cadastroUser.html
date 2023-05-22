@@ -66,6 +66,7 @@
 
         var nomeEmpresa = sessionStorage.NOME_EMPRESA;
         var idEmpresa = sessionStorage.ID_EMPRESA;
+        console.log(idEmpresa);
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
 
@@ -79,78 +80,37 @@
 
 
             // Enviando o valor da nova input
-            fetch("/user/cadastrar", {
+
+            // cardErro.style.display = "block";
+            fetch("/User/cadastrar", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    // crie um atributo que recebe o valor recuperado aqui
-                    // Agora vá para o arquivo routes/usuario.js
                     nomeServer: nomeVar,
                     emailServer: emailVar,
-                    // emailServer: emailVar,
                     senhaServer: senhaVar,
                     fkEmpServer: idEmpresa
-                    // qtdSensorServer: qtdSersorVar
 
 
                 })
             }).then(function (resposta) {
-
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-                    // cardErro.style.display = "block";
-                    fetch("/loginUser/cadastrar", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            // crie um atributo que recebe o valor recuperado aqui
-                            // Agora vá para o arquivo routes/usuario.js
-                            nomeServer: nomeVar,
-                            emailServer: emailVar,
-                            // emailServer: emailVar,
-                            senhaServer: senhaVar,
-                            fkEmpServer: idEmpresa
-                            // qtdSensorServer: qtdSersorVar
 
-
-                        })
-                    }).then(function (resposta) {
-
-                        console.log("resposta: ", resposta);
-
-                        var idSession = sessionStorage.ID_usuario = json.idUsuario;
-                        alert(`O usuario foi cadastrado com sucesso!`);
-                        alert(`Caso queira você pode cadastrar mais usuarios ou ir pra paina de login do usuario`);
-                        // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-                        // setTimeout(() => {
-                        //     window.location = "login.html";
-                        // }, "2000")
-
-                        // limparFormulario();
-                        // finalizarAguardar();
-
-                    }).catch(function (resposta) {
-                        console.log(`#ERRO: ${resposta}`);
-                        // finalizarAguardar();
-                    });
-
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000")
 
                 } else {
                     throw ("Houve um erro ao tentar realizar o cadastro!");
                 }
-
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
-                // finalizarAguardar();
             });
-
-            return false;
+            return
         }
 
     }
