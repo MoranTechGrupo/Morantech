@@ -1,28 +1,27 @@
+create database Morantech;
 use Morantech;
-create database morantech;
-
-show tables;
-
 
 -- Empresas --
 
-create table empresa (
+create table Empresa (
 idEmpresa int primary key auto_increment,
 nome varchar(45) not null,
 cnpj char(18) not null,
-email varchar(45),
+email varchar(45), 
 senha varchar(45),
 qtdSensores varchar(45),
 telefone varchar(15) not null,
-statusEmp char(1)
+StatusEmp char(1)
 );
 
-insert into empresa values
+insert into Empresa values
 (null, 'Trans morango S.A', '78.745.125/0001-56', 'transMorango@gmail.com', 'moranguete123', 2, '(11) 2487-7845', 'A'),
 (null, 'Morangos Delícia Ltda', '12.345.678/0001-90', 'morangoDelicia@gmail.com', 'moranDelicia001', 3, '(21) 98765-4321', 'A'),
 (null, 'Fazenda Morango Feliz S.A', '23.456.789/0001-12', 'fazendaMoran@gmail.com', 'FazendaMorann543', 1, '(31) 2765-4321', 'A'),
 (null, 'Morango Doce Sabor Eireli', '34.567.890/0001-34', 'DoceSabor@gmail.com', 'SaborDoce111', 5, '(41) 98765-9321', 'A'),
+(null, 'Morangos Frescos Ltda', '45.678.901/0001-56', 'MorangosFrescos@gmail.com', 'Frescos836', 4, '(51) 93623-1235', 'A'),
 (null, 'Morangos Frescos Ltda', '45.678.901/0001-56', 'MorangosFrescos@gmail.com', 'Frescos836', 4, '(51) 93623-1235', 'A');
+SELECT * FROM EMPRESA;
 
 
 -- endereços Empresas --
@@ -58,7 +57,7 @@ references Empresa(idEmpresa),
 constraint pkUsuario primary key (idUsuario, fkEmpUs),
 cargo varchar(45),
 nome varchar(45),
-email varchar(45),
+email varchar(45), constraint chkEmailUser check (email like '%@%'),
 senha varchar(45)
 ); 
 
@@ -71,15 +70,15 @@ placa char(8),
 modelo varchar(45),
 fkEmp int,
 constraint fkEmp foreign key (fkEmp) 
-references empresa (idEmpresa)
+references Empresa (idEmpresa)
 );
 
 insert into transporte values
 (null, 'ABC-1234','Scania', 1), 
-(null, 'DEF-5678', 'Mercedes-Benz',1), 
-(null, 'GHI-9012', 'Volvo', 1), 
-(null, 'JKL-3456', 'Ford', 1), 
-(null, 'MNO-7890', 'Volkswagen', 1);
+(null, 'DEF-5678', 'Mercedes-Benz',2), 
+(null, 'GHI-9012', 'Volvo', 3), 
+(null, 'JKL-3456', 'Ford', 4), 
+(null, 'MNO-7890', 'Volkswagen', 5);
 
 -- Sensor --
 
@@ -98,10 +97,9 @@ references transporte(idTransporte)
 
 insert into sensor values 
 (null, 'DHT11', 'A', '2023-05-15', null, 7.28, 92.3, 1),
-(null, 'DHT11', 'A', '2023-06-21', null, 11.6, 88.44, 1),
-(null, 'DHT11', 'A', '2023-05-29', null, 17.79, 79.1, 1),
-(null, 'DHT11', 'A', '2023-08-08', null, 15.83, 83.9, 1),
-(null, 'DHT11', 'A', '2023-10-10', null, 4.5, 95.8, 1)
+(null, 'DHT11', 'A', '2023-06-21', null, 11.6, 88.44, 2),
+(null, 'DHT11', 'A', '2023-05-29', null, 17.79, 79.1, 5),
+(null, 'DHT11', 'A', '2023-08-08', null, 15.83, 83.9, 3),
 (null, 'DHT11', 'A', '2023-10-10', null, 4.5, 95.8, 4);
 
 -- Dados Sensor --
@@ -114,23 +112,8 @@ references sensor(idSensor),
 constraint pkDados primary key (idDados, fkSensor),
 temperatura decimal(5,2),
 umidade decimal(5,2),
-dataHora datetime default current_timestamp
+dataHora timestamp
 );
-/* teste */
-insert into dadosSensor values (null,1,12.21,94.2,default);
-insert into dadosSensor values (null,2,14.21,76.2,default);;
-insert into dadosSensor values (null,3,11.21,91.2,default);
-insert into dadosSensor values (null,4,0.21,93.2,default);
-insert into dadosSensor values (null,1,1.21,96.2,default);
-insert into dadosSensor values (null,2,2.21,91.2,default);
-insert into dadosSensor values (null,1,10.21,93.2,default);
-insert into dadosSensor values (null,5,5.21,92.2,default);
-insert into dadosSensor values (null,4,2.21,93.2,default);
-insert into dadosSensor values (null,1,12.21,90.2,default);
-insert into dadosSensor values (null,1,12.21,90.2,default);
-/* teste */
-
--- Parametros -- 
 
 create table parametro (
 idParametro int,
@@ -141,16 +124,6 @@ constraint fktrans foreign key (fkTransporte) references transporte(idTransporte
 constraint pkPara primary key (idParametro , fkTransporte)
 );
 
--- feedBacks --
-create table feedback (
-idFeedback int,
-titulo varchar(30),
-statusFeed varchar(45),
-conteudo varchar(1000),
-fkEmpresa int,
-foreign key (fkEmpresa) references empresa(idEmpresa)
-);
-
 -- selects individuais
 
 select * from Empresa;
@@ -158,9 +131,9 @@ select * from endereço;
 select * from usuario;
 
 select * from transporte;
-
 select * from sensor;
 select * from dadosSensor;
+
 
 -- selects joinados
 
@@ -185,11 +158,14 @@ select * from transporte join sensor
 select * from empresa join endereco
 on idEmpresa = fkEmpEd
 join transporte on fkEmp = idEmpresa;
+
+insert into usuario(fkEmpUs, cargo, nome) VALUES 
+((select idEmpresa FROM Empresa WHERE Empresa.nome = 'Empresa'), 'junior', 'Fernando');
+select * from usuario;
+
+
  
+
 	
         
 	
-
-
-
-

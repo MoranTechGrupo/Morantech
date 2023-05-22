@@ -6,7 +6,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <title>Login - MoranTech</title>
+    <title>Morantech | Login</title>
   </head>
 
   <body>
@@ -23,7 +23,7 @@
           </div>
           <div class="inputs">
             <i class="fa-sharp fa-solid fa-building" style="color:#93989f"></i>
-            <input id="cnpj_input" class="cnpj inputs" placeholder="CNPJ" /> <br>
+            <input type="email" id="email_input" class="email inputs" placeholder="Email" /> <br>
             <br />
             <i class="fa-solid fa-lock" style="color: #93989f"></i>
             <input
@@ -47,12 +47,13 @@
         // aguardar();
 
         var senhaVar = senha_input.value;
-        var cnpjVar = cnpj_input.value;
+        var emailVar = email_input.value;
 
-        if (senhaVar == "" || cnpjVar == "") {
+        if (senhaVar == "" || emailVar == "") {
             // cardErro.style.display = "block"
             // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
             // finalizarAguardar();
+            alert("Insira seu email e senha")
             return false;
         }
         // else {
@@ -60,7 +61,7 @@
         // }
 
         console.log("FORM senha: ", senhaVar);
-        console.log("FORM CNPJ: ", cnpjVar);
+        console.log("FORM email: ", emailVar);
 
         fetch("/empresa/autenticar", {
             method: "POST",
@@ -68,8 +69,8 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                senhaServer: senhaVar,
-                cnpjServer: cnpjVar
+              emailServer: emailVar,
+              senhaServer: senhaVar
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
@@ -81,11 +82,12 @@
                     console.log(json);
                     console.log(JSON.stringify(json));
 
-                    // sessionStorage.EMAIL_USUARIO = json.email;
+                   var emailSession = sessionStorage.EMAIL_EMPRESA = json.email;
                    var nomeSession =  sessionStorage.NOME_EMPRESA = json.nome;
-                   var idSession = sessionStorage.ID_EMPRESA = json.idEmpresa;
+                   var idSession = sessionStorage.IDEMPRESA_EMPRESA = json.idEmpresa;
+                  // var idUsuarioSession = sessionStorage.ID_USUARIO = json.idUsuario;
 
-                    alert ("ola empresa  " +nomeSession + " deu certo !!!! o seu identificador é ( "+ idSession +" )");
+                   // alert ("ola empresa  " +nomeSession + " deu certo !!!! o seu identificador é ( "+ idSession +" )");
                    
                     setTimeout(function () {
                         // 

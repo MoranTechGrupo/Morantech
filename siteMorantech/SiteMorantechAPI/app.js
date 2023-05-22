@@ -11,13 +11,9 @@ var app = express();
 var indexRouter = require("./src/routes/index");
 var empresaRouter = require("./src/routes/empresa");
 var usuarioRouter = require("./src/routes/user");
-// var usuarioRouter = require("./src/routes/usuario");
 var enderecoRouter = require("./src/routes/endereco");
 var caminhaoRouter = require("./src/routes/caminhao");
 var feedbackRouter = require("./src/routes/feedback")
-
- 
-
 var avisosRouter = require("./src/routes/avisos");
 var medidasRouter = require("./src/routes/medidas");
 
@@ -31,7 +27,6 @@ app.use("/", indexRouter);
 app.use("/empresa", empresaRouter);
 app.use("/endereco",enderecoRouter);
 app.use("/user",usuarioRouter);
-
 app.use("/avisos", avisosRouter);
 app.use("/medidas", medidasRouter)
 app.use("/caminhao",caminhaoRouter)
