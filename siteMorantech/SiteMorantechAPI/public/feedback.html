@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/CadastroDeFeedback.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <main class="principal">
+        <div class="primeiraParte">
+            <h1>Feedback</h1>
+            <img src="assets/img/feedback.svg" alt="">
+        </div>
+        <div class="segundaParte">
+            <div class="titulo">
+                <label for="titulo">Titulo do feedback</label>
+                <input type="text" name="titulo" id="titulo" maxlength="20">
+                <span id="contadorDeCaracteresTitulo">0/20</span>
+            </div>
+            <div class="conteudo">
+                <label for="contendo">Contendo do feedback</label>
+                <div class="caixaTextArea">
+                    <textarea name="contendo" id="contendo" cols="40" rows="10" maxlength="1000"></textarea>
+                    <span id="contadorDeCaracteresContendo">0/1000</span>
+                </div>
+            </div>
+<br>
+            <div class="tipo">
+                <i id="triste" class="fa-solid fa-face-frown triste"></i>
+                <i id="meh" class="fa-solid fa-face-meh meh"></i>
+                <i id="feliz" class="fa-solid fa-face-smile feliz"></i>
+            </div>
+            <div class="caixaBotao">
+                <button onclick="enviarFeedback()">Enviar feedback</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
+<script>
+
+
+    var Titulo = document.getElementById('titulo')
+    Titulo.addEventListener('input', () => {
+        var qtdCaracterTitulo = Titulo.value.length;
+        contadorDeCaracteresTitulo.innerHTML = `${qtdCaracterTitulo}/20`
+    })
+
+
+    var textArea = document.getElementById('contendo')
+    textArea.addEventListener('input', () => {
+        var qtdCaracter = textArea.value.length;
+        contadorDeCaracteresContendo.innerHTML = `${qtdCaracter}/1000`
+    })
+
+
+
+
+    function enviarFeedback() {
+        var tituloVar = titulo.value;
+        var contendoVar = contendo.value;
+        var tipo = tipo
+    }
+
+</script>
+<!--~ Codigos JavaScripts  para a criação dos icons no site-->
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
