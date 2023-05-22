@@ -14,12 +14,6 @@ var usuarioRouter = require("./src/routes/user");
 var enderecoRouter = require("./src/routes/endereco");
 var caminhaoRouter = require("./src/routes/caminhao");
 var feedbackRouter = require("./src/routes/feedback")
-
-<<<<<<< HEAD
-=======
- 
-
->>>>>>> 6323ce9634a9acb3b36cf91ad07885477c8125f8
 var avisosRouter = require("./src/routes/avisos");
 var medidasRouter = require("./src/routes/medidas");
 

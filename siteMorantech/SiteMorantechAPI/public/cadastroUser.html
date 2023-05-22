@@ -91,29 +91,14 @@
                     cargoServer: cargoVar,
                     emailServer: emailVar,
                     senhaServer: senhaVar,
-<<<<<<< HEAD
-=======
                     fkEmpServer: idEmpresa
 
->>>>>>> 6323ce9634a9acb3b36cf91ad07885477c8125f8
 
                 })
             }).then(function (resposta) {
                 console.log("resposta: ", resposta);
 
-<<<<<<< HEAD
-                alert(`O usuario foi cadastrado com sucesso!`);
-                alert(`Caso queira você pode cadastrar mais usuarios ou ir pra paina de login do usuario`);
-                //  mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-                setTimeout(() => {
-                    window.location = "login.html";
-                }, "2000")
-
-                // limparFormulario();
-                // finalizarAguardar();
-
-=======
                 if (resposta.ok) {
 
                     setTimeout(() => {
@@ -123,7 +108,6 @@
                 } else {
                     throw ("Houve um erro ao tentar realizar o cadastro!");
                 }
->>>>>>> 6323ce9634a9acb3b36cf91ad07885477c8125f8
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
