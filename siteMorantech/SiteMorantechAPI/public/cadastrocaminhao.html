@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,101 +9,96 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <title>Document</title>
 </head>
+
 <body>
-        <div class="container">
-            <div class="left-box">
-                <div class="titulo">
-                    <h1>Cadastre seu caminhão</h1>
-                    <img src="" alt="caminhao-cadastro" />
-                </div>
-    
+    <div class="container">
+        <div class="left-box">
+            <div class="titulo">
+                <h1>Cadastre seu caminhão</h1>
+                <img src="" alt="caminhao-cadastro" />
             </div>
-            <div class="right-box">
-                <div class="form">
-    
-                    <div class="inputs">
-<!--                         <i class="fa-solid fa-user" style="color:#93989f"></i>
-                        <input id="nomeEmpresa" class="nome_empresa inputs" placeholder="Nome Empresa" /> <br>
-    
-                        <i class="fa-solid fa-user" style="color:#93989f"></i>
-                        <input id="idEmpresa" class="id_empresa inputs" placeholder="Id Empresa" /> <br>
-    
-                        <i class="fa-solid fa-phone" style="color:#93989f"></i>
-                        <input id="fkEmp" class="id_usuario inputs" placeholder="Id usuário" /> <br> -->
-    
-    
-                        <i class="fa-solid fa-lock" style="color:#93989f"></i>
-                        <input id="numero_placa" class="numero_placa inputs" placeholder="Placa do caminão" /> <br>
-    
-                        <i class="fa-solid fa-lock" style="color:#93989f"></i>
-                        <input id="modelo_caminhao" class="numero_cnh inputs" placeholder="Modelo do caminhao" /> <br>
-    
-    
-                    </div>
-    
-                    <button onclick="cadastrar()" class="cadastrar">
-                        Cadastrar caminhão
-                    </button>
-    
-                    <a href="dashboard/tela-dashboard-1.html"> Ir para área do cliente!</a>
+
+        </div>
+        <div class="right-box">
+            <div class="form">
+
+                <div class="inputs">
+
+
+                    <i class="fa-solid fa-lock" style="color:#93989f"></i>
+                    <input id="numero_placa" class="numero_placa inputs" placeholder="Placa do caminão" /> <br>
+
+                    <i class="fa-solid fa-lock" style="color:#93989f"></i>
+                    <input id="modelo_caminhao" class="numero_cnh inputs" placeholder="Modelo do caminhao" /> <br>
+
+
                 </div>
+
+                <button onclick="cadastrar()" class="cadastrar">
+                    Cadastrar caminhão
+                </button>
+
+                <a href="dashboard/tela-dashboard-1.html"> Ir para área do cliente!</a>
             </div>
         </div>
+    </div>
 
     <script>
         function cadastrar() {
-    
+
             var caminhao_placa = numero_placa.value;
             var caminhao_modelo = modelo_caminhao.value;
-            var idEmpresa = sessionStorage.ID_EMPRESA;
-    
-    
-    
+            var idEmpresa =sessionStorage.ID_EMPRESA ;
+
+
+
             if (caminhao_placa == "" || caminhao_modelo == "") {
-    
-    
-                // Enviando o valor da nova input
-                fetch("/caminhao/cadastrar", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-
-                        caminhao_placaServer: caminhao_placa,
-                        caminhao_modeloServer: caminhao_modelo,
-                        idEmpresaServer: idEmpresa,
-
-                    })
-                }).then(function (resposta) {
-    
-                    console.log("resposta: ", resposta);
-    
-                    if (resposta.ok) {
-    
-                        alert(`parabens você cadastrou seu caminhão \(0o0)/`);
-                        alert(`agora você pode entar na página de dashboard`);
-    
-    
-                        setTimeout(() => {
-                            window.location = "tela-dashboard-1.html";
-                        }, "2000")
-    
-    
-                    } else {
-                        throw ("Houve um erro ao tentar realizar o cadastro!");
-                    }
-                }).catch(function (resposta) {
-                    console.log(`#ERRO: ${resposta}`);
-    
-                });
-    
                 return false;
             }
-    
+
+            // Enviando o valor da nova input
+            fetch("/caminhao/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+
+                    caminhao_placaServer: caminhao_placa,
+                    caminhao_modeloServer: caminhao_modelo,
+                    idEmpresaServer: idEmpresa,
+
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                    alert(`parabens você cadastrou seu caminhão \(0o0)/`);
+                    alert(`agora você pode entar na página de dashboard`);
+
+
+                    setTimeout(() => {
+                        window.location = "tela-dashboard-1.html";
+                    }, "2000")
+
+
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+
+            });
+
+            return false;
         }
-    
+
+
+
     </script>
-    
+
 </body>
+
 </html>
