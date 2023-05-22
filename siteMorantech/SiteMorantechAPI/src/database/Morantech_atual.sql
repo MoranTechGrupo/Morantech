@@ -130,6 +130,14 @@ insert into dadosSensor values (null,1,12.21,90.2,default);
 insert into dadosSensor values (null,1,12.21,90.2,default);
 /* teste */
 
+/*  
+   insert into dadosSensor values 
+                (null,1,${dado1},${dado2},default),
+                (null,2,${dado3},${dado4},default),
+                (null,3,${dado5},${dado6},default),
+                (null,4,${dado7},${dado8},default)`;
+*/
+
 -- Parametros -- 
 
 create table parametro (
@@ -176,7 +184,7 @@ on fkTransp = idTransporte;
 
 select * from sensor where situaçao like 'I';
 
-select nome as 'nome empresa' from Empresa join endereço 
+/* select nome as 'nome empresa' from Empresa join endereço 
 	on idEmpresa = fkEmpEd  where endereço.UF = 'SP' ;
     
 select * from transporte join sensor 
@@ -185,11 +193,15 @@ select * from transporte join sensor
 select * from empresa join endereco
 on idEmpresa = fkEmpEd
 join transporte on fkEmp = idEmpresa;
- 
+  */
 	
         
 	
 
 
+select * from empresa join transporte 
+	on idEmpresa = fkEmp 
+	join sensor on idTransporte = fkTransp
+	join dadosSensor on idSensor = fkSensor; 
 
 

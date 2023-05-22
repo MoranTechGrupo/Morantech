@@ -159,50 +159,35 @@
         </div>
       </div>
     </div>
-
-    <div class="tempo-real">
+<!-- ^conectar com o banco de dados^ -->
+<div class="tempo-real">
       <h3>Situação dos caminhões</h3>
       <div class="tabela">
         <div class="idCaminhoes">
           <h4>Caminhão</h4>
           <span>ABC1234</span>
-          <span>DEF1234</span>
-          <span>GHI1234</span>
-          <span>JKL1234</span>
-          <span>MNO1234</span>
+    
         </div>
         <div class="trajeto">
           <h4>Trajeto</h4>
           <span>Holambra(SP) - São Paulo(SP)</span>
-          <span>Itu(SP) - Campinas(SP)</span>
-          <span>Três Corações(MG) - Belo Horizonte(MG)</span>
-          <span>Taubaté(SP) - Curitiba(PR)</span>
-          <span>Vitória(ES) - Rio de Janeiro(RJ)</span>
+     
         </div>
         <div class="temperatura">
           <h4>Temperatura</h4>
           <span>7°C</span>
-          <span>8°C</span>
-          <span>17°C</span>
-          <span>15°C</span>
-          <span>4°C</span>
+
         </div>
         <div class="umidade">
           <h4>Umidade</h4>
           <span>92%</span>
-          <span>91%</span>
-          <span>79%</span>
-          <span>83%</span>
-          <span>95%</span>
+    
         </div>
 
         <div class="status">
           <h4>Status</h4>
           <span class="ideal">......</span>
-          <span class="alerta">......</span>
-          <span class="critico">......</span>
-          <span class="critico">......</span>
-          <span class="ideal">......</span>
+  
         </div>
       </div>
     </div>
@@ -226,70 +211,8 @@
             </div>
           </div>
         </div>
-        <div class="caminhao">
-          <h4>Caminhão 2</h4>
-          <div class="dados">
-            <div class="temperatura">
-              <h4>Temperatura</h4>
-              <span>Menor: 2°C</span>
-              <span>Maior: 19°C</span>
-            </div>
-            <div class="divisao"></div>
-            <div class="umidade">
-              <h4>Umidade</h4>
-              <span>Menor: 72°C</span>
-              <span>Maior: 97°C</span>
-            </div>
-          </div>
-        </div>
-        <div class="caminhao">
-          <h4>Caminhão 3</h4>
-          <div class="dados">
-            <div class="temperatura">
-              <h4>Temperatura</h4>
-              <span>Menor: 5°C</span>
-              <span>Maior: 17°C</span>
-            </div>
-            <div class="divisao"></div>
-            <div class="umidade">
-              <h4>Umidade</h4>
-              <span>Menor: 77°C</span>
-              <span>Maior: 94°C</span>
-            </div>
-          </div>
-        </div>
-        <div class="caminhao">
-          <h4>Caminhão 4</h4>
-          <div class="dados">
-            <div class="temperatura">
-              <h4>Temperatura</h4>
-              <span>Menor: 0°C</span>
-              <span>Maior: 16°C</span>
-            </div>
-            <div class="divisao"></div>
-            <div class="umidade">
-              <h4>Umidade</h4>
-              <span>Menor: 81°C</span>
-              <span>Maior: 97°C</span>
-            </div>
-          </div>
-        </div>
-        <div class="caminhao">
-          <h4>Caminhão 5</h4>
-          <div class="dados">
-            <div class="temperatura">
-              <h4>Temperatura</h4>
-              <span>Menor: 3°C</span>
-              <span>Maior: 11°C</span>
-            </div>
-            <div class="divisao"></div>
-            <div class="umidade">
-              <h4>Umidade</h4>
-              <span>Menor: 86°C</span>
-              <span>Maior: 96°C</span>
-            </div>
-          </div>
-        </div>
+<!-- ^conectar com o banco de dados^ -->
+
       </div>
     </div>
   </div>
@@ -465,7 +388,7 @@
           if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
             console.log("---------------------------------------------------------------")
             console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-           
+
             console.log("Horário do novo dado capturado:")
             console.log(novoRegistro[0].momento_grafico)
             console.log("Horário do último dado capturado:")
