@@ -1,0 +1,110 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to right, rgb(251, 92, 161) , rgb(255, 150, 196));
+}
+
+.container {
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80vw;
+    height: 80vh;
+    border-radius: 40px;
+    box-shadow: 10px 15px 25px #8e4357;
+}
+
+.right-box {
+    display: flex;
+    justify-content: center;
+    background-color: #f2f0f0;
+    width: 60%;
+    height: 80vh;
+    border-radius:0px 40px 40px 0px ;
+}
+
+.left-box {
+    background-color: #ff627ddd;
+    width: 60%;
+    height: 80vh;
+    border-radius: 40px 0px 0px 40px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-box .form {
+    display: flex;
+    margin-top: 60px;
+    margin-left: 150px;
+    flex-direction: column;
+    width: 60%;
+    height: 50%;
+}
+
+input {
+    width: 70%;
+    border: none;
+    padding: 10px;
+    margin-bottom: 15px ;
+    background-color: #f2f0f0;
+    border-bottom: 2px solid #fb4d6add;
+    outline: none;
+    color: #444444;
+    
+}
+
+button {
+    width: 40%;
+    padding: 14px;
+    color: #fff;
+    margin-top: 10px;
+    background-color: #7ed957;
+    box-shadow: 10px 10px 20px #71a75a;
+    border: none;
+    border-radius: 20px;
+    font-size: 12pt;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+button:hover {
+    width: 41%;
+    padding: 15px;
+    transition: 0.5s;
+}
+
+.cadastrar {
+    margin-bottom: 45px;
+}
+
+a {
+    padding: 8px;
+    border-radius: 25px;
+    margin-top: 5px;
+    width: fit-content;
+    background: #cfcfcf;
+    cursor: pointer;
+    text-decoration: none;
+    color: #444444;
+
+}
+
+
+h1 {
+    color: #f2f0f0;
+    font-size: 30pt;
+}
+
