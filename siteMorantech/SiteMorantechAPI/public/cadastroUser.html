@@ -64,6 +64,7 @@
 
         var nomeEmpresa = sessionStorage.NOME_EMPRESA;
         var idEmpresa = sessionStorage.ID_EMPRESA;
+        console.log(idEmpresa);
 
 
         if (nomeVar == "" || cargoVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
@@ -78,24 +79,29 @@
 
 
             // Enviando o valor da nova input
-            fetch("/user/cadastrar", {
+
+            // cardErro.style.display = "block";
+            fetch("/User/cadastrar", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    // crie um atributo que recebe o valor recuperado aqui
-                    // Agora vá para o arquivo routes/usuario.js
                     nomeServer: nomeVar,
                     cargoServer: cargoVar,
                     emailServer: emailVar,
                     senhaServer: senhaVar,
+<<<<<<< HEAD
+=======
+                    fkEmpServer: idEmpresa
+
+>>>>>>> 6323ce9634a9acb3b36cf91ad07885477c8125f8
 
                 })
             }).then(function (resposta) {
-
                 console.log("resposta: ", resposta);
 
+<<<<<<< HEAD
                 alert(`O usuario foi cadastrado com sucesso!`);
                 alert(`Caso queira você pode cadastrar mais usuarios ou ir pra paina de login do usuario`);
                 //  mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
@@ -107,12 +113,21 @@
                 // limparFormulario();
                 // finalizarAguardar();
 
+=======
+                if (resposta.ok) {
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000")
+
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+>>>>>>> 6323ce9634a9acb3b36cf91ad07885477c8125f8
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
-                // finalizarAguardar();
             });
-
-            return false;
+            return
         }
 
     }

@@ -12,7 +12,14 @@ var indexRouter = require("./src/routes/index");
 var empresaRouter = require("./src/routes/empresa");
 var usuarioRouter = require("./src/routes/user");
 var enderecoRouter = require("./src/routes/endereco");
+var caminhaoRouter = require("./src/routes/caminhao");
+var feedbackRouter = require("./src/routes/feedback")
 
+<<<<<<< HEAD
+=======
+ 
+
+>>>>>>> 6323ce9634a9acb3b36cf91ad07885477c8125f8
 var avisosRouter = require("./src/routes/avisos");
 var medidasRouter = require("./src/routes/medidas");
 
@@ -28,6 +35,9 @@ app.use("/endereco",enderecoRouter);
 app.use("/user",usuarioRouter);
 app.use("/avisos", avisosRouter);
 app.use("/medidas", medidasRouter)
+app.use("/caminhao",caminhaoRouter)
+app.use("/feedback",feedbackRouter)
+
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

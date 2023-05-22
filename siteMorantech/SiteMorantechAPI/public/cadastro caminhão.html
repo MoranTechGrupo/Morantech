@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <title>Document</title>
+</head>
+<body>
+        <div class="container">
+            <div class="left-box">
+                <div class="titulo">
+                    <h1>Cadastre seu caminhão</h1>
+                </div>
+    
+            </div>
+            <div class="right-box">
+                <div class="form">
+    
+                    <div class="inputs">
+                        <i class="fa-solid fa-user" style="color:#93989f"></i>
+                        <input id="nomeEmpresa" class="nome_empresa inputs" placeholder="Nome Empresa" /> <br>
+    
+                        <i class="fa-solid fa-user" style="color:#93989f"></i>
+                        <input id="idEmpresa" class="id_empresa inputs" placeholder="Id Empresa" /> <br>
+    
+                        <i class="fa-solid fa-phone" style="color:#93989f"></i>
+                        <input id="fkEmp" class="id_usuario inputs" placeholder="Id usuário" /> <br>
+    
+    
+                        <i class="fa-solid fa-lock" style="color:#93989f"></i>
+                        <input id="numero_placa" class="numero_placa inputs" placeholder="Placa do caminão" /> <br>
+    
+                        <i class="fa-solid fa-lock" style="color:#93989f"></i>
+                        <input id="cnh_usuario" class="numero_cnh inputs" placeholder="CNH" /> <br>
+    
+    
+                    </div>
+    
+                    <button onclick="cadastrar()" class="cadastrar">
+                        Cadastrar caminhão
+                    </button>
+    
+                    <a href=" "> Ir para área do cliente!</a>
+                </div>
+            </div>
+        </div>
+
+    <script>
+        function cadastrar() {
+    
+            var nomeEmpresaVar = nome_empresa.value;
+            var idEmpresaVar = id_empresa.value;
+            var fkEmpVar = fkEmp.value;
+            var idCaminhaoVar = id_caminhao.value;
+            var cnhUsuario = cnh_usuario.value;
+    
+    
+    
+            if (nomeEmpresavar == "" || idEmpresaVar == "" || fkEmpVar == "" || idCaminhaoVar == "" || cnhUsuario == "") {
+    
+    
+                // Enviando o valor da nova input
+                fetch("/caminhao/cadastrar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+    
+                        empresaServer: idEmpresaVar,
+                        usuarioServer: fkEmpVar,
+                        caminhaoServer: IdCaminhaoVar,
+                        fkEmpServer: fkEmpVar,
+                        cnhUsuarioServer: cnhusuario,
+    
+    
+    
+                    })
+                }).then(function (resposta) {
+    
+                    console.log("resposta: ", resposta);
+    
+                    if (resposta.ok) {
+    
+                        alert(`parabens você cadastrou seu caminhão \(0o0)/`);
+                        alert(`agora você pode entar na página de dashboard`);
+    
+    
+                        setTimeout(() => {
+                            window.location = "dashboard.html";
+                        }, "2000")
+    
+    
+                    } else {
+                        throw ("Houve um erro ao tentar realizar o cadastro!");
+                    }
+                }).catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+    
+                });
+    
+                return false;
+            }
+    
+        }
+    
+    </script>
+    
+</body>
+</html>

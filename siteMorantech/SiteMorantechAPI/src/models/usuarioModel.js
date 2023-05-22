@@ -25,12 +25,18 @@ function cadastrar(nome, cargo, email, senha) {
 
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
+<<<<<<< HEAD
     /* var instrucao = `
         INSERT INTO usuario (cargo, nome, email, senha) VALUES ('${cargo}', ${nome}','${email}', '${senha}');
         `; */
         var instrucao = `
         INSERT INTO usuario (fkEmpUs, cargo, nome, email, senha) VALUES ('(SELECT idEmpresa FROM Empresa JOIN usuario ON fkEmpUs = idEmpresa WHERE Empresa.nome = '${nomeEmpresa}')','${cargo}', '${nome}','${email}', '${senha}');
     `; 
+=======
+    var instrucao = `
+        INSERT INTO usuario ( fkEmpUs,cargo, nome, email,senha) VALUES (${fkEmp},'funcionario','${nome}','${email}','${senha}');
+    `;
+>>>>>>> 6323ce9634a9acb3b36cf91ad07885477c8125f8
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
