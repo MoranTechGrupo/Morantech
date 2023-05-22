@@ -27,7 +27,7 @@ function cadastrar( placa, modelo ,fkEmp) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO usuario ( placa , modelo , fkEmp) VALUES ('${placa}','${modelo}','${fkEmp}');
+        INSERT INTO transporte ( placa , modelo , fkEmp) VALUES ('${placa}','${modelo}','${fkEmp}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

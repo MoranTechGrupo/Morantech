@@ -62,9 +62,9 @@ function entrar(req, res) {
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var placa = req.body.placaServer;
-    var modelo = req.body.emailServer;
-    var fkEmp = req.body.fkEmpServer;
+    var placa = req.body.caminhao_placaServer;
+    var modelo = req.body.caminhao_modeloServer;
+    var fkEmp = req.body.idEmpresaServer;
 
 
 
