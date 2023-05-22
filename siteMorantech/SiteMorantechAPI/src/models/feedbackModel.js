@@ -21,13 +21,13 @@ function entrar(placa, modelo) {
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
 
 
-function cadastrar( placa, modelo ,fkEmp) {
-    console.log("ACESSEI EMPRESA MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", fkEmp, nome, email, senha);
+function cadastrar(tiutlo, conteudo, tipo,idEmpresa) {
+    console.log("ACESSEI EMPRESA MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", tiutlo, conteudo, tipo,idEmpresa);
 
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO feedback ( fkUsuario , modelo , fkEmp) VALUES ('${placa}','${modelo}','${fkEmp}');
+        INSERT INTO feedback (tiutlo, conteudo, tipo,idEmpresa) VALUES ('${tiutlo}','${conteudo}','${tipo}','${idEmpresa}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

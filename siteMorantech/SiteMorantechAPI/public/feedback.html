@@ -29,7 +29,7 @@
                     <span id="contadorDeCaracteresContendo">0/1000</span>
                 </div>
             </div>
-<br>
+            <br>
             <div class="tipo">
                 <i id="triste" class="fa-solid fa-face-frown triste"></i>
                 <i id="meh" class="fa-solid fa-face-meh meh"></i>
@@ -65,7 +65,63 @@
     function enviarFeedback() {
         var tituloVar = titulo.value;
         var contendoVar = contendo.value;
-        var tipo = tipo
+        var tipoVar = tipo
+        var idEmpresa = sessionStorage.ID_EMPRESA;
+
+
+        if (tituloVar == "" || contendoVar == "" || tipo == "" || senhaVar == "" || idEmpresa == "") {
+
+            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            return false;
+
+        }
+
+
+
+
+        // Enviando o valor da nova input
+        fetch("/feedback/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                tituloServer: tituloVar,
+                conteudoServer: contendoVar,
+                tipoServer: tipoVar,
+                idEmpresaServer: idEmpresa,
+                // qtdSensorServer: qtdSersorVar
+
+
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // cardErro.style.display = "block";
+               
+                // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "dashboard/tela-dashboard-1.html";
+                }, "2000")
+
+                // limparFormulario();
+                // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro do feedback!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
+
+
     }
 
 </script>

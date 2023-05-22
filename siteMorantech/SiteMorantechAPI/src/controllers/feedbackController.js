@@ -1,4 +1,4 @@
-var feedModel = require("../models/feedbackModel");
+var feedbackModel = require("../models/feedbackModel");
 
 var sessoes = [];
 
@@ -25,7 +25,7 @@ function listar(req, res) {
 }
 
 function entrar(req, res) {
-    var  = req.body.placaServer;
+    var placa = req.body.placaServer;
     var modelo = req.body.modeloServer;
 
     if (placa == undefined) {
@@ -34,7 +34,7 @@ function entrar(req, res) {
         res.status(400).send("Sua cnpj está indefinida!");
     } else {
 
-        caminhaoModel.entrar(placa, modelo)
+        feedbackModel.entrar(placa, modelo)
             .then(
                 function (resultado) {
                     console.log(`\nResultados encontrados: ${resultado.length}`);
@@ -62,16 +62,17 @@ function entrar(req, res) {
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var placa = req.body.placaServer;
-    var modelo = req.body.emailServer;
-    var fkEmp = req.body.fkEmpServer;
+    var tiutlo = req.body.tituloServer;
+    var conteudo = req.body.conteudoServer;
+    var tipo = req.body.tipoServer;
+    var idEmpresa = req.body.idEmpresaServer;
 
 
 
     // Faça as validações dos valores
-    if (placa == undefined) {
+    if (tiutlo == undefined) {
         res.status(400).send("Sua placa está undefined!");
-    } else if (modelo == undefined) {
+    } else if (conteudo == undefined) {
         res.status(400).send("modelo está undefined!");
     }else {
 
@@ -79,7 +80,7 @@ function cadastrar(req, res) {
 
 
         // empresaModel.cadastrar(nome ,cnpj , qtdSensor,telefone, email, senha)
-        caminhaoModel.cadastrar(placa, modelo, fkEmp)
+        feedbackModel.cadastrar(tiutlo, conteudo, tipo,idEmpresa)
             .then(
                 function (resultado) {
                     res.json(resultado);

@@ -13,7 +13,8 @@ var empresaRouter = require("./src/routes/empresa");
 var usuarioRouter = require("./src/routes/user");
 // var usuarioRouter = require("./src/routes/usuario");
 var enderecoRouter = require("./src/routes/endereco");
-var caminhaoRouter = require("./src/routes/caminhao")
+var caminhaoRouter = require("./src/routes/caminhao");
+var feedbackRouter = require("./src/routes/feedback")
 
  
 
@@ -34,6 +35,8 @@ app.use("/user",usuarioRouter);
 app.use("/avisos", avisosRouter);
 app.use("/medidas", medidasRouter)
 app.use("/caminhao",caminhaoRouter)
+app.use("/feedback",feedbackRouter)
+
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n
