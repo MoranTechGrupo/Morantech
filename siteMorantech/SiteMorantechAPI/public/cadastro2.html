@@ -29,8 +29,9 @@
           <input id="cnpj_input" class="cnpj inputs" placeholder="CNPJ" /> <br>
           <i class="fa-solid fa-phone" style="color:#93989f"></i>
           <input id="telefone_input" class="numero inputs" placeholder="Telefone" /> <br>
-          <!--^ <i class="fa-solid fa-envelope"style="color:#93989f"></i> <input id="email" class="email inputs" placeholder="E-mail" /> <br> -->
           <i class="fa-solid fa-lock" style="color:#93989f"></i>
+          <input id="email_input" class="email input" placeholder="E-mail" /> <br>
+          <i class="fa-solid fa-envelope"style="color:#93989f"></i>
           <input type="password" id="senha_input" class="senha inputs" placeholder="Senha" /> <br>
           <i class="fa-solid fa-lock" style="color: #93989f;"></i>
           <input type="password" id="confirmacao_senha_input" class="senha inputs" placeholder="Confirme sua senha" />
@@ -51,15 +52,14 @@
 <script>
   function cadastrar() {
 
-
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
-    // var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
     var cnpjVar = cnpj_input.value;
     var telefoneVar = telefone_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
     var nomeEmpresa = sessionStorage.NOME_EMPRESA;
     var idEmpresa = sessionStorage.ID_EMPRESA;
@@ -72,12 +72,12 @@
 
     // }
 
-    if (nomeVar == "" || cnpjVar == "" || telefoneVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+    if (nomeVar == "" || cnpjVar == "" || telefoneVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
 
       // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
       alert(' campos em branco')
     } else if (cnpjVar.length != 18) {
-      alert("cnpj invalido, o cnpj deve ter 18 caracteres");
+      alert("cnpj invalido, o cnpj deve ter 18 caracteres")
     } else if (senhaVar != confirmacaoSenhaVar) {
       alert(`Digite a mesma senha nos campos "senha" e no campo "confirme sua senha"`)
     } else {
@@ -97,12 +97,10 @@
           nomeServer: nomeVar,
           cnpjServer: cnpjVar,
           telefoneServer: telefoneVar,
-          // emailServer: emailVar,
+          emailServer: emailVar,
           senhaServer: senhaVar,
-          // qtdSensorServer: qtdSersorVar
-
-
         })
+
       }).then(function (resposta) {
 
         console.log("resposta: ", resposta);
