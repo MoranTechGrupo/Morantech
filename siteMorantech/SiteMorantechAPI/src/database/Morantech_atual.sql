@@ -73,10 +73,10 @@ references Empresa (idEmpresa)
 
 insert into transporte values
 (null, 'ABC-1234','Scania', 1), 
-(null, 'DEF-5678', 'Mercedes-Benz',2), 
-(null, 'GHI-9012', 'Volvo', 3), 
-(null, 'JKL-3456', 'Ford', 4), 
-(null, 'MNO-7890', 'Volkswagen', 5);
+(null, 'DEF-5678', 'Mercedes-Benz',1), 
+(null, 'GHI-9012', 'Volvo', 1), 
+(null, 'JKL-3456', 'Ford', 1), 
+(null, 'MNO-7890', 'Volkswagen', 1);
 
 -- Sensor --
 
@@ -95,9 +95,10 @@ references transporte(idTransporte)
 
 insert into sensor values 
 (null, 'DHT11', 'A', '2023-05-15', null, 7.28, 92.3, 1),
-(null, 'DHT11', 'A', '2023-06-21', null, 11.6, 88.44, 2),
-(null, 'DHT11', 'A', '2023-05-29', null, 17.79, 79.1, 5),
-(null, 'DHT11', 'A', '2023-08-08', null, 15.83, 83.9, 3),
+(null, 'DHT11', 'A', '2023-06-21', null, 11.6, 88.44, 1),
+(null, 'DHT11', 'A', '2023-05-29', null, 17.79, 79.1, 1),
+(null, 'DHT11', 'A', '2023-08-08', null, 15.83, 83.9, 1),
+(null, 'DHT11', 'A', '2023-10-10', null, 4.5, 95.8, 1)
 (null, 'DHT11', 'A', '2023-10-10', null, 4.5, 95.8, 4);
 
 -- Dados Sensor --
@@ -110,8 +111,21 @@ references sensor(idSensor),
 constraint pkDados primary key (idDados, fkSensor),
 temperatura decimal(5,2),
 umidade decimal(5,2),
-dataHora timestamp
+dataHora datetime default current_timestamp
 );
+/* teste */
+insert into dadosSensor values (null,1,12.21,94.2,default);
+insert into dadosSensor values (null,2,14.21,76.2,default);;
+insert into dadosSensor values (null,3,11.21,91.2,default);
+insert into dadosSensor values (null,4,0.21,93.2,default);
+insert into dadosSensor values (null,1,1.21,96.2,default);
+insert into dadosSensor values (null,2,2.21,91.2,default);
+insert into dadosSensor values (null,1,10.21,93.2,default);
+insert into dadosSensor values (null,5,5.21,92.2,default);
+insert into dadosSensor values (null,4,2.21,93.2,default);
+insert into dadosSensor values (null,1,12.21,90.2,default);
+insert into dadosSensor values (null,1,12.21,90.2,default);
+/* teste */
 
 create table parametro (
 idParametro int,

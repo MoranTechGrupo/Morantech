@@ -22,7 +22,7 @@ var mySqlConfig = {
     host: "127.0.0.1",
     database: "Morantech",
     user: "root",
-    password: "#Acloy2206",
+    password: "12345",
     /* password: '12345', */
 };
 
