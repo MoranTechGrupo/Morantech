@@ -60,7 +60,7 @@ function entrar(req, res) {
 
 }
 
-function cadastrar(req, res) {
+function enviarFeedback(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var tiutlo = req.body.tituloServer;
     var conteudo = req.body.conteudoServer;
@@ -100,7 +100,7 @@ function cadastrar(req, res) {
 
 module.exports = {
     entrar,
-    cadastrar,
+    enviarFeedback,
     listar,
     testar
 }
