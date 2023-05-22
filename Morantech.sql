@@ -21,6 +21,8 @@ insert into Empresa values
 (null, 'Morango Doce Sabor Eireli', '34.567.890/0001-34', 'DoceSabor@gmail.com', 'SaborDoce111', 5, '(41) 98765-9321', 'A'),
 (null, 'Morangos Frescos Ltda', '45.678.901/0001-56', 'MorangosFrescos@gmail.com', 'Frescos836', 4, '(51) 93623-1235', 'A'),
 (null, 'Morangos Frescos Ltda', '45.678.901/0001-56', 'MorangosFrescos@gmail.com', 'Frescos836', 4, '(51) 93623-1235', 'A');
+SELECT * FROM EMPRESA;
+
 
 -- endereços Empresas --
 
@@ -157,7 +159,13 @@ select * from empresa join endereco
 on idEmpresa = fkEmpEd
 join transporte on fkEmp = idEmpresa;
 
+insert into usuario(fkEmpUs, cargo, nome) VALUES 
+((select idEmpresa FROM Empresa WHERE Empresa.nome = 'Empresa'), 'junior', 'Fernando');
+select * from usuario;
+
+
  
+
 	
         
 	
