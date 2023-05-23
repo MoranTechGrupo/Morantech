@@ -61,7 +61,7 @@ function entrar(req, res) {
 
 }
 
-function cadastrar(req, res) {
+function cadastrarEndereco(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var idEmpresa = req.body.idEmpresaServer;
     var rua = req.body.ruaServer;
@@ -95,7 +95,7 @@ function cadastrar(req, res) {
 
 
         // empresaModel.cadastrar(nome ,cnpj , qtdSensor,telefone, email, senha)
-        enderecoModel.cadastrar(idEmpresa, rua, bairro, numero, cidade, UF, caixaPostal)
+        enderecoModel.cadastrarEndereço(idEmpresa, rua, bairro, numero, cidade, UF, caixaPostal)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -115,7 +115,7 @@ function cadastrar(req, res) {
 
 module.exports = {
     entrar,
-    cadastrar,
+    cadastrarEndereco,
     listar,
     testar
 }
