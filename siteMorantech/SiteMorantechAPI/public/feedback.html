@@ -46,6 +46,23 @@
 <script>
 
 
+var tipo = "feliz"
+
+var feliz = document.getElementById('feliz');
+feliz.addEventListener('click',()=>{
+    tipo = "feliz"
+})
+
+var meh = document.getElementById('meh');
+meh.addEventListener('click',()=>{
+    tipo = "meh"
+})
+
+var triste = document.getElementById('triste');
+triste.addEventListener('click',()=>{
+    tipo = "triste"
+})
+
     var Titulo = document.getElementById('titulo')
     Titulo.addEventListener('input', () => {
         var qtdCaracterTitulo = Titulo.value.length;
@@ -69,30 +86,25 @@
         var idEmpresa = sessionStorage.ID_EMPRESA;
 
 
-        if (tituloVar == "" || contendoVar == "" || tipo == "" || senhaVar == "" || idEmpresa == "") {
+        if (tituloVar == "" || contendoVar == "" || tipo == "") {
 
-            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
             return false;
 
         }
 
+console.log(idEmpresa);
 
 
-
-        // Enviando o valor da nova input
         fetch("/feedback/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
                 tituloServer: tituloVar,
                 conteudoServer: contendoVar,
                 tipoServer: tipoVar,
                 idEmpresaServer: idEmpresa,
-                // qtdSensorServer: qtdSersorVar
 
 
             })
@@ -101,22 +113,16 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                // cardErro.style.display = "block";
-               
-                // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
+              
                 setTimeout(() => {
                     window.location = "dashboard/tela-dashboard-1.html";
                 }, "2000")
 
-                // limparFormulario();
-                // finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro do feedback!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            // finalizarAguardar();
         });
 
         return false;

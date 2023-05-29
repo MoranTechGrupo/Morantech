@@ -63,7 +63,7 @@
         console.log("FORM senha: ", senhaVar);
         console.log("FORM email: ", emailVar);
 
-        fetch("/empresa/autenticar", {
+        fetch("/empresa/entrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -84,11 +84,8 @@
 
                    var emailSession = sessionStorage.EMAIL_EMPRESA = json.email;
                    var nomeSession =  sessionStorage.NOME_EMPRESA = json.nome;
-                   var idSession = sessionStorage.IDEMPRESA_EMPRESA = json.idEmpresa;
-                  // var idUsuarioSession = sessionStorage.ID_USUARIO = json.idUsuario;
-
-                   // alert ("ola empresa  " +nomeSession + " deu certo !!!! o seu identificador é ( "+ idSession +" )");
-                   
+                   var idSession = sessionStorage.ID_EMPRESA = json.idEmpresa;
+                
                     setTimeout(function () {
                         // 
                         window.location = "dashboard/tela-dashboard-1.html";

@@ -16,7 +16,7 @@ router.post("/cadastrar", function (req, res) {
     empresaController.cadastrar(req, res);
 })
 
-router.post("/autenticar", function (req, res) {
+router.post("/entrar", function (req, res) {
     empresaController.entrar(req, res);
 });
 
