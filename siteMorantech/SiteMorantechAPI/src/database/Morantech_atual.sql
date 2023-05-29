@@ -32,7 +32,7 @@ create table endereco (
 idEndereco int primary key auto_increment,
 fkEmpEd int,
 constraint fkEmpEd foreign key (fkEmpEd)
-references Empresa(idEmpresa),
+references empresa(idEmpresa),
 logradouro varchar(45),
 bairro varchar(45),
 numero varchar(12),
@@ -54,7 +54,7 @@ create table usuario (
 idUsuario int auto_increment,
 fkEmpUs int,
 constraint fkEmpUs foreign key (fkEmpUs)
-references Empresa(idEmpresa),
+references empresa(idEmpresa),
 constraint pkUsuario primary key (idUsuario, fkEmpUs),
 cargo varchar(45),
 nome varchar(45),
@@ -139,7 +139,7 @@ foreign key (fkEmpresa) references empresa(idEmpresa)
 
 -- selects individuais
 
-select * from Empresa;
+select * from empresa;
 select * from endereço;
 select * from usuario;
 
@@ -150,10 +150,10 @@ select * from dadosSensor;
 
 -- selects joinados
 
-select * from Empresa join endereço
+select * from empresa join endereço
 on idEmpresa = fkEmpEd;
 
-select * from transporte join Empresa
+select * from transporte join empresa
 on fkEmp = idEmpresa;
 
 select * from sensor join transporte
@@ -162,7 +162,7 @@ on fkTransp = idTransporte;
 
 select * from sensor where situaçao like 'I';
 
-select nome as 'nome empresa' from Empresa join endereço 
+select nome as 'nome empresa' from empresa join endereço 
 	on idEmpresa = fkEmpEd  where endereço.UF = 'SP' ;
     
 select * from transporte join sensor 
