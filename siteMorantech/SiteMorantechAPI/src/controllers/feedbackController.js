@@ -60,9 +60,9 @@ function entrar(req, res) {
 
 }
 
-function cadastrar(req, res) {
+function enviarFeedback(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var tiutlo = req.body.tituloServer;
+    var titulo = req.body.tituloServer;
     var conteudo = req.body.conteudoServer;
     var tipo = req.body.tipoServer;
     var idEmpresa = req.body.idEmpresaServer;
@@ -70,7 +70,7 @@ function cadastrar(req, res) {
 
 
     // Faça as validações dos valores
-    if (tiutlo == undefined) {
+    if (titulo == undefined) {
         res.status(400).send("Sua placa está undefined!");
     } else if (conteudo == undefined) {
         res.status(400).send("modelo está undefined!");
@@ -80,7 +80,7 @@ function cadastrar(req, res) {
 
 
         // empresaModel.cadastrar(nome ,cnpj , qtdSensor,telefone, email, senha)
-        feedbackModel.cadastrar(tiutlo, conteudo, tipo,idEmpresa)
+        feedbackModel.cadastrar(titulo, conteudo, tipo,idEmpresa)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -100,7 +100,7 @@ function cadastrar(req, res) {
 
 module.exports = {
     entrar,
-    cadastrar,
+    enviarFeedback,
     listar,
     testar
 }

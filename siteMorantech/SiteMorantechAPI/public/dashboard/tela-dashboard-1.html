@@ -21,6 +21,7 @@
 
         <li><a href="../cadastroUser.html">CADASTRAR FUNCIONÁRIO</a></li>
         <li><a href="../cadastroEndereco.html">CADASTRAR ENDEREÇO</a></li>
+        <li><a href="../cadastrocaminhao.html">CADASTRAR CAMINHÕES</a></li>
         <li><a href="../feedback.html">FEEDBACK</a></li>
         <li><a href="#">
             <div id="b_empresa"></div>
@@ -159,50 +160,35 @@
         </div>
       </div>
     </div>
-
-    <div class="tempo-real">
+<!-- ^conectar com o banco de dados^ -->
+<div class="tempo-real">
       <h3>Situação dos caminhões</h3>
       <div class="tabela">
         <div class="idCaminhoes">
           <h4>Caminhão</h4>
           <span>ABC1234</span>
-          <span>DEF1234</span>
-          <span>GHI1234</span>
-          <span>JKL1234</span>
-          <span>MNO1234</span>
+    
         </div>
         <div class="trajeto">
           <h4>Trajeto</h4>
           <span>Holambra(SP) - São Paulo(SP)</span>
-          <span>Itu(SP) - Campinas(SP)</span>
-          <span>Três Corações(MG) - Belo Horizonte(MG)</span>
-          <span>Taubaté(SP) - Curitiba(PR)</span>
-          <span>Vitória(ES) - Rio de Janeiro(RJ)</span>
+     
         </div>
         <div class="temperatura">
           <h4>Temperatura</h4>
           <span>7°C</span>
-          <span>8°C</span>
-          <span>17°C</span>
-          <span>15°C</span>
-          <span>4°C</span>
+
         </div>
         <div class="umidade">
           <h4>Umidade</h4>
           <span>92%</span>
-          <span>91%</span>
-          <span>79%</span>
-          <span>83%</span>
-          <span>95%</span>
+    
         </div>
 
         <div class="status">
           <h4>Status</h4>
           <span class="ideal">......</span>
-          <span class="alerta">......</span>
-          <span class="critico">......</span>
-          <span class="critico">......</span>
-          <span class="ideal">......</span>
+  
         </div>
       </div>
     </div>
@@ -226,382 +212,13 @@
             </div>
           </div>
         </div>
-        <div class="caminhao">
-          <h4>Caminhão 2</h4>
-          <div class="dados">
-            <div class="temperatura">
-              <h4>Temperatura</h4>
-              <span>Menor: 2°C</span>
-              <span>Maior: 19°C</span>
-            </div>
-            <div class="divisao"></div>
-            <div class="umidade">
-              <h4>Umidade</h4>
-              <span>Menor: 72°C</span>
-              <span>Maior: 97°C</span>
-            </div>
-          </div>
-        </div>
-        <div class="caminhao">
-          <h4>Caminhão 3</h4>
-          <div class="dados">
-            <div class="temperatura">
-              <h4>Temperatura</h4>
-              <span>Menor: 5°C</span>
-              <span>Maior: 17°C</span>
-            </div>
-            <div class="divisao"></div>
-            <div class="umidade">
-              <h4>Umidade</h4>
-              <span>Menor: 77°C</span>
-              <span>Maior: 94°C</span>
-            </div>
-          </div>
-        </div>
-        <div class="caminhao">
-          <h4>Caminhão 4</h4>
-          <div class="dados">
-            <div class="temperatura">
-              <h4>Temperatura</h4>
-              <span>Menor: 0°C</span>
-              <span>Maior: 16°C</span>
-            </div>
-            <div class="divisao"></div>
-            <div class="umidade">
-              <h4>Umidade</h4>
-              <span>Menor: 81°C</span>
-              <span>Maior: 97°C</span>
-            </div>
-          </div>
-        </div>
-        <div class="caminhao">
-          <h4>Caminhão 5</h4>
-          <div class="dados">
-            <div class="temperatura">
-              <h4>Temperatura</h4>
-              <span>Menor: 3°C</span>
-              <span>Maior: 11°C</span>
-            </div>
-            <div class="divisao"></div>
-            <div class="umidade">
-              <h4>Umidade</h4>
-              <span>Menor: 86°C</span>
-              <span>Maior: 96°C</span>
-            </div>
-          </div>
-        </div>
+<!-- ^conectar com o banco de dados^ -->
+
       </div>
     </div>
   </div>
 
 </body>
-<!-- <script>
-
-  // Gráfico caminhão 1
-  const labels1 = ["12:00", "12:05", "12:10", "12:15", "12:20", "12:25", "12:30", "12:35", "12:40", "12:45"];
-
-  const data1 = {
-    labels: labels1,
-    datasets: [
-      {
-        label: "Temperatura (°C)",
-        backgroundColor: "#ff6384",
-        borderColor: "#ff6384",
-        data: [21, 24, 28, 23, 20, 17, 15, 12, 8, 7],
-        yAxisID: 'y_temp'
-      },
-      {
-        label: "Umidade (%)",
-        backgroundColor: "#36a2eb",
-        borderColor: "#36a2eb",
-        data: [80, 73, 66, 76, 80, 83, 86, 89, 91, 92],
-        yAxisID: 'y_umid'
-      },
-    ],
-  };
-
-  const config1 = {
-    type: "line",
-    data: data1,
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: "top",
-        },
-        title: {
-          display: true,
-          text: "Caminhão 1 (ABC1234)",
-        },
-      }, 
-      scales: {
-        y_umid: {
-          type: 'linear',
-          position: 'right',
-          ticks: {
-            max: 95,
-            min: 90
-          }
-        },
-        y_temp: {
-          type: 'linear',
-          position: 'left',
-          ticks: {
-            max: 12,
-            min: 0
-          }
-        }
-      }
-    }
-  };
-
-  const myChart1 = new Chart(document.getElementById("myChart1"), config1);
-
-  // Gráfico caminhão 2
-  const labels2 = ["12:00", "12:05", "12:10", "12:15", "12:20", "12:25", "12:30", "12:35", "12:40", "12:45"];
-
-  const data2 = {
-    labels: labels2,
-    datasets: [
-      {
-        label: "Temperatura (°C)",
-        backgroundColor: "#ff6384",
-        borderColor: "#ff6384",
-        data: [15, 11, 8, 5, 2, 0, 3, 6, 8, 11],
-        yAxisID: 'y_temp2'
-      },
-      {
-        label: "Umidade (%)",
-        backgroundColor: "#36a2eb",
-        borderColor: "#36a2eb",
-        data: [82, 88, 91, 93, 95, 98, 94, 92, 91, 88],
-        yAxisID: 'y_umid2'
-      },
-    ],
-  };
-
-  const config2 = {
-    type: "line",
-    data: data2,
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: "top",
-        },
-        title: {
-          display: true,
-          text: "Caminhão 2 (DEF1234)",
-        },
-      },
-      scales: {
-        y_umid2: {
-          type: 'linear',
-          position: 'right',
-          ticks: {
-            max: 95,
-            min: 90
-          }
-        },
-        y_temp2: {
-          type: 'linear',
-          position: 'left',
-          ticks: {
-            max: 12,
-            min: 0
-          }
-        }
-      }
-    }
-  };
-
-  const myChart2 = new Chart(document.getElementById("myChart2"), config2);
-
-  // Gráfico caminhão 3
-  const labels3 = ["12:00", "12:05", "12:10", "12:15", "12:20", "12:25", "12:30", "12:35", "12:40", "12:45"];
-
-  const data3 = {
-    labels: labels3,
-    datasets: [
-      {
-        label: "Temperatura",
-        backgroundColor: "#ff6384",
-        borderColor: "#ff6384",
-        data: [4, 3, 5, 7, 8, 10, 12, 14, 16, 17],
-        yAxisID: 'y_temp'
-      },
-      {
-        label: "Umidade",
-        backgroundColor: "#36a2eb",
-        borderColor: "#36a2eb",
-        data: [95, 96, 95, 93, 93, 91, 89, 85, 82, 79],
-        yAxisID: 'y_umid'
-      },
-    ],
-  };
-
-  const config3 = {
-    type: "line",
-    data: data3,
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: "top",
-        },
-        title: {
-          display: true,
-          text: "Caminhão 3 (GHI1234)",
-        },
-      },
-      scales: {
-        y_umid: {
-          type: 'linear',
-          position: 'right',
-          ticks: {
-            max: 95,
-            min: 90
-          }
-        },
-        y_temp: {
-          type: 'linear',
-          position: 'left',
-          ticks: {
-            max: 12,
-            min: 0
-          }
-        }
-      }
-    },
-  };
-
-  const myChart3 = new Chart(document.getElementById("myChart3"), config3);
-
-  // Gráfico caminhão 4
-  const labels4 = ["12:00", "12:05", "12:10", "12:15", "12:20", "12:25", "12:30", "12:35", "12:40", "12:45"];
-
-  const data4 = {
-    labels: labels4,
-    datasets: [
-      {
-        label: "Temperatura",
-        backgroundColor: "#ff6384",
-        borderColor: "#ff6384",
-        data: [18, 22, 20, 17, 15, 12, 9, 11, 14, 15],
-        yAxisID: 'y_temp'
-
-      },
-      {
-        label: "Umidade",
-        backgroundColor: "#36a2eb",
-        borderColor: "#36a2eb",
-        data: [77, 73, 76, 80, 85, 89, 91, 89, 85, 83],
-        yAxisID: 'y_umid'
-      },
-    ],
-  };
-
-  const config4 = {
-    type: "line",
-    data: data4,
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: "top",
-        },
-        title: {
-          display: true,
-          text: "Caminhão 4 (JKL1234)",
-        },
-      },
-      scales: {
-        y_umid: {
-          type: 'linear',
-          position: 'right',
-          ticks: {
-            max: 95,
-            min: 90
-          }
-        },
-        y_temp: {
-          type: 'linear',
-          position: 'left',
-          ticks: {
-            max: 12,
-            min: 0
-          }
-        }
-      }
-    },
-  };
-
-  const myChart4 = new Chart(document.getElementById("myChart4"), config4);
-
-  // Gráfico caminhão 5
-  const labels5 = ["12:00", "12:05", "12:10", "12:15", "12:20", "12:25", "12:30", "12:35", "12:40", "12:45"];
-
-  const data5 = {
-    labels: labels5,
-    datasets: [
-      {
-        label: "Temperatura",
-        backgroundColor: "#ff6384",
-        borderColor: "#ff6384",
-        data: [7, 12, 13, 17, 20, 15, 13, 12, 9, 4],
-        yAxisID: 'y_temp'
-      },
-      {
-        label: "Umidade",
-        backgroundColor: "#36a2eb",
-        borderColor: "#36a2eb",
-        data: [92, 88, 85, 80, 76, 83, 86, 89, 92, 95],
-        yAxisID: 'y_umid'
-      },
-    ],
-  };
-
-  const config5 = {
-    type: "line",
-    data: data5,
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: "top",
-        },
-        title: {
-          display: true,
-          text: "Caminhão 5 (MNO1234)",
-        },
-      },
-      scales: {
-        y_umid: {
-          type: 'linear',
-          position: 'right',
-          ticks: {
-            max: 95,
-            min: 90
-          }
-        },
-        y_temp: {
-          type: 'linear',
-          position: 'left',
-          ticks: {
-            max: 12,
-            min: 0
-          }
-        }
-      }
-    },
-  };
-
-  const myChart5 = new Chart(document.getElementById("myChart5"), config5);
-
-</script>
- -->
-
-
 
 </html>
 
@@ -612,11 +229,6 @@
   var nomeEmpresa = sessionStorage.NOME_EMPRESA;
   var idEmpresa = sessionStorage.ID_EMPRESA;
   b_empresa.innerHTML = `<h2>Ola ${nomeEmpresa}</h2>`;
-  // b_id.innerHTML = idEmpresa;
-
-
-
-  // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^~~~
 
 
 
@@ -632,12 +244,7 @@
     obterDadosGrafico(5)
   }
 
-  verificar_autenticacao();
 
-  function alterarTitulo(idSensor) {
-    var tituloAquario = document.getElementById(`tituloAquario${idSensor}`)
-    tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idSensor + "</span>"
-  }
 
   function exibirAquario(idSensor) {
     let todosOsGraficos = document.getElementById("graficos")
@@ -650,12 +257,6 @@
       }
       elementoAtual.classList.add("display-none")
 
-      // alterando estilo do botão
-      let btnAtual = document.getElementById(`btnAquario${i}`)
-      if (btnAtual.classList.contains("btn-pink")) {
-        btnAtual.classList.remove("btn-pink")
-      }
-      btnAtual.classList.add("btn-white")
     }
 
     // exibindo - ou não - o gráfico
@@ -733,9 +334,6 @@
       }]
     };
 
-    console.log('----------------------------------------------')
-    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-    console.log(resposta)
 
     // Inserindo valores recebidos em estrutura para plotar o gráfico
     for (i = 0; i < resposta.length; i++) {
@@ -791,7 +389,7 @@
           if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
             console.log("---------------------------------------------------------------")
             console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-           
+
             console.log("Horário do novo dado capturado:")
             console.log(novoRegistro[0].momento_grafico)
             console.log("Horário do último dado capturado:")
