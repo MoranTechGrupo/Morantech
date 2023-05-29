@@ -23,8 +23,8 @@ var mySqlConfig = {
     host: "localhost",
     database: "morantech",
     user: "root",
-    password: "@Budapeste1",
-    /* password: '12345', */
+    // password: "@Budapeste1",
+     password: '12345', 
 };
 
 function executar(instrucao) {
