@@ -76,10 +76,10 @@ references empresa (idEmpresa)
 
 insert into transporte values
 (null, 'ABC-1234','Scania', 1), 
-(null, 'DEF-5678', 'Mercedes-Benz',1), 
-(null, 'GHI-9012', 'Volvo', 1), 
-(null, 'JKL-3456', 'Ford', 1), 
-(null, 'MNO-7890', 'Volkswagen', 1);
+(null, 'DEF-5678', 'Mercedes-Benz',2), 
+(null, 'GHI-9012', 'Volvo', 3), 
+(null, 'JKL-3456', 'Ford', 4), 
+(null, 'MNO-7890', 'Volkswagen', 5);
 
 -- Sensor --
 
@@ -98,10 +98,9 @@ references transporte(idTransporte)
 
 insert into sensor values 
 (null, 'DHT11', 'A', '2023-05-15', null, 7.28, 92.3, 1),
-(null, 'DHT11', 'A', '2023-06-21', null, 11.6, 88.44, 1),
-(null, 'DHT11', 'A', '2023-05-29', null, 17.79, 79.1, 1),
-(null, 'DHT11', 'A', '2023-08-08', null, 15.83, 83.9, 1),
-(null, 'DHT11', 'A', '2023-10-10', null, 4.5, 95.8, 1)
+(null, 'DHT11', 'A', '2023-06-21', null, 11.6, 88.44, 2),
+(null, 'DHT11', 'A', '2023-05-29', null, 17.79, 79.1, 5),
+(null, 'DHT11', 'A', '2023-08-08', null, 15.83, 83.9, 3),
 (null, 'DHT11', 'A', '2023-10-10', null, 4.5, 95.8, 4);
 
 -- Dados Sensor --
@@ -114,29 +113,8 @@ references sensor(idSensor),
 constraint pkDados primary key (idDados, fkSensor),
 temperatura decimal(5,2),
 umidade decimal(5,2),
-dataHora datetime default current_timestamp
+dataHora timestamp
 );
-/* teste */
-insert into dadosSensor values (null,1,12.21,94.2,default);
-insert into dadosSensor values (null,2,14.21,76.2,default);;
-insert into dadosSensor values (null,3,11.21,91.2,default);
-insert into dadosSensor values (null,4,0.21,93.2,default);
-insert into dadosSensor values (null,1,1.21,96.2,default);
-insert into dadosSensor values (null,2,2.21,91.2,default);
-insert into dadosSensor values (null,1,10.21,93.2,default);
-insert into dadosSensor values (null,5,5.21,92.2,default);
-insert into dadosSensor values (null,4,2.21,93.2,default);
-insert into dadosSensor values (null,1,12.21,90.2,default);
-insert into dadosSensor values (null,1,12.21,90.2,default);
-/* teste */
-
-/*  
-   insert into dadosSensor values 
-                (null,1,${dado1},${dado2},default),
-                (null,2,${dado3},${dado4},default),
-                (null,3,${dado5},${dado6},default),
-                (null,4,${dado7},${dado8},default)`;
-*/
 
 -- Parametros -- 
 
@@ -184,11 +162,7 @@ on fkTransp = idTransporte;
 
 select * from sensor where situaçao like 'I';
 
-<<<<<<< HEAD
 select nome as 'nome empresa' from empresa join endereço 
-=======
-/* select nome as 'nome empresa' from Empresa join endereço 
->>>>>>> 7789ae258925fee61595061f845de87558b69301
 	on idEmpresa = fkEmpEd  where endereço.UF = 'SP' ;
     
 select * from transporte join sensor 
@@ -197,15 +171,11 @@ select * from transporte join sensor
 select * from empresa join endereco
 on idEmpresa = fkEmpEd
 join transporte on fkEmp = idEmpresa;
-  */
+ 
 	
         
 	
 
 
-select * from empresa join transporte 
-	on idEmpresa = fkEmp 
-	join sensor on idTransporte = fkTransp
-	join dadosSensor on idSensor = fkSensor; 
 
 
