@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/cadastroCaminhao.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-box">
+            <div class="titulo">
+                <h1>Cadastre seu caminhão</h1>
+                <img src=".assets/caminhaoCadastro.gif" alt="caminhao-cadastro" />
+            </div>
+
+        </div>
+        <div class="right-box">
+            <div class="form">
+
+                <div class="inputs">
+
+
+                    <i class="fa-solid fa-lock" style="color:#93989f"></i>
+                    <input id="numero_placa" class="numero_placa inputs" placeholder="Placa do caminão" /> <br>
+
+                    <i class="fa-solid fa-lock" style="color:#93989f"></i>
+                    <input id="modelo_caminhao" class="numero_cnh inputs" placeholder="Modelo do caminhao" /> <br>
+
+
+                </div>
+
+                <button onclick="cadastrar()" class="cadastrar">
+                    Cadastrar caminhão
+                </button>
+
+                <a href="./dashboard/dashboard.html"> Ir para área do cliente!</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function cadastrar() {
+
+            var caminhao_placa = numero_placa.value;
+            var caminhao_modelo = modelo_caminhao.value;
+            var idEmpresa =sessionStorage.ID_EMPRESA ;
+
+
+
+            if (caminhao_placa == "" || caminhao_modelo == "") {
+                return false;
+            }
+
+            // Enviando o valor da nova input
+            fetch("/caminhao/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+
+                    caminhao_placaServer: caminhao_placa,
+                    caminhao_modeloServer: caminhao_modelo,
+                    idEmpresaServer: idEmpresa,
+
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                    alert(`parabens você cadastrou seu caminhão \(0o0)/`);
+                    alert(`agora você pode entar na página de dashboard`);
+
+
+                    setTimeout(() => {
+                        window.location = "./dashboard/dashboard.html";
+                    }, "2000")
+
+
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+
+            });
+
+            return false;
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,3 +1,0 @@
-api 1: laço de repetção para pegar a fk
-api 2: rodar os dados capturados de todos os sensores de cada fk
-api 1: fazzer select no banco para pegar as fks de cada dados sensor 
