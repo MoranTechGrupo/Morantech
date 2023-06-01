@@ -25,7 +25,6 @@ function obterdados(idTransporte) {
 function alertar(resposta, idTransporte) {
     var temp = resposta[0].temperatura;
     var umid = resposta[0].umidade;
-    console.log(`pegou umidade ${umid}`);
     
     console.log(idTransporte === resposta[0].fkSensor)
     
