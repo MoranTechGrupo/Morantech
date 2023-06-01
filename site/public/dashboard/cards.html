@@ -2,11 +2,10 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Tempo Real</title>
+    <title>MoranTech | Tempo Real</title>
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="dashboards.css">
@@ -27,14 +26,14 @@
 
         <div class="header-left dash-header">
 
-            <h1>AquaTech</h1>
+            <h1>MoranTech</h1>
 
             <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                <h3>Olá, <span id="b_empresa">usuário</span>!</h3>
             </div>
 
             <div class="btn-nav">
-                <h3>Aquários</h3>
+                <h3>Caminhões</h3>
             </div>
 
             <div class="btn-nav-white">
@@ -85,14 +84,14 @@
                 <div class="card">
                     <h1>Aquário 1</h1>
                     <div class="temperatura">
-                        <p id="temp_aquario_1">-°C</p>
+                        <p id="temp_caminhao_1">-°C</p>
                     </div>
                     <div class="cor-alerta" id="card_1"></div>
                 </div>
                 <div class="card">
                     <h1>Aquário 2</h1>
                     <div class="temperatura">
-                        <p id="temp_aquario_2">-°C</p>
+                        <p id="temp_caminhao_2">-°C</p>
                     </div>
                     <div class="cor-alerta" id="card_2"></div>
 
@@ -100,16 +99,23 @@
                 <div class="card">
                     <h1>Aquário 3</h1>
                     <div class="temperatura">
-                        <p id="temp_aquario_3">-°C</p>
+                        <p id="temp_caminhao_3">-°C</p>
                     </div>
                     <div class="cor-alerta" id="card_3"></div>
                 </div>
                 <div class="card">
                     <h1>Aquário 4</h1>
                     <div class="temperatura">
-                        <p id="temp_aquario_4">-°C</p>
+                        <p id="temp_caminhao_4">-°C</p>
                     </div>
                     <div class="cor-alerta" id="card_4"></div>
+                </div>
+                <div class="card">
+                    <h1>Aquário 5</h1>
+                    <div class="temperatura">
+                        <p id="temp_caminhao_5">-°C</p>
+                    </div>
+                    <div class="cor-alerta" id="card_5"></div>
                 </div>
 
             </div>
@@ -121,7 +127,7 @@
 </body>
 
 <script>
-
+    b_empresa.innerHTML = sessionStorage.NOME_EMPRESA;
 
 
     function atualizacaoPeriodica() {
@@ -129,8 +135,9 @@
         obterdados(2);
         obterdados(3);
         obterdados(4);
+        obterdados(5);
 
-        setTimeout(atualizacaoPeriodica, 5000);
+        // setTimeout(atualizacaoPeriodica, 5000);
     }
 
 

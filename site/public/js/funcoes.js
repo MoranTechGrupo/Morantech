@@ -2,14 +2,14 @@
 function validarSessao() {
     // aguardar();
 
-    var email = sessionStorage.EMAIL_USUARIO;
-    var nome = sessionStorage.NOME_USUARIO;
+    var email = sessionStorage.EMAIL_EMPRESA;
+    var nome = sessionStorage.NOME_EMPRESA;
 
-    var b_usuario = document.getElementById("b_usuario");
+    var b_empresa = document.getElementById("b_empresa");
 
     if (email != null && nome != null) {
         // window.alert(`Seja bem-vindo, ${nome}!`);
-        b_usuario.innerHTML = nome;
+        b_empresa.innerHTML = nome;
 
         // finalizarAguardar();
     } else {

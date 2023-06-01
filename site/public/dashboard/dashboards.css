@@ -3,11 +3,38 @@
 *,
 body {
   font-family: "Exo 2", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.janela {
+  display: flex;
+  flex-direction: row;
 }
 
 .label-captura {
   display: flex;
   justify-content: center;
+}
+
+.header-left {
+    width: 20%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #ffd5d58a;
+    color: #000;
+    border-right: 2px solid #fa4f6c;
+}
+
+.dash-right {
+  width: 80%;
+  height: 100%;
+  background-color: #ffd5d58a;
+  color: #000;
 }
 
 .dash-right .avisos {
@@ -116,11 +143,12 @@ body {
 
 .dash {
   width: 80%;
-  position: relative;
-  top: 0;
-  left: 20%;
-  background-color: #161618;
-  height: 100vh;
+  /* position: relative; */
+  /* top: 0; */
+  /* left: 20%; */
+  background-color: #ffd5d58a;
+  color: #000;
+  height: 100%;
   overflow: auto;
 }
 
@@ -217,6 +245,7 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 .graph {
@@ -226,7 +255,7 @@ body {
 }
 
 .tituloGraficos {
-  color: rgb(216, 216, 216);
+  color: #000;
   display: flex;
   justify-content: center;
 }
@@ -239,6 +268,7 @@ body {
   padding: 10px 15px;
   color: #e6005a;
   background-color: white;
+  box-shadow: 0px 2px 5px #0003;
   margin: 5px;
   border-radius: 3px;
 }

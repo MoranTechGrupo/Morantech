@@ -1,15 +1,15 @@
 var alertas = [];
 
-function obterdados(idAquario) {
-    fetch(`/medidas/tempo-real/${idAquario}`)
+function obterdados(idTransporte) {
+    fetch(`/medidas/tempo-real/${idTransporte}`)
         .then(resposta => {
 
             if (resposta.ok) {
-                resposta.json().then(resposta => {
+                resposta.json().then(respostaJSON => {
 
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log(`Dados recebidos: ${JSON.stringify(respostaJSON)}`);
 
-                    alertar(resposta, idAquario);
+                    alertar(respostaJSON, idTransporte);
                 });
             } else {
 
@@ -17,112 +17,162 @@ function obterdados(idAquario) {
             }
         })
         .catch(function (error) {
-            console.error(`Erro na obtenção dos dados do aquario p/ gráfico: ${error.message}`);
+            console.error(`Erro na obtenção dos dados do caminhao p/ gráfico: ${error.message}`);
         });
 
 }
 
-function alertar(resposta, idAquario) {
+function alertar(resposta, idTransporte) {
     var temp = resposta[0].temperatura;
-
-    console.log(idAquario === resposta[0].fk_aquario)
+    var umid = resposta[0].umidade;
+    console.log(`pegou umidade ${umid}`);
     
-    var grauDeAviso ='';
+    console.log(idTransporte === resposta[0].fkSensor)
+    
+    var grauDeAvisoTemp ='';
+    var grauDeAvisoUmid ='';
 
 
-    var limites = {
-        muito_quente: 23,
-        quente: 22,
-        ideal: 20,
-        frio: 10,
-        muito_frio: 5
+    var limitesTemp = {
+        muito_quente: 12.1,
+        quente: 9.1,
+        ideal: 4,
+        frio: 3.9,
+        muito_frio: 0
+    };
+
+    var limitesUmid = {
+        muito_umido: 96,
+        umido: 95,
+        ideal: 91,
+        seco: 90.9,
+        muito_seco: 90
     };
 
     var classe_temperatura = 'cor-alerta';
+    var classe_umidade = 'cor-alerta';
 
-    if (temp >= limites.muito_quente) {
+    // ALERTAS DE TEMPERATURA
+    if (temp >= limitesTemp.muito_quente) {
         classe_temperatura = 'cor-alerta perigo-quente';
-        grauDeAviso = 'perigo quente'
+        grauDeAvisoTemp = 'perigo quente'
         grauDeAvisoCor = 'cor-alerta perigo-quente'
-        exibirAlerta(temp, idAquario, grauDeAviso, grauDeAvisoCor)
+        exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCor)
     }
-    else if (temp < limites.muito_quente && temp >= limites.quente) {
+    else if (temp < limitesTemp.muito_quente && temp >= limitesTemp.quente) {
         classe_temperatura = 'cor-alerta alerta-quente';
-        grauDeAviso = 'alerta quente'
+        grauDeAvisoTemp = 'alerta quente'
         grauDeAvisoCor = 'cor-alerta alerta-quente'
-        exibirAlerta(temp, idAquario, grauDeAviso, grauDeAvisoCor)
+        exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCor)
     }
-    else if (temp < limites.quente && temp > limites.frio) {
-        classe_temperatura = 'cor-alerta ideal';
-        removerAlerta(idAquario);
-    }
-    else if (temp <= limites.frio && temp > limites.muito_frio) {
+    else if (temp <= limitesTemp.frio && temp > limitesTemp.muito_frio) {
         classe_temperatura = 'cor-alerta alerta-frio';
-        grauDeAviso = 'alerta frio'
+        grauDeAvisoTemp = 'alerta frio'
         grauDeAvisoCor = 'cor-alerta alerta-frio'
-        exibirAlerta(temp, idAquario, grauDeAviso, grauDeAvisoCor)
+        exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCor)
     }
-    else if (temp <= limites.muito_frio) {
+    else if (temp <= limitesTemp.muito_frio) {
         classe_temperatura = 'cor-alerta perigo-frio';
-        grauDeAviso = 'perigo frio'
+        grauDeAvisoTemp = 'perigo frio'
         grauDeAvisoCor = 'cor-alerta perigo-frio'
-        exibirAlerta(temp, idAquario, grauDeAviso, grauDeAvisoCor)
+        exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCor)
+    } 
+    // ALERTAS DE UMIDADE
+    if (umid >= limitesUmid.muito_umido) {
+        classe_umidade = 'cor-alerta perigo-quente';
+        grauDeAvisoUmid = 'perigo úmido'
+        grauDeAvisoCor = 'cor-alerta perigo-quente'
+        exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCor)
+    }
+    else if (umid < limitesUmid.muito_umido && umid >= limitesUmid.umido) {
+        classe_umidade = 'cor-alerta alerta-quente';
+        grauDeAvisoUmid = 'alerta úmido'
+        grauDeAvisoCor = 'cor-alerta alerta-quente'
+        exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCor)
+    }
+    else if (umid <= limitesUmid.seco && umid > limitesUmid.muito_seco) {
+        classe_umidade = 'cor-alerta alerta-frio';
+        grauDeAvisoUmid = 'alerta seco'
+        grauDeAvisoCor = 'cor-alerta alerta-frio'
+        exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCor)
+    }
+    else if (umid <= limitesUmid.muito_seco) {
+        classe_umidade = 'cor-alerta perigo-frio';
+        grauDeAvisoUmid = 'perigo seco'
+        grauDeAvisoCor = 'cor-alerta perigo-frio'
+        exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCor)
     }
 
     var card;
 
-    if (idAquario == 1) {
-        temp_aquario_1.innerHTML = temp + "°C";
+    if (idTransporte == 1) {
+        temp_caminhao_1.innerHTML = temp + "°C";
         card = card_1
-    } else if (idAquario == 2) {
-        temp_aquario_2.innerHTML = temp + "°C";
+    } else if (idTransporte == 2) {
+        temp_caminhao_2.innerHTML = temp + "°C";
         card = card_2
-    } else if (idAquario == 3) {
-        temp_aquario_3.innerHTML = temp + "°C";
+    } else if (idTransporte == 3) {
+        temp_caminhao_3.innerHTML = temp + "°C";
         card = card_3
-    } else if (idAquario == 4) {
-        temp_aquario_4.innerHTML = temp + "°C";
+    } else if (idTransporte == 4) {
+        temp_caminhao_4.innerHTML = temp + "°C";
         card = card_4
+    } else if (idTransporte == 5) {
+        temp_caminhao_5.innerHTML = temp + "°C";
+        card = card_5
     }
 
     card.className = classe_temperatura;
+    card.className = classe_umidade;
 }
 
-function exibirAlerta(temp, idAquario, grauDeAviso, grauDeAvisoCor) {
-    var indice = alertas.findIndex(item => item.idAquario == idAquario);
+function exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCor) {
+    alertas.push({ temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCor });
 
-    if (indice >= 0) {
-        alertas[indice] = { idAquario, temp, grauDeAviso, grauDeAvisoCor }
-    } else {
-        alertas.push({ idAquario, temp, grauDeAviso, grauDeAvisoCor });
-    }
-
-    exibirCards();
+    exibirCards("temperatura");
     
 // Dentro da div com classe grauDeAvisoCor há um caractere "invisível", 
 // que pode ser inserido clicando com o seu teclado em alt+255 ou pelo código adicionado acima.
 }
 
-function removerAlerta(idAquario) {
-    alertas = alertas.filter(item => item.idAquario != idAquario);
-    exibirCards();
+function exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCor) {
+    alertas.push({ umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCor });
+
+    exibirCards("umidade");
+    
+// Dentro da div com classe grauDeAvisoCor há um caractere "invisível", 
+// que pode ser inserido clicando com o seu teclado em alt+255 ou pelo código adicionado acima.
 }
  
 function exibirCards() {
     alerta.innerHTML = '';
-
     for (var i = 0; i < alertas.length; i++) {
         var mensagem = alertas[i];
-        alerta.innerHTML += transformarEmDiv(mensagem);
+        if (mensagem.temp) {
+            alerta.innerHTML += transformarEmDivTemp(mensagem);
+        } else {
+            alerta.innerHTML += transformarEmDivUmid(mensagem);
+        }
     }
 }
 
-function transformarEmDiv({ idAquario, temp, grauDeAviso, grauDeAvisoCor }) {
+function transformarEmDivTemp({ idTransporte, temp, grauDeAvisoTemp, grauDeAvisoCor }) {
     return `<div class="mensagem-alarme">
     <div class="informacao">
     <div class="${grauDeAvisoCor}">&#12644;</div> 
-     <h3>Aquário ${idAquario} está em estado de ${grauDeAviso}!</h3>
+     <h3>Caminhão ${idTransporte} está em estado de ${grauDeAvisoTemp}!</h3>
     <small>Temperatura ${temp}.</small>   
+    </div>
+    <div class="alarme-sino"></div>
+    </div>`;
+}
+
+function transformarEmDivUmid({ idTransporte, umid, grauDeAvisoUmid, grauDeAvisoCor }) {
+    return `<div class="mensagem-alarme">
+    <div class="informacao">
+    <div class="${grauDeAvisoCor}">&#12644;</div> 
+     <h3>Caminhão ${idTransporte} está em estado de ${grauDeAvisoUmid}!</h3>
+    <small>Umidade ${umid}.</small>   
     </div>
     <div class="alarme-sino"></div>
     </div>`;
