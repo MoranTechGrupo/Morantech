@@ -7,31 +7,30 @@ body {
   padding: 0;
 }
 
-.janela {
-  display: flex;
-  flex-direction: row;
-}
-
 .label-captura {
   display: flex;
   justify-content: center;
 }
 
+.janela {
+  width: 80vw;
+}
+
 .header-left {
-    width: 20%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    background-color: #ffd5d58a;
-    color: #000;
-    border-right: 2px solid #fa4f6c;
+  width: 20vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #ffd5d58a;
+  color: #000;
+  border-right: 2px solid #fa4f6c;
 }
 
 .dash-right {
-  width: 80%;
+  width: 80vw;
   height: 100%;
   background-color: #ffd5d58a;
   color: #000;
@@ -42,12 +41,6 @@ body {
   /* border: 3px solid pink; */
   color: rgb(216, 216, 216);
   font-family: "Exo 2", sans-serif;
-}
-
-.dash-right .avisos .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .dash-right .avisos .container .div-form {
@@ -142,22 +135,14 @@ body {
 }
 
 .dash {
-  width: 80%;
-  /* position: relative; */
-  /* top: 0; */
-  /* left: 20%; */
+  width: 80vw;
+  position: fixed;
+  top: 0;
+  left: 20%;
   background-color: #ffd5d58a;
   color: #000;
   height: 100%;
   overflow: auto;
-}
-
-.regua {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-  margin-top: 30px;
 }
 
 .perigo-frio {
@@ -178,14 +163,6 @@ body {
 
 .ideal {
   background-color: #9ccc65;
-}
-
-.item-regua {
-  padding: 5px;
-  width: 15%;
-  margin: 5px;
-  text-align: center;
-  padding-top: 15px;
 }
 
 .cards {
@@ -237,7 +214,6 @@ body {
   width: 13%;
   height: 30%;
   border-radius: 50%;
-  display: inline-block;
 }
 
 .btns-dash {
@@ -251,7 +227,6 @@ body {
 .graph {
   width: 80%;
   margin: auto;
-  padding-top: 10px;
 }
 
 .tituloGraficos {
@@ -281,7 +256,6 @@ body {
 .btn-white {
   color: #e6005a;
   background-color: white;
-
 }
 
 .label-captura {
@@ -303,4 +277,97 @@ body {
 canvas {
   width: 100% !important;
   height: 100% !important;
+}
+
+.notificacoes .aviso.success {
+  background-image: linear-gradient(to right, #0bbe327e, #6dc46a 50%);
+}
+
+.notificacoes .aviso.error {
+  background-image: linear-gradient(to right, #d10a0a67, #cd6f6f 50%);
+}
+
+.notificacoes {
+  position: absolute;
+  top: 80px;
+  right: 0px;
+  background-color: #acacac;
+  overflow: hidden;
+  width: 400px;
+  border-radius: 10px;
+  padding: 16px 17px;
+  margin-bottom: 10px;
+  animation: show_aviso 0.3s ease forwards;
+}
+
+@keyframes show_aviso {
+  0% {
+    transform: translateX(100%);
+  }
+  40% {
+    transform: translateX(-5%);
+  }
+  80% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-10%);
+  }
+}
+
+.notificacoes :where(.aviso, .coluna) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.aviso .coluna i {
+  font-size: 25px;
+}
+
+.aviso .coluna span {
+  color: #ffffff;
+  font-size: 1.07rem;
+  margin-left: 12px;
+}
+
+.aviso i:last-child {
+  color: #38393c;
+  cursor: pointer;
+}
+
+.aviso i:last-child:hover {
+  color: #cbcbcb;
+}
+
+.notificacoes::before {
+  position: absolute;
+  content: "";
+  height: 3px;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  animation: progress 3s linear forwards;
+}
+
+@keyframes progress {
+  100% {
+    width: 0%;
+  }
+}
+
+.aviso.success::before {
+  background: #0cb130;
+}
+
+.aviso.error::before {
+  background: #f12d2d;
+}
+
+.aviso.success .coluna i {
+  color: #0abf30;
+}
+
+.aviso.error .coluna i {
+  color: #e24d4c;
 }
