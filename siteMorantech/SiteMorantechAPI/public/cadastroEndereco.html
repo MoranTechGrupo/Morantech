@@ -66,19 +66,19 @@
         var ufVar = UF_input.value
         var caixaPostalVar = caixaPostal_input.value
 
-        if (ruaVar == "" || bairroVar == "" || numeroVar == ""||cidadeVar == ""||ufVar == ""||caixaPostalVar == "") {
+        if (ruaVar == "" || bairroVar == "" || numeroVar == "" || cidadeVar == "" || ufVar == "" || caixaPostalVar == "") {
 
             return false;
 
         }
-
-        fetch("/endereco/cadastrarEndereco", {
+        console.log(sessionStorage.ID_EMPRESA, ruaVar, bairroVar, numeroVar, cidadeVar, ufVar, caixaPostalVar);
+        fetch("/endereco/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                idEmpresaServer: sessionStorage.ID_EMPRESA ,
+                idEmpresaServer: sessionStorage.ID_EMPRESA,
                 ruaServer: ruaVar,
                 bairroServer: bairroVar,
                 numeroServer: numeroVar,
@@ -88,21 +88,22 @@
 
 
             })
+
         }).then(function (resposta) {
 
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-
                 setTimeout(() => {
-                    window.location = "dashboard/tela-dashboard-1.html";
+                    window.location = "/";
                 }, "2000")
 
             } else {
-                throw ("Houve um erro ao tentar realizar o cadastro do feedback!");
+                throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
         });
 
         return false;
