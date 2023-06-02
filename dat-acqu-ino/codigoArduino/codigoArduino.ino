@@ -1,9 +1,6 @@
 #include "DHT.h"
 #define dht_type DHT11  //define qual o tipo de sensor DHTxx que se está
-/**
-* Configurações iniciais sobre os sensores
-* DHT11, LM35, LDR5 e TCRT5000
-*/
+
 int dht_pin = A0;
 DHT dht_1 = DHT(dht_pin, dht_type);  //pode-se configurar diversos
 float temperatura;
@@ -75,5 +72,5 @@ void loop() {
     Serial.println(umidade5);
 
   }
-  delay(2000);
+  delay(3000);
 }
