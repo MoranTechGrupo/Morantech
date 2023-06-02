@@ -20,10 +20,7 @@ const AMBIENTE = "desenvolvimento";
 
 const serial = async (valoresDht11Umidade, valoresDht11Temperatura) => {
   let poolBancoDados = "";
-
-
-
-
+  
   if (AMBIENTE == "desenvolvimento") {
     poolBancoDados = mysql
       .createPool({
