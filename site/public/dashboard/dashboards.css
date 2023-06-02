@@ -238,7 +238,7 @@ body {
 
 .card p {
   margin: 0;
-  font-size: 50px;
+  font-size: 30px;
   font-weight: 400;
   text-align: left;
 }
@@ -247,16 +247,19 @@ body {
   font-size: 22px;
   width: 100%;
   border-bottom: solid black 2px;
-  text-align: left;
+  text-align: center;
   font-weight: 700;
   margin: 20px;
 }
 
-.temperatura,
-.umidade {
+.dados {
   margin: 5px;
   margin-left: 20px;
   width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 40px;
 }
 
 .cor-alerta {
