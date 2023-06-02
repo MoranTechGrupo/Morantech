@@ -1,113 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="./css/login.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <title>Morantech | Login</title>
-  </head>
 
-  <body>
-    <div class="container">
-      <div class="left-box">
-        <h1>Bem vindo de volta!</h1>
-        <img src="./assets/computer-login-animate.svg" alt="" />
+<head>
+  <link rel="stylesheet" href="./css/login.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <title>Morantech | Login</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="left-box">
+      <h1>Bem vindo de volta!</h1>
+      <img src="./assets/computer-login-animate.svg" alt="" />
+    </div>
+
+    <div class="right-box">
+      <div class="form">
+        <div class="titulo">
+          <h2>Login</h2>
+        </div>
+        <div class="inputs">
+          <i class="fa-sharp fa-solid fa-building" style="color:#93989f"></i>
+          <input type="email" id="email_input" class="email inputs" placeholder="Email" /> <br>
+          <br />
+          <i class="fa-solid fa-lock" style="color: #93989f"></i>
+          <input type="password" id="senha_input" class="senha inputs" placeholder="Senha" />
+        </div>
+        
+        <div class="botao">
+        <button onclick="entrar()" class="entrar">Entrar</button>
       </div>
-
-      <div class="right-box">
-        <div class="form">
-          <div class="titulo">
-            <h2>Login</h2>
+        <div class="spans_Login">
+          <div class="span_cadastro">
+            <span>Ainda não possui um cadastro?</span>
+            <a href="cadastro2.html"> Clique aqui e registre-se!</a>
           </div>
-          <div class="inputs">
-            <i class="fa-sharp fa-solid fa-building" style="color:#93989f"></i>
-            <input type="email" id="email_input" class="email inputs" placeholder="Email" /> <br>
-            <br />
-            <i class="fa-solid fa-lock" style="color: #93989f"></i>
-            <input
-              type="password"
-              id="senha_input"
-              class="senha inputs"
-              placeholder="Senha"
-            />
+          <div class="span_login">
+            <span>Entrar como Usuario</span>
+            <a href="loginUser.html"> Clique aqui e faça seu login!</a>
           </div>
-
-          <button onclick="entrar()" class="entrar">Entrar</button>
-          <span>Ainda não possui um cadastro?</span>
-          <a href="cadastro2.html"> Clique aqui e registre-se!</a>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
 <script>
-   function entrar() {
-        // aguardar();
+  function entrar() {
+    // aguardar();
 
-        var senhaVar = senha_input.value;
-        var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    var emailVar = email_input.value;
 
-        if (senhaVar == "" || emailVar == "") {
-            // cardErro.style.display = "block"
-            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            // finalizarAguardar();
-            alert("Insira seu email e senha")
-            return false;
-        }
-        // else {
-        //     setInterval(sumirMensagem, 5000)
-        // }
-
-        console.log("FORM senha: ", senhaVar);
-        console.log("FORM email: ", emailVar);
-
-        fetch("/empresa/entrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              emailServer: emailVar,
-              senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-
-                   var emailSession = sessionStorage.EMAIL_EMPRESA = json.email;
-                   var nomeSession =  sessionStorage.NOME_EMPRESA = json.nome;
-                   var idSession = sessionStorage.ID_EMPRESA = json.idEmpresa;
-                
-                    setTimeout(function () {
-                        // 
-                        window.location = "./dashboard/dashboard.html";
-                    }, 1000); // apenas para exibir o loading
-
-                });
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                // resposta.text().then(texto => {
-                //     console.error(texto);
-                //     // finalizarAguardar(texto);
-                // });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
-        return false;
+    if (senhaVar == "" || emailVar == "") {
+      // cardErro.style.display = "block"
+      // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+      // finalizarAguardar();
+      alert("Insira seu email e senha")
+      return false;
     }
+    // else {
+    //     setInterval(sumirMensagem, 5000)
+    // }
+
+    console.log("FORM senha: ", senhaVar);
+    console.log("FORM email: ", emailVar);
+
+    fetch("/empresa/entrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      })
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO entrar()!")
+
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+
+          var emailSession = sessionStorage.EMAIL_EMPRESA = json.email;
+          var nomeSession = sessionStorage.NOME_EMPRESA = json.nome;
+          var idSession = sessionStorage.ID_EMPRESA = json.idEmpresa;
+
+          setTimeout(function () {
+            // 
+            window.location = "./dashboard/dashboard.html";
+          }, 1000); // apenas para exibir o loading
+
+        });
+
+      } else {
+
+        console.log("Houve um erro ao tentar realizar o login!");
+
+        // resposta.text().then(texto => {
+        //     console.error(texto);
+        //     // finalizarAguardar(texto);
+        // });
+      }
+
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+
+    return false;
+  }
 
 </script>

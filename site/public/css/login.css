@@ -41,15 +41,21 @@ body {
 
 .right-box {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     background-color: #f2f0f0;
     width: 60%;
     height: 80vh;
-    border-radius:0px 40px 40px 0px ;  
+    border-radius:0px 40px 40px 0px ;
 }
 
-
+.botao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -75px;
+}
 .right-box .form {
     display: flex;
     margin-top: 60px;
@@ -129,4 +135,20 @@ h1 {
 img {
     width: 80%;
     height: 100%;
+}
+
+.spans_Login{
+    display: flex;
+    justify-content: space-between;
+    margin-left: -100px;
+}
+
+.span_cadastro{
+    display: flex;
+    flex-direction: column;
+}
+
+.span_login{
+    display: flex;
+    flex-direction: column;
 }
