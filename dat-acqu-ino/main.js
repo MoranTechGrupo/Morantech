@@ -69,20 +69,20 @@ const serial = async (valoresDht11Umidade, valoresDht11Temperatura) => {
       const valores = data.split(";");
 
 
-      const umidade1 = parseFloat(valores[0]);
-      const temperatura1 = parseFloat(valores[1]);
+      const temperatura1 = parseFloat(valores[0]);
+      const umidade1 = parseFloat(valores[1]);
 
-      const umidade2 = parseFloat(valores[2]);
-      const temperatura2 = parseFloat(valores[3]);
+      const temperatura2 = parseFloat(valores[2]);
+      const umidade2 = parseFloat(valores[3]);
 
-      const umidade3 = parseFloat(valores[4]);
-      const temperatura3 = parseFloat(valores[5]);
+      const temperatura3 = parseFloat(valores[4]);
+      const umidade3 = parseFloat(valores[5]);
 
-      const umidade4 = parseFloat(valores[6]);
-      const temperatura4 = parseFloat(valores[7]);
+      const temperatura4 = parseFloat(valores[6]);
+      const umidade4 = parseFloat(valores[7]);
 
-      const umidade5 = parseFloat(valores[8]);
-      const temperatura5 = parseFloat(valores[9]);
+      const temperatura5 = parseFloat(valores[8]);
+      const umidade5 = parseFloat(valores[9]);
 
       
       valoresDht11Umidade.push(umidade1);
