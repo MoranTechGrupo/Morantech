@@ -152,18 +152,15 @@ function transformarEmDivTemp({
   grauDeAvisoTemp,
   grauDeAvisoCor,
 }) {
-  return `<ul class="notificacoes">
-  <li class="aviso">
+  return `<div class="notificacoes">
+  <div class="${grauDeAvisoCor}">&#12644;</div>
     <div class="coluna">
-    <div class="${grauDeAvisoCor}">&#12644;</div>
       <div class="content">
-        <div class="titulo"><span>${idTransporte}</span></div>
-        <span>${grauDeAvisoTemp}</span>
+        <h4>Caminhão ${idTransporte} está em estado de ${grauDeAvisoTemp}!<h4>
       </div>
-    </div>
-    <small>Umidade ${temp}.</small>  
-  </li>
-  </ul>`;
+    <small>Temperatura: ${temp}°C</small>  
+  </div>
+  </div>`;
 }
 
 function transformarEmDivUmid({
@@ -172,16 +169,13 @@ function transformarEmDivUmid({
   grauDeAvisoUmid,
   grauDeAvisoCor,
 }) {
-  return `<ul class="notificacoes">
-  <li class="aviso">
-    <div class="coluna">
+    return `<div class="notificacoes">
     <div class="${grauDeAvisoCor}">&#12644;</div>
+    <div class="coluna">
       <div class="content">
-        <div class="titulo"><span>${idTransporte}</span></div>
-        <span>${grauDeAvisoUmid}</span>
+        <h4>Caminhão ${idTransporte} está em estado de ${grauDeAvisoUmid}!<h4>
       </div>
-    </div>
-    <small>Umidade ${umid}.</small>  
-  </li>
-  </ul>`;
+    <small>Umidade: ${umid}°C</small>  
+  </div>
+  </div>`;
 }

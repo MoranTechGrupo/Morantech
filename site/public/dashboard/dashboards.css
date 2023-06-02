@@ -5,6 +5,7 @@ body {
   font-family: "Exo 2", sans-serif;
   margin: 0;
   padding: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
 }
 
 .label-captura {
@@ -15,6 +16,15 @@ body {
 .janela {
   width: 80vw;
 }
+
+/* .janela .alerta {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  overflow: hidden;
+  height: 100vh;
+} */
 
 .header-left {
   width: 20vw;
@@ -143,6 +153,43 @@ body {
   color: #000;
   height: 100%;
   overflow: auto;
+}
+
+.dash #alerta {
+  position: absolute;
+  top: 80px;
+  right: 0px;
+  z-index: 10;
+  overflow: auto;
+  height: 100vh;
+}
+
+.dash #alerta::-webkit-scrollbar { 
+	display: none;
+}
+
+.dash .notificacoes .aviso {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dash .regua {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px;
+}
+
+.dash .regua .item-regua {
+  width: 100px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .perigo-frio {
@@ -290,16 +337,21 @@ canvas {
 }
 
 .notificacoes {
-  position: absolute;
-  top: 80px;
-  right: 0px;
-  background-color: #acacac;
+  background-color: #fff;
+  color: #000;
   overflow: hidden;
-  width: 400px;
-  border-radius: 10px;
+  width: 300px;
   padding: 16px 17px;
   margin-bottom: 10px;
   animation: show_aviso 0.3s ease forwards;
+  display: flex;
+}
+
+.notificacoes .coluna {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 @keyframes show_aviso {
@@ -328,7 +380,7 @@ canvas {
 }
 
 .aviso .coluna span {
-  color: #ffffff;
+  color: #000;
   font-size: 1.07rem;
   margin-left: 12px;
 }
