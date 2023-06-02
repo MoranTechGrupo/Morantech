@@ -138,7 +138,7 @@ body {
 /* pagina graficos */
 
 .dash-header {
-  background-color: #212124;
+  background-color: #ffd5d58a;
 }
 
 .dash {
@@ -206,23 +206,25 @@ body {
   text-align: center;
   height: 180px;
   justify-content: right;
-  background-color: #212124;
+  background-color: #ffd5d58a;
+  color: #000;
+  border: 2px solid #fa4f6c;
   font-size: 20px;
 }
 
 .card p {
   margin: 0;
   font-size: 50px;
-  font-weight: lighter;
+  font-weight: 400;
   text-align: left;
 }
 
 .cards h1 {
   font-size: 22px;
   width: 100%;
-  border-bottom: solid white 1px;
+  border-bottom: solid black 2px;
   text-align: left;
-  font-weight: lighter;
+  font-weight: 700;
   margin: 20px;
 }
 

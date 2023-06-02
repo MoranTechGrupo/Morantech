@@ -20,9 +20,6 @@ const AMBIENTE = "desenvolvimento";
 
 const serial = async (valoresDht11Umidade, valoresDht11Temperatura) => {
   let poolBancoDados = "";
-
-
-
   
   if (AMBIENTE == "desenvolvimento") {
     poolBancoDados = mysql
@@ -70,11 +67,19 @@ const serial = async (valoresDht11Umidade, valoresDht11Temperatura) => {
     .on("data", async (data) => {
       //console.log(data);
       const valores = data.split(";");
-      const umidade = parseFloat(valores[0]);
-      const temperatura = parseFloat(valores[1]);
+      const umidade1 = parseFloat(valores[0]);
+      const temperatura1 = parseFloat(valores[1]);
+      const umidade2 = parseFloat(valores[2]);
+      const temperatura2 = parseFloat(valores[3]);
+      const umidade3 = parseFloat(valores[4]);
+      const temperatura3 = parseFloat(valores[5]);
+      const umidade4 = parseFloat(valores[6]);
+      const temperatura4 = parseFloat(valores[7]);
+      const umidade5 = parseFloat(valores[8]);
+      const temperatura5 = parseFloat(valores[9]);
 
-      valoresDht11Umidade.push(umidade);
-      valoresDht11Temperatura.push(temperatura);
+      valoresDht11Umidade.push(umidade1, umidade2, umidade3, umidade4, umidade5);
+      valoresDht11Temperatura.push(temperatura1, temperatura2, temperatura3, temperatura4, temperatura5);
 
       if (HABILITAR_OPERACAO_INSERIR) {
         if (AMBIENTE == "producao") {
@@ -110,8 +115,8 @@ const serial = async (valoresDht11Umidade, valoresDht11Temperatura) => {
           // Este insert irá inserir dados de fk_aquario id=1 (fixo no comando do insert abaixo)
           // >> você deve ter o aquario de id 1 cadastrado.
           await poolBancoDados.execute(
-            `INSERT INTO dadosSensor (fkSensor, temperatura, umidade, datahora) VALUES (${fkSensor}, ${temperatura}, ${umidade}, default)`,
-            // [1, temperatura, umidade, dataHora]
+            `INSERT INTO dadosSensor (fkSensor, temperatura, umidade, datahora) VALUES (?, ?, ?, now()), (?, ?, ?, now()), (?, ?, ?, now()),(?, ?, ?, now()), (?, ?, ?, now())`  
+            [1 , temperatura1, umidade1, 2, temperatura2, umidade2, 3, temperatura3, umidade3, 4, temperatura4, umidade4, 5, temperatura5, umidade5]
           );
           console.log(
             "valores inseridos no banco: ",
