@@ -12,8 +12,8 @@ router.get("/listar", function (req, res) {
 });
 
 //Recebendo os dados do html e direcionando para a função cadastrar de empresaController.js
-router.post("/cadastrarEndereco", function (req, res) {
-    enderecoController.cadastrarEndereco(req, res);
+router.post("/cadastrar", function (req, res) {
+    enderecoController.cadastrar(req, res);
 })
 
 router.post("/autenticar", function (req, res) {

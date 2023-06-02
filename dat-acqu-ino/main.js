@@ -32,8 +32,8 @@ const serial = async (valoresDht11Umidade, valoresDht11Temperatura) => {
          database: "morantech", */
         host: "127.0.0.1",
         database: "morantech",
-        user: "select",
-        password: 'Select_123',
+        user: "root",
+        password: '12345',
       })
       .promise();
   } else if (AMBIENTE == "producao") {
@@ -115,8 +115,13 @@ const serial = async (valoresDht11Umidade, valoresDht11Temperatura) => {
           // Este insert irá inserir dados de fk_aquario id=1 (fixo no comando do insert abaixo)
           // >> você deve ter o aquario de id 1 cadastrado.
           await poolBancoDados.execute(
-            `INSERT INTO dadosSensor (fkSensor, temperatura, umidade, datahora) VALUES (?, ?, ?, now()), (?, ?, ?, now()), (?, ?, ?, now()),(?, ?, ?, now()), (?, ?, ?, now())`  
-            [1 , temperatura1, umidade1, 2, temperatura2, umidade2, 3, temperatura3, umidade3, 4, temperatura4, umidade4, 5, temperatura5, umidade5]
+            `INSERT INTO dadosSensor (fkSensor, temperatura, umidade, datahora) VALUES 
+            (?, ?, ?, now()),
+            (?, ?, ?, now()),
+            (?, ?, ?, now()),
+            (?, ?, ?, now()),
+            (?, ?, ?, now());`,
+            [1, temperatura1, umidade1, 2, temperatura2, umidade2, 3, temperatura3, umidade3, 4, temperatura4, umidade4, 5, temperatura5, umidade5]
           );
           console.log(
             "valores inseridos no banco: ",
