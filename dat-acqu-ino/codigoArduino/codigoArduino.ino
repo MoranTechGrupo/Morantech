@@ -52,7 +52,7 @@ void loop() {
     temperatura4 = temperaturaReal*1.25;
     umidade4 = umidadeReal*1.05;
     temperatura5 = temperaturaReal*0.25;
-    umidade5 = umidadeReal*0.85;
+    umidade5 = umidadeReal*1.1;
 
     Serial.print(temperatura1);
     Serial.print(";");
