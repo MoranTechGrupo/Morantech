@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro Usuario - MoranTech</title>
+    <link rel="stylesheet" href="./css/cadastro2.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-box">
+            <div class="titulo">
+                <h1>Cadastre-se</h1>
+            </div>
+
+            <img src="./assets/mobile-login-animate.svg" alt="pessoa-login" />
+        </div>
+        <div class="right-box">
+            <div class="form">
+
+                <div class="inputs">
+                    <i class="fa-solid fa-user" style="color:#93989f"></i>
+                    <input id="nome_input" class="nome inputs" placeholder="Nome Completo" /> <br>
+
+                    <i class="fa-solid fa-user" style="color:#93989f"></i>
+                    <input id="cargo_input" class="nome inputs" placeholder="Cargo" /> <br>
+
+                    <i class="fa-solid fa-envelope" style="color:#93989f"></i>
+                    <input id="email_input" class="email inputs" placeholder="E-mail pessoal" /> <br>
+
+                    <i class="fa-solid fa-lock" style="color:#93989f"></i>
+                    <input type="password" id="senha_input" class="senha inputs" placeholder="Senha" /> <br>
+                    <i class="fa-solid fa-lock" style="color: #93989f;"></i>
+                    <input type="password" id="confirmacao_senha_input" class="senha inputs"
+                        placeholder="Confirme sua senha" />
+
+                </div>
+
+                <button onclick="cadastrar()" class="cadastrar">
+                    Cadastrar Usuario
+                </button>
+                <span>Já possui um cadastro?</span>
+                <a href="login.html"> Clique aqui para entrar!</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    function cadastrar() {
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var cargoVar = cargo_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+        var nomeEmpresa = sessionStorage.NOME_EMPRESA;
+        var idEmpresa = sessionStorage.ID_EMPRESA;
+        console.log(idEmpresa);
+
+
+        if (nomeVar == "" || cargoVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+
+            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            alert('campos em branco')
+        } else if (senhaVar != confirmacaoSenhaVar) {
+            alert(`Digite a mesma senha nos campos "senha" e no campo "confirme sua senha"`)
+        } else {
+
+
+
+
+            // Enviando o valor da nova input
+
+            // cardErro.style.display = "block";
+            fetch("/user/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nomeServer: nomeVar,
+                    cargoServer: cargoVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar,
+                    fkEmpServer: idEmpresa
+
+
+                })
+            }).then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+
+                if (resposta.ok) {
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000")
+
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+            return
+        }
+
+    }
+
+</script>
