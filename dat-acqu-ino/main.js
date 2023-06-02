@@ -33,10 +33,10 @@ const serial = async (valoresDht11Umidade, valoresDht11Temperatura) => {
          user: "teste",
          password: "urubu100",
          database: "morantech", */
-        host: "127.0.0.1",
+        host: "10.18.33.159",
         database: "morantech",
-        user: "root",
-        password: '12345',
+        user: "select",
+        password: 'Select_123',
       })
       .promise();
   } else if (AMBIENTE == "producao") {
@@ -70,27 +70,38 @@ const serial = async (valoresDht11Umidade, valoresDht11Temperatura) => {
     .on("data", async (data) => {
       //console.log(data);
       const valores = data.split(";");
-      const umidade = parseFloat(valores[0]);
-      const temperatura = parseFloat(valores[1]);
 
-      const umidade1 = parseFloat(valores[2]);
-      const temperatura1 = parseFloat(valores[3]);
 
-      const umidade2 = parseFloat(valores[4]);
-      const temperatura2 = parseFloat(valores[5]);
+      const umidade1 = parseFloat(valores[0]);
+      const temperatura1 = parseFloat(valores[1]);
 
-      const umidade3 = parseFloat(valores[6]);
-      const temperatura3 = parseFloat(valores[7]);
+      const umidade2 = parseFloat(valores[2]);
+      const temperatura2 = parseFloat(valores[3]);
 
-      const umidade4 = parseFloat(valores[8]);
-      const temperatura4 = parseFloat(valores[9]);
+      const umidade3 = parseFloat(valores[4]);
+      const temperatura3 = parseFloat(valores[5]);
 
-      const umidade5 = parseFloat(valores[10]);
-      const temperatura5 = parseFloat(valores[11]);
+      const umidade4 = parseFloat(valores[6]);
+      const temperatura4 = parseFloat(valores[7]);
+
+      const umidade5 = parseFloat(valores[8]);
+      const temperatura5 = parseFloat(valores[9]);
 
       
-      valoresDht11Umidade.push(umidade);
-      valoresDht11Temperatura.push(temperatura);
+      valoresDht11Umidade.push(umidade1);
+      valoresDht11Temperatura.push(temperatura1);
+
+      valoresDht11Umidade.push(umidade2);
+      valoresDht11Temperatura.push(temperatura2);
+
+      valoresDht11Umidade.push(umidade3);
+      valoresDht11Temperatura.push(temperatura3);
+
+      valoresDht11Umidade.push(umidade4);
+      valoresDht11Temperatura.push(temperatura4);
+
+      valoresDht11Umidade.push(umidade5);
+      valoresDht11Temperatura.push(temperatura5);
 
       if (HABILITAR_OPERACAO_INSERIR) {
         if (AMBIENTE == "producao") {
@@ -134,10 +145,7 @@ const serial = async (valoresDht11Umidade, valoresDht11Temperatura) => {
             (?, ?, ?, now());`,
             [1, temperatura1, umidade1, 2, temperatura2, umidade2, 3, temperatura3, umidade3, 4, temperatura4, umidade4, 5, temperatura5, umidade5]
           );
-          console.log(
-            "valores inseridos no banco: ",
-            umidade + ", " + temperatura + ", "
-          );
+        
         } else {
           throw new Error(
             'Ambiente não configurado. Verifique o arquivo "main.js" e tente novamente.'
