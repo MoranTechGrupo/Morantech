@@ -14,13 +14,16 @@
     <div class="container">
         <div class="left-box">
             <div class="titulo">
-                <h1>Login</h1>
+                <h1>Bem vindo de volta!</h1>
             </div>
 
             <img src="./assets/mobile-login-animate.svg" alt="pessoa-login" />
         </div>
         <div class="right-box">
             <div class="form">
+                <div class="titulo">
+                    <h2>Login <br>Usuario</h2>
+                  </div>
 
                 <div class="inputs">
                     <i class="fa-solid fa-envelope" style="color:#93989f"></i>
@@ -79,6 +82,7 @@
                         var emailSession = sessionStorage.EMAIL_EMPRESA = json.email;
                         var nomeSession = sessionStorage.NOME_EMPRESA = json.nome;
                         var idSession = sessionStorage.ID_USUARIO = json.idUsuario;
+                        var idSession_Empresa = sessionStorage.ID_EMPRESA = json.idEmpresa;
 
                         setTimeout(function () {
                             // 
