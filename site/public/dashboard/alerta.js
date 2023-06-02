@@ -97,18 +97,23 @@ function alertar(resposta, idTransporte) {
 
   if (idTransporte == 1) {
     temp_caminhao_1.innerHTML = temp + "°C";
+    umid_caminhao_1.innerHTML = umid + "%";
     card = card_1;
   } else if (idTransporte == 2) {
     temp_caminhao_2.innerHTML = temp + "°C";
+    umid_caminhao_2.innerHTML = umid + "%";
     card = card_2;
   } else if (idTransporte == 3) {
     temp_caminhao_3.innerHTML = temp + "°C";
+    umid_caminhao_3.innerHTML = umid + "%";
     card = card_3;
   } else if (idTransporte == 4) {
     temp_caminhao_4.innerHTML = temp + "°C";
+    umid_caminhao_4.innerHTML = umid + "%";
     card = card_4;
   } else if (idTransporte == 5) {
     temp_caminhao_5.innerHTML = temp + "°C";
+    umid_caminhao_5.innerHTML = umid + "%";
     card = card_5;
   }
 
