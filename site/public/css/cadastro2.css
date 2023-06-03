@@ -12,7 +12,7 @@ body {
     flex-direction: column;
     width: 100vw;
     height: 100vh;
-    background-image: linear-gradient(to right, rgb(251, 92, 161) , rgb(255, 150, 196));
+    background-color: #ffd5d5e5;
 }
 
 .container {
@@ -28,15 +28,16 @@ body {
 .right-box {
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: #f2f0f0;
-    width: 60%;
-    height: 80vh;
+    width: 50%;
+    height: 100%;
     border-radius:0px 40px 40px 0px ;
 }
 
 .left-box {
     background-color: #ff627ddd;
-    width: 40%;
+    width: 50%;
     height: 80vh;
     border-radius: 40px 0px 0px 40px;
     display:flex;
@@ -45,31 +46,49 @@ body {
     align-items: center;
 }
 
+.left-box .titulo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-box img {
+    height: 400px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .right-box .form {
     display: flex;
-    margin-top: 60px;
-    margin-left: 150px;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 60%;
-    height: 50%;
+    gap: 10px;
 }
 
 input {
-    width: 70%;
+    width: 250px;
     border: none;
     padding: 10px;
     margin-bottom: 15px ;
     background-color: #f2f0f0;
     border-bottom: 2px solid #fb4d6add;
     outline: none;
+<<<<<<< HEAD
     color: #444444;    
+=======
+    color: #444444;
+>>>>>>> 17710d606a73cb818eb8502d12380c93b255b89e
 }
 
-button {
+.entrar {
     width: 40%;
     padding: 14px;
     color: #fff;
-    margin-top: 10px;
     background-color: #7ed957;
     box-shadow: 10px 10px 20px #71a75a;
     border: none;
@@ -79,14 +98,38 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.cadastrar {
+    width: 40%;
+    padding: 14px;
+    color: #fff;
+    background-color: #7ed957;
+    box-shadow: 10px 10px 20px #71a75a;
+    border: none;
+    border-radius: 20px;
+    font-size: 12pt;
+    font-weight: 800;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.entrar:hover {
     width: 41%;
-    padding: 15px;
+    padding: 14px;
     transition: 0.5s;
 }
 
-.cadastrar {
-    margin-bottom: 45px;
+.cadastrar:hover {
+    width: 41%;
+    padding: 14px;
+    transition: 0.5s;
+}
+
+.right-box .bottom {
+    gap: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 a {

@@ -5,9 +5,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login Usuario- MoranTech</title>
+    <title>MoranTech | Login Usuario</title>
     <link rel="stylesheet" href="./css/cadastro2.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Sweet alert-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -22,19 +24,19 @@
         <div class="right-box">
             <div class="form">
                 <div class="titulo">
-                    <h2>Login <br>Usuario</h2>
+                    <h2>Login - Usuário</h2>
                   </div>
 
                 <div class="inputs">
                     <i class="fa-solid fa-envelope" style="color:#93989f"></i>
-                    <input id="email_input" class="email inputs" placeholder="E-mail pessoal" /> <br>
+                    <input id="email_input" class="email inputs" placeholder="E-mail corporativo" /> <br>
 
                     <i class="fa-solid fa-lock" style="color:#93989f"></i>
                     <input type="password" id="senha_input" class="senha inputs" placeholder="Senha" /> <br>
                 </div>
 
-                <button onclick="entrar()" class="cadastrar">
-                    Login Usuario
+                <button onclick="entrar()" class="entrar">
+                    Login
                 </button>
             </div>
         </div>
@@ -55,11 +57,9 @@
 
 
         if (emailVar == "" || senhaVar == "" ) {
-
+            swal("Ops", "Por favor, preencha todos os campos!", "error");
             // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            alert('campos em branco')
         } else {
-
             fetch("/user/entrar", {
                 method: "POST",
                 headers: {
@@ -86,15 +86,14 @@
 
                         setTimeout(function () {
                             // 
-                            window.location = "./dashboard/dashboard.html";
+                            window.location = "./dashboard/cards.html";
                         }, 1000); // apenas para exibir o loading
 
                     });
 
                 } else {
-
+                    swal("Ops", "Email e/ou senha inválidos!", "error")
                     console.log("Houve um erro ao tentar realizar o login!");
-
 
                 }
 

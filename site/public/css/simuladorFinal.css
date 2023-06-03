@@ -11,7 +11,7 @@ body {
     flex-wrap: wrap;
     width: 100vw;
     height: 100vh;
-    background-image: linear-gradient(to right, rgb(251, 92, 161) , rgb(255, 150, 196));
+    background-color: #ffd5d58a;
 }
 
 
@@ -30,7 +30,7 @@ body {
 
 
 .menu {
-    background: var(--bg_color_tm_light);
+    background-color: #ffd5d58a;
     transition: 0.6s;
     width: 100vw;
 }
@@ -154,7 +154,7 @@ input {
 }
 
 
-button {
+.botao {
     border-radius: 20px;
     border: none;
     outline: none;
@@ -167,7 +167,7 @@ button {
     box-shadow: 10px 10px 20px #5ca13e;
     font-size: 12pt;
 }
-button:hover {
+.botao:hover {
     width: 46%;
     padding: 17px;
     transition: 0.5s;

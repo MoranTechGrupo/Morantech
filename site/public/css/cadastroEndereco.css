@@ -7,12 +7,13 @@
 
 body {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
-    background-color: #ffd5d5e5;}
-
+    background-color: #ffd5d5e5;
+}
 
 .container {
     display : flex;
@@ -24,6 +25,16 @@ body {
     box-shadow: 10px 15px 25px #8e4357;
 }
 
+.right-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f0f0;
+    width: 50%;
+    height: 80vh;
+    border-radius:0px 40px 40px 0px ;
+}
+
 .left-box {
     background-color: #ff627ddd;
     width: 50%;
@@ -32,7 +43,7 @@ body {
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;  
+    align-items: center;
 }
 
 .left-box .titulo {
@@ -50,33 +61,17 @@ body {
     align-items: center;
 }
 
-.right-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f2f0f0;
-    width: 50%;
-    height: 80vh;
-    border-radius:0px 40px 40px 0px ;
-}
-
-.botao {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .right-box .form {
     display: flex;
     flex-direction: column;
-    width: 60%;
     justify-content: center;
     align-items: center;
+    width: 60%;
+    gap: 20px;
 }
 
 input {
-    width: 90%;
+    width: 300px;
     border: none;
     padding: 10px;
     margin-bottom: 15px ;
@@ -84,6 +79,25 @@ input {
     border-bottom: 2px solid #fb4d6add;
     outline: none;
     color: #444444;
+}
+
+.cadastrar {
+    width: 60%;
+    padding: 14px;
+    color: #fff;
+    background-color: #7ed957;
+    box-shadow: 10px 10px 20px #71a75a;
+    border: none;
+    border-radius: 20px;
+    font-size: 12pt;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.cadastrar:hover {
+    width: 61%;
+    padding: 14px;
+    transition: 0.5s;
 }
 
 a {
@@ -98,70 +112,9 @@ a {
 
 }
 
-.entrar {
-    margin-bottom: 40px;
-}
-
-
-.entrar {
-    width: 40%;
-    padding: 14px;
-    color: #fff;
-    margin-top: 10px;
-    background-color: #7ed957;
-    box-shadow: 10px 10px 20px #71a75a;
-    border: none;
-    border-radius: 20px;
-    font-size: 12pt;
-    font-weight: 800;
-    cursor: pointer;
-}
-
-.entrar:hover {
-    width: 41%;
-    padding: 15px;
-    transition: 0.5s;
-}
-
-.titulo {
-    display: flex;
-    justify-content: center;
-}
-
-h2 {
-    font-size: 25pt;
-    margin-bottom: 20px;
-}
 
 h1 {
     color: #f2f0f0;
     font-size: 30pt;
 }
 
-img {
-    width: 80%;
-    height: 100%;
-}
-
-.spans_Login{
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-}
-
-.span_cadastro{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.span_login{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}

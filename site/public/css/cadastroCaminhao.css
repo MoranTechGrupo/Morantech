@@ -12,7 +12,7 @@ body {
     flex-direction: column;
     width: 100vw;
     height: 100vh;
-    background-image: linear-gradient(to right, rgb(251, 92, 161) , rgb(255, 150, 196));
+    background-color: #ffd5d5e5;
 }
 
 .container {
@@ -29,14 +29,14 @@ body {
     display: flex;
     justify-content: center;
     background-color: #f2f0f0;
-    width: 60%;
+    width: 50%;
     height: 80vh;
     border-radius:0px 40px 40px 0px ;
 }
 
 .left-box {
-    background-color: #ff627ddd;
-    width: 60%;
+    background-color: #ff627d;
+    width: 50%;
     height: 80vh;
     border-radius: 40px 0px 0px 40px;
     display:flex;
@@ -45,17 +45,32 @@ body {
     align-items: center;
 }
 
+.left-box .titulo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-box img {
+    height: 400px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .right-box .form {
     display: flex;
     margin-top: 60px;
-    margin-left: 150px;
     flex-direction: column;
     width: 60%;
-    height: 50%;
+    justify-content: center;
+    align-items: center;
 }
 
 input {
-    width: 70%;
+    width: 85%;
     border: none;
     padding: 10px;
     margin-bottom: 15px ;
@@ -66,11 +81,11 @@ input {
     
 }
 
-button {
-    width: 40%;
+.cadastrar {
+    width: 60%;
     padding: 14px;
     color: #fff;
-    margin-top: 10px;
+    margin-top: 15px;
     background-color: #7ed957;
     box-shadow: 10px 10px 20px #71a75a;
     border: none;
@@ -78,16 +93,13 @@ button {
     font-size: 12pt;
     font-weight: 800;
     cursor: pointer;
+    margin-bottom: 30px;
 }
 
-button:hover {
-    width: 41%;
-    padding: 15px;
+.cadastrar:hover {
+    width: 61%;
+    padding: 14px;
     transition: 0.5s;
-}
-
-.cadastrar {
-    margin-bottom: 45px;
 }
 
 a {

@@ -5,16 +5,22 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD
   <title>Cadastro | MoranTech</title>
+=======
+  <title>MoranTech | Cadastro Empresa</title>
+>>>>>>> 17710d606a73cb818eb8502d12380c93b255b89e
   <link rel="stylesheet" href="./css/cadastro2.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Sweet alert-->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
   <div class="container">
     <div class="left-box">
       <div class="titulo">
-        <h1>Cadastre-se</h1>
+        <h1>Cadastrar</h1>
       </div>
 
       <img src="./assets/mobile-login-animate.svg" alt="pessoa-login" style="width: 110%;">
@@ -29,20 +35,23 @@
           <input id="cnpj_input" class="cnpj inputs" placeholder="CNPJ" /> <br>
           <i class="fa-solid fa-phone" style="color:#93989f"></i>
           <input id="telefone_input" class="numero inputs" placeholder="Telefone" /> <br>
-          <i class="fa-solid fa-lock" style="color:#93989f"></i>
-          <input id="email_input" class="email input" placeholder="E-mail" /> <br>
           <i class="fa-solid fa-envelope"style="color:#93989f"></i>
+          <input id="email_input" class="email input" placeholder="E-mail" /> <br>
+          <i class="fa-solid fa-lock" style="color:#93989f"></i>  
           <input type="password" id="senha_input" class="senha inputs" placeholder="Senha" /> <br>
           <i class="fa-solid fa-lock" style="color: #93989f;"></i>
-          <input type="password" id="confirmacao_senha_input" class="senha inputs" placeholder="Confirme sua senha" />
+          <input type="password" id="confirmacao_senha_input" class="senha inputs" placeholder="Confirmação de senha" />
 
         </div>
 
         <button onclick="cadastrar()" class="cadastrar">
           Cadastrar
         </button>
-        <span>Já possui um cadastro?</span>
-        <a href="login.html"> Clique aqui para entrar!</a>
+
+        <div class="bottom">
+          <span>Já possui um cadastro?</span>
+          <a href="login.html"> Clique aqui para entrar!</a>
+        </div>
       </div>
     </div>
   </div>
@@ -73,20 +82,14 @@
     // }
 
     if (nomeVar == "" || cnpjVar == "" || telefoneVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-
-      // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-      alert(' campos em branco')
+      swal("Ops", "Por favor, preencha todos os campos!", "error");
     } else if (cnpjVar.length != 18) {
-      alert("cnpj invalido, o cnpj deve ter 18 caracteres")
+      swal("Ops", "CNPJ inválido! Digite um CNPJ com 18 caracteres.", "error");
     } else if (senhaVar != confirmacaoSenhaVar) {
-      alert(`Digite a mesma senha nos campos "senha" e no campo "confirme sua senha"`)
-
-    
+      swal("Ops", "Campos Senha e Confirmação de Senha estão diferentes!", "error");
+    } else if(emailVar.indexOf("@") < 0 || emailVar.indexOf(".") < 0) {
+      swal("Ops", "E-mail inválido! Digite um e-mail válido.", "error");
     } else {
-
-
-
-
       // Enviando o valor da nova input
       fetch("/empresa/cadastrar", {
         method: "POST",
@@ -109,8 +112,7 @@
 
         if (resposta.ok) {
           // cardErro.style.display = "block";
-          alert(`parabens agora você esta cadastrado \(0o0)/`);
-          alert(`agora você pode se logar na pagina de login`);
+          swal("Boa", "Cadastro realizado com sucesso!", "success")
           // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
           setTimeout(() => {
@@ -120,6 +122,7 @@
           // limparFormulario();
           // finalizarAguardar();
         } else {
+          swal("Ops", "Erro ao realizar o cadastro!", "error")
           throw ("Houve um erro ao tentar realizar o cadastro!");
         }
       }).catch(function (resposta) {
@@ -129,7 +132,5 @@
 
       return false;
     }
-
   }
-
 </script>
