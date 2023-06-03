@@ -5,16 +5,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastro Usuario - MoranTech</title>
-    <link rel="stylesheet" href="css/cadastro2.css" />
+    <title>MoranTech | Cadastro Endereco</title>
+    <link rel="stylesheet" href="css/cadastroEndereco.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Sweet alert-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
     <div class="container">
         <div class="left-box">
             <div class="titulo">
-                <h1>Cadastre<br>Seu Endereço</h1>
+                <h1>Cadastre o Endereço</h1>
             </div>
 
             <img src="./assets/mobile-login-animate.svg" alt="pessoa-login" />
@@ -25,28 +27,28 @@
                 <div class="inputs">
 
                     <i class="fa-solid fa-road" style="color:#93989f"></i>
-                    <input id="rua_input" class="nome inputs" placeholder="rua" /> <br>
+                    <input id="rua_input" class="nome inputs" placeholder="Logradouro" /> <br>
 
                     <i class="fa-solid fa-house" style="color:#93989f"></i>
-                    <input id="bairro_input" class="cnpj inputs" placeholder="bairro" /> <br>
+                    <input id="bairro_input" class="cnpj inputs" placeholder="Bairro" /> <br>
 
                     <i class="fa-sharp fa-solid fa-hashtag" style="color:#93989f"></i>
-                    <input id="numero_input" class="numero inputs" placeholder="numero" /> <br>
+                    <input id="numero_input" type="number" class="numero inputs" placeholder="Número" /> <br>
 
-                    <i class="fa-solid fa-phone" style="color:#93989f"></i>
-                    <input id="cidade_input" class="numero inputs" placeholder="cidade" /> <br>
+                    <i class="fa-solid fa-globe" style="color:#93989f"></i>
+                    <input id="cidade_input" class="numero inputs" placeholder="Cidade" /> <br>
 
                     <i class="fa-solid fa-globe" style="color:#93989f"></i>
                     <input id="UF_input" class="numero inputs" placeholder="UF" /> <br>
 
                     <i class="fa-solid fa-envelope" style="color:#93989f"></i>
-                    <input id="caixaPostal_input" class="numero inputs" placeholder="caixaPostal" /> <br>
+                    <input id="caixaPostal_input" class="numero inputs" placeholder="Caixa postal" /> <br>
 
 
                 </div>
 
                 <button onclick="cadastrarEndereco()" class="cadastrar">
-                    Cadastrar Usuario
+                    Cadastrar endereço
                 </button>
 
             </div>
@@ -67,10 +69,10 @@
         var caixaPostalVar = caixaPostal_input.value
 
         if (ruaVar == "" || bairroVar == "" || numeroVar == "" || cidadeVar == "" || ufVar == "" || caixaPostalVar == "") {
-
+            swal("Ops", "Por favor, preencha todos os campos!", "error");
             return false;
 
-        }
+        } else {
         console.log(sessionStorage.ID_EMPRESA, ruaVar, bairroVar, numeroVar, cidadeVar, ufVar, caixaPostalVar);
         fetch("/endereco/cadastrar", {
             method: "POST",
@@ -94,12 +96,15 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
+                swal("Boa", "Cadastro realizado com sucesso!", "success");
+
                 setTimeout(() => {
-                    window.location = "/";
+                    window.location = "../dashboard/cards.html";
 
                 }, "2000")
 
             } else {
+                swal("Ops", "Erro ao realizar o cadastro!", "error")
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
@@ -109,7 +114,7 @@
 
         return false;
 
-
+        }
     }
 
 </script>

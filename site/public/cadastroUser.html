@@ -5,16 +5,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastro Usuario - MoranTech</title>
-    <link rel="stylesheet" href="./css/cadastro2.css" />
+    <title>MoranTech | Cadastro Usuario</title>
+    <link rel="stylesheet" href="./css/cadastroUser.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Sweet alert-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
     <div class="container">
         <div class="left-box">
             <div class="titulo">
-                <h1>Cadastre-se</h1>
+                <h1>Cadastrar Usuário</h1>
             </div>
 
             <img src="./assets/mobile-login-animate.svg" alt="pessoa-login" />
@@ -30,21 +32,23 @@
                     <input id="cargo_input" class="nome inputs" placeholder="Cargo" /> <br>
 
                     <i class="fa-solid fa-envelope" style="color:#93989f"></i>
-                    <input id="email_input" class="email inputs" placeholder="E-mail pessoal" /> <br>
+                    <input id="email_input" class="email inputs" placeholder="E-mail corporativo" /> <br>
 
                     <i class="fa-solid fa-lock" style="color:#93989f"></i>
                     <input type="password" id="senha_input" class="senha inputs" placeholder="Senha" /> <br>
                     <i class="fa-solid fa-lock" style="color: #93989f;"></i>
                     <input type="password" id="confirmacao_senha_input" class="senha inputs"
-                        placeholder="Confirme sua senha" />
+                        placeholder="Confirmação de senha" />
 
+                    <button onclick="cadastrar()" class="cadastrar">
+                        Cadastrar Usuário
+                    </button>
                 </div>
 
-                <button onclick="cadastrar()" class="cadastrar">
-                    Cadastrar Usuario
-                </button>
-                <span>Já possui um cadastro?</span>
-                <a href="login.html"> Clique aqui para entrar!</a>
+                <div class="entrar">
+                    <span>Já possui um cadastro?</span>
+                    <a href="login.html"> Clique aqui para entrar!</a>
+                </div>
             </div>
         </div>
     </div>
@@ -68,16 +72,13 @@
 
 
         if (nomeVar == "" || cargoVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-
+            swal("Ops", "Por favor, preencha todos os campos!", "error");
             // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            alert('campos em branco')
         } else if (senhaVar != confirmacaoSenhaVar) {
-            alert(`Digite a mesma senha nos campos "senha" e no campo "confirme sua senha"`)
+            swal("Ops", "Campos Senha e Confirmação de Senha estão diferentes!", "error");
+        } else if (emailVar.indexOf("@") < 0 || emailVar.indexOf(".") < 0) {
+            swal("Ops", "E-mail inválido! Digite um e-mail válido.", "error");
         } else {
-
-
-
-
             // Enviando o valor da nova input
 
             // cardErro.style.display = "block";
@@ -100,12 +101,14 @@
 
 
                 if (resposta.ok) {
+                    swal("Boa", "Funcionário cadastrado com sucesso!", "success")
 
                     setTimeout(() => {
-                        window.location = "login.html";
+                        window.location = "./dashboard/cards.html";
                     }, "2000")
 
                 } else {
+                    swal("Ops", "Erro ao realizar o cadastro!", "error")
                     throw ("Houve um erro ao tentar realizar o cadastro!");
                 }
             }).catch(function (resposta) {

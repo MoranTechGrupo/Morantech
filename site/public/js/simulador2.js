@@ -1,6 +1,3 @@
-
-
-
 function simule() {
 
   var qtdMorangoKg = Number(input_qtdMorangoKg.value);
@@ -12,7 +9,17 @@ function simule() {
     porcDesperdicioMedia = Number(porcDesperdicioCliente);
   }
 
-  if (qtdMorangoKg > 0 && precoMorangoKg > 0 && (porcDesperdicioCliente > 5 && porcDesperdicioCliente < 100)) {
+  if (qtdMorangoKg == "" || precoMorangoKg == "" || porcDesperdicioCliente == "") {
+    swal("Ops", "Por favor, preencha todos os campos!", "error");
+  } else if (qtdMorangoKg <= 0) {
+    swal("Ops", "Por favor, digite uma quantidade de Kg válida!", "error");
+  } else if (precoMorangoKg <= 0) {
+    swal("Ops", "Por favor, digite um preço válido!", "error");
+  } else if (porcDesperdicioMedia <= 5 || porcDesperdicioMedia > 100) {
+    swal("Ops", "Por favor, digite uma porcentagem válida!", "error");
+  }
+
+  else {
       // CÁLCULO SEM MORANTECH
   var precoTotalMorango = qtdMorangoKg * precoMorangoKg;
   var perdaKgMorango = qtdMorangoKg * (porcDesperdicioMedia / 100);
@@ -63,23 +70,8 @@ comMoranT.innerHTML += `<style>
 <b style="color: green">${economiaKgMorango}kg</b> de morango vão deixar de ser perdidos; <br>
 Vai haver um lucro de <b style="color: green">R$ ${economiaTotalMoranthec}</b>; <br>
 Ao final do transporte receberá no total um lucro de <b style="color: green">R$ ${lucroTotalMoranthec}</b>.`;
+} 
 }
-  if (qtdMorangoKg <= 0) {
-    alert("Por favor, digite uma quantidade de Kg válida!");
-  }
-
-   if (precoMorangoKg <= 0) {
-    alert("Por favor, digite um preço válido!");
-  }
-
-    if (porcDesperdicioMedia <= 5) {
-    alert("Por favor, digite uma porcentagem válida!");
-  }
-
-   if (porcDesperdicioMedia > 100) {
-    alert("Por favor, digite uma porcentagem válida!");
-  }
-  }
   
   
  

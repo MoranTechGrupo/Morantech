@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/cadastroCaminhao.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <title>Document</title>
+    <title>Morantech | Caminhao</title>
+    <!-- Sweet alert-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -15,7 +17,7 @@
         <div class="left-box">
             <div class="titulo">
                 <h1>Cadastre seu caminhão</h1>
-                <img src=".assets/caminhaoCadastro.gif" alt="caminhao-cadastro" />
+                <img src="./assets/caminhaoCadastro.gif" alt="caminhao-cadastro" />
             </div>
 
         </div>
@@ -25,12 +27,11 @@
                 <div class="inputs">
 
 
-                    <i class="fa-solid fa-lock" style="color:#93989f"></i>
-                    <input id="numero_placa" class="numero_placa inputs" placeholder="Placa do caminão" /> <br>
+                    <i class="fa-sharp fa-solid fa-hashtag fa-sm" style="color: #93989f;"></i>  
+                    <input id="numero_placa" class="numero_placa inputs" placeholder="Placa do caminhão" /> <br>
 
-                    <i class="fa-solid fa-lock" style="color:#93989f"></i>
-                    <input id="modelo_caminhao" class="numero_cnh inputs" placeholder="Modelo do caminhao" /> <br>
-
+                    <i class="fa-solid fa-truck fa-sm" style="color: #93989f;"></i>
+                    <input id="modelo_caminhao" class="numero_cnh inputs" placeholder="Modelo do caminhão" /> <br>
 
                 </div>
 
@@ -38,7 +39,7 @@
                     Cadastrar caminhão
                 </button>
 
-                <a href="./dashboard/dashboard.html"> Ir para área do cliente!</a>
+                <a href="./dashboard/cards.html"> Ir para área do cliente!</a>
             </div>
         </div>
     </div>
@@ -48,14 +49,16 @@
 
             var caminhao_placa = numero_placa.value;
             var caminhao_modelo = modelo_caminhao.value;
-            var idEmpresa =sessionStorage.ID_EMPRESA ;
+            var idEmpresa = sessionStorage.ID_EMPRESA ;
 
 
 
             if (caminhao_placa == "" || caminhao_modelo == "") {
+                swal("Ops", "Por favor, preencha todos os campos!", "error");
                 return false;
-            }
-
+            } else if (caminhao_placa.indexOf("-" < 0)) {
+                swal("Ops", "Placa inválida! Digite uma placa válida.", "error");
+            } else {
             // Enviando o valor da nova input
             fetch("/caminhao/cadastrar", {
                 method: "POST",
@@ -74,17 +77,15 @@
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-
-                    alert(`parabens você cadastrou seu caminhão \(0o0)/`);
-                    alert(`agora você pode entar na página de dashboard`);
-
+                    swal("Boa!", "Caminhão cadastrado com sucesso!", "success")
 
                     setTimeout(() => {
-                        window.location = "./dashboard/dashboard.html";
+                        window.location = "../cadastrocaminhao.html";
                     }, "2000")
 
 
                 } else {
+                    swal("Ops", "Erro ao cadastrar o caminhão!", "error")
                     throw ("Houve um erro ao tentar realizar o cadastro!");
                 }
             }).catch(function (resposta) {
@@ -93,9 +94,8 @@
             });
 
             return false;
+            }
         }
-
-
 
     </script>
 

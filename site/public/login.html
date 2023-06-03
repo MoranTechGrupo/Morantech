@@ -4,7 +4,9 @@
 <head>
   <link rel="stylesheet" href="./css/login.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <title>Morantech | Login</title>
+  <title>MoranTech | Login Empresa</title>
+  <!-- Sweet alert-->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -36,7 +38,7 @@
             <a href="cadastro2.html"> Clique aqui e registre-se!</a>
           </div>
           <div class="span_login">
-            <span>Entrar como Usuario</span>
+            <span>Entrar como Usuário</span>
             <a href="loginUser.html"> Clique aqui e faça seu login!</a>
           </div>
         </div>
@@ -57,7 +59,7 @@
       // cardErro.style.display = "block"
       // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
       // finalizarAguardar();
-      alert("Insira seu email e senha")
+      swal("Ops", "Por favor, preencha todos os campos!", "error");
       return false;
     }
     // else {
@@ -92,13 +94,13 @@
 
           setTimeout(function () {
             // 
-            window.location = "./dashboard/dashboard.html";
+            window.location = "./dashboard/cards.html";
           }, 1000); // apenas para exibir o loading
 
         });
 
       } else {
-
+        swal("Ops", "Email e/ou senha inválidos!", "error")
         console.log("Houve um erro ao tentar realizar o login!");
 
         // resposta.text().then(texto => {
