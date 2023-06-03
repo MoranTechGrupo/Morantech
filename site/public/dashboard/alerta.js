@@ -45,51 +45,43 @@ function alertar(resposta, idTransporte) {
     muito_seco: 90,
   };
 
-  var classe_temperatura = "cor-alerta";
-  var classe_umidade = "cor-alerta";
+  var classe_temperatura = "bolinha-cor";
+  var classe_umidade = "bolinha-cor";
 
   // ALERTAS DE TEMPERATURA
   if (temp >= limitesTemp.muito_quente) {
-    classe_temperatura = "cor-alerta perigo-quente";
     grauDeAvisoTemp = "perigo quente";
-    grauDeAvisoCor = "cor-alerta perigo-quente";
+    grauDeAvisoCor = "perigo-quente";
     exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCor);
   } else if (temp < limitesTemp.muito_quente && temp >= limitesTemp.quente) {
-    classe_temperatura = "cor-alerta alerta-quente";
     grauDeAvisoTemp = "alerta quente";
-    grauDeAvisoCor = "cor-alerta alerta-quente";
+    grauDeAvisoCor = "alerta-quente";
     exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCor);
   } else if (temp <= limitesTemp.frio && temp > limitesTemp.muito_frio) {
-    classe_temperatura = "cor-alerta alerta-frio";
     grauDeAvisoTemp = "alerta frio";
-    grauDeAvisoCor = "cor-alerta alerta-frio";
+    grauDeAvisoCor = "alerta-frio";
     exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCor);
   } else if (temp <= limitesTemp.muito_frio) {
-    classe_temperatura = "cor-alerta perigo-frio";
     grauDeAvisoTemp = "perigo frio";
-    grauDeAvisoCor = "cor-alerta perigo-frio";
+    grauDeAvisoCor = "perigo-frio";
     exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCor);
   }
   // ALERTAS DE UMIDADE
   if (umid >= limitesUmid.muito_umido) {
-    classe_umidade = "cor-alerta perigo-quente";
     grauDeAvisoUmid = "perigo úmido";
-    grauDeAvisoCor = "cor-alerta perigo-quente";
+    grauDeAvisoCor = "perigo-umido";
     exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCor);
   } else if (umid < limitesUmid.muito_umido && umid >= limitesUmid.umido) {
-    classe_umidade = "cor-alerta alerta-quente";
     grauDeAvisoUmid = "alerta úmido";
-    grauDeAvisoCor = "cor-alerta alerta-quente";
+    grauDeAvisoCor = "alerta-umido";
     exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCor);
   } else if (umid <= limitesUmid.seco && umid > limitesUmid.muito_seco) {
-    classe_umidade = "cor-alerta alerta-frio";
     grauDeAvisoUmid = "alerta seco";
-    grauDeAvisoCor = "cor-alerta alerta-frio";
+    grauDeAvisoCor = "alerta-seco";
     exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCor);
   } else if (umid <= limitesUmid.muito_seco) {
-    classe_umidade = "cor-alerta perigo-frio";
     grauDeAvisoUmid = "perigo seco";
-    grauDeAvisoCor = "cor-alerta perigo-frio";
+    grauDeAvisoCor = "perigo-seco";
     exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCor);
   }
 
@@ -158,14 +150,12 @@ function transformarEmDivTemp({
   grauDeAvisoCor,
 }) {
   return `<div class="notificacoes">
-  <div class="${grauDeAvisoCor}">&#12644;</div>
+  <div class="bolinha-cor ${grauDeAvisoCor}"></div>
     <div class="coluna">
-      <div class="content">
-        <h4>Caminhão ${idTransporte} está em estado de ${grauDeAvisoTemp}!<h4>
-      </div>
-    <small>Temperatura: ${temp}°C</small>  
+      <h5>Caminhão ${idTransporte} está em estado de ${grauDeAvisoTemp}!</h5>
+    <h5>Temperatura: ${temp}°C</h5>  
   </div>
-  </div>`;
+</div>`;;
 }
 
 function transformarEmDivUmid({
@@ -174,13 +164,11 @@ function transformarEmDivUmid({
   grauDeAvisoUmid,
   grauDeAvisoCor,
 }) {
-    return `<div class="notificacoes">
-    <div class="${grauDeAvisoCor}">&#12644;</div>
-    <div class="coluna">
-      <div class="content">
-        <h4>Caminhão ${idTransporte} está em estado de ${grauDeAvisoUmid}!<h4>
-      </div>
-    <small>Umidade: ${umid}°C</small>  
-  </div>
-  </div>`;
+ return `<div class="notificacoes">
+            <div class="bolinha-cor ${grauDeAvisoCor}"></div>
+              <div class="coluna">
+                <h5>Caminhão ${idTransporte} está em estado de ${grauDeAvisoUmid}!</h5>
+              <h5>Umidade: ${umid}%</h5>  
+            </div>
+          </div>`;
 }

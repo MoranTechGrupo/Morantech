@@ -8,6 +8,7 @@
     <title>MoranTech | Dashboard</title>
 
     <!-- <link rel="stylesheet" href="./style.css"> -->
+    <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="dashboards.css" />
     <script src="../js/funcoes.js"></script>
     <script src="./alerta.js"></script>
@@ -27,6 +28,8 @@
       src="https://kit.fontawesome.com/9f7414eb10.js"
       crossorigin="anonymous"
     ></script>
+
+    <link rel="shortcut icon" href="../assets/favicon-16x16.png" type="image/x-icon">
   </head>
 
   <!-- <body onload=" atualizarFeed()"> -->
@@ -62,134 +65,138 @@
         <div class="btn-header-left">
           <div class="btn-nav-white">
             <a href="./cards.html">
-              <h3>Caminhões</h3>
+              <h4>Caminhões</h4>
             </a>
           </div>
   
           <div class="btn-nav">
-            <h3>Gráficos</h3>
+            <h4>Gráficos</h4>
           </div>
   
-          <div class="btn-nav-white">
-            <a href="./mural.html">
-              <h3>Mural de Avisos</h3>
-            </a>
-          </div>
         </div>
 
         <div class="btn-logout" onclick="limparSessao()">
-          <h3>Sair</h3>
+          <h4>Sair</h4>
         </div>
       </div>
 
       <div class="dash">
-        <div id="alerta"></div>
-
-        <div class="btns-dash">
-          <!-- O gráfico é chamado de acordo com o id (fk_Caminhao) do banco  -->
-          <button
-            class="btn-chart btn-pink"
-            onclick="exibirCaminhao(1)"
-            id="btnCaminhao1"
-          >
-            Caminhao 1
-          </button>
-          <button
-            class="btn-chart btn-white"
-            onclick="exibirCaminhao(2)"
-            id="btnCaminhao2"
-          >
-            Caminhao 2
-          </button>
-          <button
-            class="btn-chart btn-white"
-            onclick="exibirCaminhao(3)"
-            id="btnCaminhao3"
-          >
-            Caminhao 3
-          </button>
-          <button
-            class="btn-chart btn-white"
-            onclick="exibirCaminhao(4)"
-            id="btnCaminhao4"
-          >
-            Caminhao 4
-          </button>
-          <button
-            class="btn-chart btn-white"
-            onclick="exibirCaminhao(5)"
-            id="btnCaminhao5"
-          >
-            Caminhao 5
-          </button>
+        <div class="infos">
+          <div class="btns-dash">
+            <!-- O gráfico é chamado de acordo com o id (fk_Caminhao) do banco  -->
+            <button
+              class="btn-chart btn-red"
+              onclick="exibirCaminhao(1)"
+              id="btnCaminhao1"
+            >
+              Caminhão 1
+            </button>
+            <button
+              class="btn-chart btn-white"
+              onclick="exibirCaminhao(2)"
+              id="btnCaminhao2"
+            >
+              Caminhão 2
+            </button>
+            <button
+              class="btn-chart btn-white"
+              onclick="exibirCaminhao(3)"
+              id="btnCaminhao3"
+            >
+              Caminhão 3
+            </button>
+            <button
+              class="btn-chart btn-white"
+              onclick="exibirCaminhao(4)"
+              id="btnCaminhao4"
+            >
+              Caminhão 4
+            </button>
+            <button
+              class="btn-chart btn-white"
+              onclick="exibirCaminhao(5)"
+              id="btnCaminhao5"
+            >
+              Caminhão 5
+            </button>
+          </div>
+          
+          <div id="graficos">
+            <div id="grafico1" class="display-block">
+              <h3 class="tituloGraficos">
+                <span id="tituloCaminhao1"></span>
+              </h3>
+              <div class="graph">
+                <canvas id="myChartCanvas1"></canvas>
+              </div>
+              <div class="label-captura">
+                <p id="avisoCaptura1" style="color: black; margin-top: 20px; font-weight: 500;"></p>
+              </div>
+            </div>
+  
+            <div id="grafico2" class="display-none">
+              <h3 class="tituloGraficos">
+                <span id="tituloCaminhao2"></span>
+              </h3>
+              <div class="graph">
+                <canvas id="myChartCanvas2"></canvas>
+              </div>
+              <div class="label-captura">
+                <p id="avisoCaptura2" style="color: black; margin-top: 20px; font-weight: 500;"></p>
+              </div>
+            </div>
+  
+            <div id="grafico3" class="display-none">
+              <h3 class="tituloGraficos">
+                <span id="tituloCaminhao3"></span>
+              </h3>
+              <div class="graph">
+                <canvas id="myChartCanvas3"></canvas>
+              </div>
+              <div class="label-captura">
+                <p id="avisoCaptura3" style="color: black; margin-top: 20px; font-weight: 500;"></p>
+              </div>
+            </div>
+  
+            <div id="grafico4" class="display-none">
+              <h3 class="tituloGraficos">
+                <span id="tituloCaminhao4"></span>
+              </h3>
+              <div class="graph">
+                <canvas id="myChartCanvas4"></canvas>
+              </div>
+              <div class="label-captura">
+                <p id="avisoCaptura4" style="color: black; margin-top: 20px; font-weight: 500;"></p>
+              </div>
+            </div>
+  
+            <div id="grafico5" class="display-none">
+              <h3 class="tituloGraficos">
+                <span id="tituloCaminhao5"></span>
+              </h3>
+              <div class="graph">
+                <canvas id="myChartCanvas5"></canvas>
+              </div>
+              <div class="label-captura">
+                <p id="avisoCaptura5" style="color: black; margin-top: 20px; font-weight: 500;"></p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div id="graficos">
-          <div id="grafico1" class="display-block">
-            <h3 class="tituloGraficos">
-              <span id="tituloCaminhao1">123</span>
-            </h3>
-            <div class="graph">
-              <canvas id="myChartCanvas1"></canvas>
-            </div>
-            <div class="label-captura">
-              <p id="avisoCaptura1" style="color: white"></p>
-            </div>
-          </div>
-
-          <div id="grafico2" class="display-none">
-            <h3 class="tituloGraficos">
-              <span id="tituloCaminhao2"></span>
-            </h3>
-            <div class="graph">
-              <canvas id="myChartCanvas2"></canvas>
-            </div>
-            <div class="label-captura">
-              <p id="avisoCaptura2" style="color: white"></p>
-            </div>
-          </div>
-
-          <div id="grafico3" class="display-none">
-            <h3 class="tituloGraficos">
-              <span id="tituloCaminhao3"></span>
-            </h3>
-            <div class="graph">
-              <canvas id="myChartCanvas3"></canvas>
-            </div>
-            <div class="label-captura">
-              <p id="avisoCaptura3" style="color: white"></p>
-            </div>
-          </div>
-
-          <div id="grafico4" class="display-none">
-            <h3 class="tituloGraficos">
-              <span id="tituloCaminhao4"></span>
-            </h3>
-            <div class="graph">
-              <canvas id="myChartCanvas4"></canvas>
-            </div>
-            <div class="label-captura">
-              <p id="avisoCaptura4" style="color: white"></p>
-            </div>
-          </div>
-
-          <div id="grafico5" class="display-none">
-            <h3 class="tituloGraficos">
-              <span id="tituloCaminhao5"></span>
-            </h3>
-            <div class="graph">
-              <canvas id="myChartCanvas5"></canvas>
-            </div>
-            <div class="label-captura">
-              <p id="avisoCaptura5" style="color: white"></p>
-            </div>
-          </div>
+        <div id="alerta" class="alerta">
+          <h3>Avisos</h3>          
         </div>
+
+        
       </div>
     </div>
   </body>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </html>
+
+
+
 
 <script>
   b_empresa.innerHTML = sessionStorage.NOME_EMPRESA;
@@ -213,7 +220,7 @@
       `tituloCaminhao${idTransporte}`
     );
     tituloCaminhao.innerHTML =
-      "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Caminhão " +
+      "Últimas medidas de Temperatura e Umidade do <span style='color: #fa4f6c'>Caminhão " +
       idTransporte +
       "</span>";
   }
@@ -231,8 +238,8 @@
 
       // alterando estilo do botão
       let btnAtual = document.getElementById(`btnCaminhao${i}`);
-      if (btnAtual.classList.contains("btn-pink")) {
-        btnAtual.classList.remove("btn-pink");
+      if (btnAtual.classList.contains("btn-red")) {
+        btnAtual.classList.remove("btn-red");
       }
       btnAtual.classList.add("btn-white");
     }
@@ -245,7 +252,7 @@
     // alterando estilo do botão
     let btnExibir = document.getElementById(`btnCaminhao${idTransporte}`);
     btnExibir.classList.remove("btn-white");
-    btnExibir.classList.add("btn-pink");
+    btnExibir.classList.add("btn-red");
   }
 
   // O gráfico é construído com três funções:
@@ -426,3 +433,5 @@
       });
   }
 </script>
+
+<script type="text/javascript">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode:"4eaa66122ec6b9013000da08bf80bbb86d42c442543473c6832446e7aaa1ccd809201f270947e36ffda542c3b7664234", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);d.write("<div id='zsiqwidget'></div>");</script>
