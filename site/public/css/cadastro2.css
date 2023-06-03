@@ -78,7 +78,11 @@ input {
     background-color: #f2f0f0;
     border-bottom: 2px solid #fb4d6add;
     outline: none;
+<<<<<<< HEAD
+    color: #444444;    
+=======
     color: #444444;
+>>>>>>> 17710d606a73cb818eb8502d12380c93b255b89e
 }
 
 .entrar {
@@ -140,8 +144,8 @@ a {
 
 }
 
-
 h1 {
+    padding-top: 30%;
     color: #f2f0f0;
     font-size: 30pt;
 }

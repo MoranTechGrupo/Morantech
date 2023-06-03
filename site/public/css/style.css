@@ -24,7 +24,6 @@ html {
 }
 
 body {
-  /* background: var(--bg_page_tm_light); */
   background: linear-gradient(
     335deg,
     var(--bg_page_tm_light) 25%,
@@ -33,12 +32,7 @@ body {
   );
 }
 
-/* body {
-    background: var(--bg_color_tm_light);
-} */
-
 .menu {
-  /* background: var(--bg_color_tm_light); */
   transition: 0.6s;
 }
 
