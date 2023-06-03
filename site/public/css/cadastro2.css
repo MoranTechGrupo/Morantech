@@ -62,8 +62,7 @@ input {
     background-color: #f2f0f0;
     border-bottom: 2px solid #fb4d6add;
     outline: none;
-    color: #444444;
-    
+    color: #444444;    
 }
 
 button {
@@ -102,8 +101,8 @@ a {
 
 }
 
-
 h1 {
+    padding-top: 30%;
     color: #f2f0f0;
     font-size: 30pt;
 }

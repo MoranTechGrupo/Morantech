@@ -5,63 +5,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/CadastroDeFeedback.css">
+    <title>Feedback | MoranTech</title>
+    <link rel="stylesheet" href="./css/feedback.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <main class="principal">
-        <div class="primeiraParte">
+    <div class="container">
+
+        <div class="left-box">
             <h1>Feedback</h1>
             <img src="assets/feedback.svg" alt="">
         </div>
-        <div class="segundaParte">
-            <div class="titulo">
-                <label for="titulo">Titulo do feedback</label>
-                <input type="text" name="titulo" id="titulo" maxlength="20">
-                <span id="contadorDeCaracteresTitulo">0/20</span>
-            </div>
-            <div class="conteudo">
-                <label for="contendo">Contendo do feedback</label>
-                <div class="caixaTextArea">
-                    <textarea name="contendo" id="contendo" cols="40" rows="10" maxlength="1000"></textarea>
-                    <span id="contadorDeCaracteresContendo">0/1000</span>
+
+        <div class="right-box">
+            <div class="form">
+
+                <div class="titulo">
+                    <label for="titulo">Titulo</label>
+                    <input type="text" name="titulo" id="titulo" maxlength="20">
+                    <span id="contadorDeCaracteresTitulo">0/20</span>
+                </div>
+                <div class="conteudo">
+                    <label for="contendo">Descrição do feedback</label>
+                    <div class="caixaTextArea">
+                        <textarea name="contendo" id="contendo" cols="50" rows="10" maxlength="1000"></textarea>
+                        <span id="contadorDeCaracteresContendo">0/1000</span>
+                    </div>
+                </div>
+                <br>
+                <div class="tipo">
+                    <i class="fa-solid fa-face-frown" style="color: #c62f45;"></i>
+                    <i class="fa-solid fa-face-meh" style="color: #cbd449;"></i>
+                    <i class="fa-solid fa-face-smile" style="color: #40ba48;"></i>
+                </div>
+                <div class="caixaBotao">
+                    <button onclick="enviarFeedback()" class="botao">Enviar feedback</button>
                 </div>
             </div>
-            <br>
-            <div class="tipo">
-                <i id="triste" class="fa-solid fa-face-frown triste"></i>
-                <i id="meh" class="fa-solid fa-face-meh meh"></i>
-                <i id="feliz" class="fa-solid fa-face-smile feliz"></i>
-            </div>
-            <div class="caixaBotao">
-                <button onclick="enviarFeedback()">Enviar feedback</button>
-            </div>
         </div>
-    </main>
+    </div>
 </body>
 
 </html>
 <script>
+    var tipo = "feliz"
 
+    var feliz = document.getElementById('feliz');
+    feliz.addEventListener('click', () => {
+        tipo = "feliz"
+    })
 
-var tipo = "feliz"
+    var meh = document.getElementById('meh');
+    meh.addEventListener('click', () => {
+        tipo = "meh"
+    })
 
-var feliz = document.getElementById('feliz');
-feliz.addEventListener('click',()=>{
-    tipo = "feliz"
-})
-
-var meh = document.getElementById('meh');
-meh.addEventListener('click',()=>{
-    tipo = "meh"
-})
-
-var triste = document.getElementById('triste');
-triste.addEventListener('click',()=>{
-    tipo = "triste"
-})
+    var triste = document.getElementById('triste');
+    triste.addEventListener('click', () => {
+        tipo = "triste"
+    })
 
     var Titulo = document.getElementById('titulo')
     Titulo.addEventListener('input', () => {
@@ -92,7 +95,7 @@ triste.addEventListener('click',()=>{
 
         }
 
-console.log(idEmpresa);
+        console.log(idEmpresa);
 
 
         fetch("/feedback/cadastrar", {
@@ -113,7 +116,7 @@ console.log(idEmpresa);
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-              
+
                 setTimeout(() => {
                     window.location = "./dashboard/dashboard.html";
                 }, "2000")
