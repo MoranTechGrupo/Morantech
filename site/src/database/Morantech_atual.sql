@@ -161,6 +161,13 @@ insert into dadosSensor values
 
 insert into dadosSensor values
 	(null, 1, 5.00, 97.00, default);
+    
+insert into dadosSensor values
+	(null, 1, 5.00, 94.00, default),
+	(null, 2, 11.00, 91.00, default),
+	(null, 3, 14.00, 83.00, default),
+	(null, 4, 5.00, 97.00, default),
+	(null, 5, 0.00, 90.00, default);
 
 -- Parametros -- 
 
