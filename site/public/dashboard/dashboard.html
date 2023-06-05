@@ -416,7 +416,7 @@
                 "Como não há dados novos para captura, o gráfico não atualizará."
               );
               avisoCaptura.innerHTML =
-                "<i class='fa-solid fa-triangle-exclamation'></i> Gráfico atualizado com dados atuais!";
+                `<i class='fa-solid fa-triangle-exclamation'></i> Gráfico atualizado com dados atuais! <br> Última atualização: ${novoRegistro[0].momento_grafico}`;
               console.log("Horário do novo dado capturado:");
               console.log(novoRegistro[0].momento_grafico);
               console.log("Horário do último dado capturado:");
@@ -479,3 +479,5 @@
   t.parentNode.insertBefore(s, t);
   d.write("<div id='zsiqwidget'></div>");
 </script>
+
+<script src="https://desk.zoho.com/portal/api/feedbackwidget/866906000000227270?orgId=812795393&displayType=popout"></script>
