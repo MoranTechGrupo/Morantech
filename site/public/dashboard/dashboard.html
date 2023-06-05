@@ -44,19 +44,20 @@
       <nav id="menu" class="menu">
         <ul>
           <li>
-            <img
+            <a href="#"
+              ><img
                 src="../assets/morantechreal-transformed.png"
                 style="width: 160px"
                 alt=""
-            />
+            /></a>
           </li>
           <li><a href="../cadastroEndereco.html">CADASTRAR ENDEREÇO</a></li>
           <li><a href="../cadastrocaminhao.html">CADASTRAR CAMINHÃO</a></li>
           <li><a href="../cadastroUser.html">CADASTRAR USUÁRIO</a></li>
           <li><a href="../feedback.html">FEEDBACK</a></li>
-          <!-- <li>
+          <li>
             <a><i id="tema" class="fa-solid fa-moon"></i></a>
-          </li> -->
+          </li>
         </ul>
       </nav>
     </header>
@@ -133,7 +134,7 @@
               <div class="label-captura">
                 <p
                   id="avisoCaptura1"
-                  style="color: black; margin-top: 10px; font-weight: 500"
+                  style="color: black; margin-top: 20px; font-weight: 500"
                 ></p>
               </div>
             </div>
@@ -148,7 +149,7 @@
               <div class="label-captura">
                 <p
                   id="avisoCaptura2"
-                  style="color: black; margin-top: 10px; font-weight: 500"
+                  style="color: black; margin-top: 20px; font-weight: 500"
                 ></p>
               </div>
             </div>
@@ -163,7 +164,7 @@
               <div class="label-captura">
                 <p
                   id="avisoCaptura3"
-                  style="color: black; margin-top: 10px; font-weight: 500"
+                  style="color: black; margin-top: 20px; font-weight: 500"
                 ></p>
               </div>
             </div>
@@ -178,7 +179,7 @@
               <div class="label-captura">
                 <p
                   id="avisoCaptura4"
-                  style="color: black; margin-top: 10px; font-weight: 500"
+                  style="color: black; margin-top: 20px; font-weight: 500"
                 ></p>
               </div>
             </div>
@@ -193,7 +194,7 @@
               <div class="label-captura">
                 <p
                   id="avisoCaptura5"
-                  style="color: black; margin-top: 10px; font-weight: 500"
+                  style="color: black; margin-top: 20px; font-weight: 500"
                 ></p>
               </div>
             </div>
@@ -380,8 +381,7 @@
       config
     );
 
-    // avisoCaptura
-    setTimeout(() => atualizarGrafico(idTransporte, dados, myChart), 5000);
+    setTimeout(() => atualizarGrafico(idTransporte, dados, myChart), 2000);
   }
 
   // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
@@ -403,8 +403,7 @@
             let avisoCaptura = document.getElementById(
               `avisoCaptura${idTransporte}`
             );
-
-            
+            avisoCaptura.innerHTML = "";
 
             if (
               novoRegistro[0].momento_grafico ==
@@ -417,13 +416,7 @@
                 "Como não há dados novos para captura, o gráfico não atualizará."
               );
               avisoCaptura.innerHTML =
-<<<<<<< HEAD
-                "<i class='fa-solid fa-triangle-exclamation'></i> Gráfico plotando os dados atuais!";
-=======
-                `<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Última atualização: ${novoRegistro[0].momento_grafico}`;
-              // avisoCaptura.innerHTML += `Última atualização: ${novoRegistro.momento_grafico}`;
-
->>>>>>> 48e5bbdbbf3dfba240132f5115fd7119938d8426
+                "<i class='fa-solid fa-triangle-exclamation'></i> Gráfico atualizado com dados atuais!";
               console.log("Horário do novo dado capturado:");
               console.log(novoRegistro[0].momento_grafico);
               console.log("Horário do último dado capturado:");
@@ -448,7 +441,7 @@
             // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
             proximaAtualizacao = setTimeout(
               () => atualizarGrafico(idTransporte, dados, myChart),
-              5000
+              2000
             );
           });
         } else {
@@ -456,7 +449,7 @@
           // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
           proximaAtualizacao = setTimeout(
             () => atualizarGrafico(idTransporte, dados, myChart),
-            5000
+            2000
           );
         }
       })
