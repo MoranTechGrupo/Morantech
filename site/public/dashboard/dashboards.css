@@ -87,6 +87,10 @@ ion-icon:hover {
   justify-content: center;
 }
 
+.hello {
+  position: relative;
+}
+
 
 /* .janela .alerta {
   position: fixed;

@@ -4,10 +4,6 @@
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-/* :root {
-  --bg_color_tm_light: #f1ebeb;
-  --bg_page_tm_light: #ffd5d58a;
-} */
 
 body {
   display: flex;
@@ -16,7 +12,7 @@ body {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(to right, rgb(251, 92, 161) , rgb(255, 150, 196))
+  background: #ffd5d5e5;
 }
 
 .container {
@@ -30,7 +26,6 @@ body {
 }
 
 .right-box {
-  display: flex;
   justify-content: center;
   background-color: #f2f0f0;
   width: 55%;
@@ -96,7 +91,7 @@ h1 {
 
 .tipo {
   padding-top: 10px;
-  padding-left: 20%;
+  padding-left: 30%;
 }
 
 .tipo i{
@@ -131,6 +126,7 @@ button:hover {
 
 .botao {
   margin-bottom: 45px;
+  margin-left: 2vw;
 }
 
 .caixaBotao {

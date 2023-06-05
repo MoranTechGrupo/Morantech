@@ -53,8 +53,12 @@ body {
     align-items: center;
 }
 
+.left-box .titulo h1 {
+    font-size: 45px;
+}
+
 .left-box img {
-    height: 400px;
+    height: 461px;
     width: 400px;
     display: flex;
     justify-content: center;
@@ -70,6 +74,11 @@ body {
     gap: 10px;
 }
 
+.right-box h2 {
+    font-size: 35px;
+    margin-bottom: 3vh;
+}
+
 input {
     width: 250px;
     border: none;
@@ -78,11 +87,7 @@ input {
     background-color: #f2f0f0;
     border-bottom: 2px solid #fb4d6add;
     outline: none;
-<<<<<<< HEAD
-    color: #444444;    
-=======
     color: #444444;
->>>>>>> 17710d606a73cb818eb8502d12380c93b255b89e
 }
 
 .entrar {
@@ -145,8 +150,8 @@ a {
 }
 
 h1 {
-    padding-top: 30%;
+    padding-top: 14%;
     color: #f2f0f0;
-    font-size: 30pt;
+    font-size: 40pt;
 }
 
