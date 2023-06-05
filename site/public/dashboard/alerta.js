@@ -159,6 +159,8 @@ function exibirCards() {
   }
 }
 
+
+
 function transformarEmDivTemp({
   idTransporte,
   temp,
