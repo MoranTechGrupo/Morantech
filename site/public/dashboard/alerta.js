@@ -28,6 +28,8 @@ function alertar(resposta, idTransporte) {
 
   var grauDeAvisoTemp = "";
   var grauDeAvisoUmid = "";
+  var grauDeAvisoCorTemp = "";
+  var grauDeAvisoCorUmid = "";
 
   var limitesTemp = {
     muito_quente: 12.1,
@@ -51,61 +53,75 @@ function alertar(resposta, idTransporte) {
   // ALERTAS DE TEMPERATURA
   if (temp >= limitesTemp.muito_quente) {
     grauDeAvisoTemp = "perigo quente";
-    grauDeAvisoCor = "perigo-quente";
-    exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCor);
+    grauDeAvisoCorTemp = "perigo-quente";
+    exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCorTemp);
   } else if (temp < limitesTemp.muito_quente && temp >= limitesTemp.quente) {
     grauDeAvisoTemp = "alerta quente";
-    grauDeAvisoCor = "alerta-quente";
-    exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCor);
+    grauDeAvisoCorTemp = "alerta-quente";
+    exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCorTemp);
+  } else if (temp < limitesTemp.quente && temp > limitesTemp.frio) {
+    grauDeAvisoCorTemp = "ideal";
   } else if (temp <= limitesTemp.frio && temp > limitesTemp.muito_frio) {
     grauDeAvisoTemp = "alerta frio";
-    grauDeAvisoCor = "alerta-frio";
-    exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCor);
+    grauDeAvisoCorTemp = "alerta-frio";
+    exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCorTemp);
   } else if (temp <= limitesTemp.muito_frio) {
     grauDeAvisoTemp = "perigo frio";
-    grauDeAvisoCor = "perigo-frio";
-    exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCor);
+    grauDeAvisoCorTemp = "perigo-frio";
+    exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCorTemp);
   }
   // ALERTAS DE UMIDADE
   if (umid >= limitesUmid.muito_umido) {
     grauDeAvisoUmid = "perigo úmido";
-    grauDeAvisoCor = "perigo-umido";
-    exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCor);
+    grauDeAvisoCorUmid = "perigo-umido";
+    exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCorUmid);
   } else if (umid < limitesUmid.muito_umido && umid >= limitesUmid.umido) {
     grauDeAvisoUmid = "alerta úmido";
-    grauDeAvisoCor = "alerta-umido";
-    exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCor);
+    grauDeAvisoCorUmid = "alerta-umido";
+    exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCorUmid);
+  } else if (umid < limitesUmid.umido && umid > limitesUmid.seco) {
+    grauDeAvisoCorUmid = "ideal";
   } else if (umid <= limitesUmid.seco && umid > limitesUmid.muito_seco) {
     grauDeAvisoUmid = "alerta seco";
-    grauDeAvisoCor = "alerta-seco";
-    exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCor);
+    grauDeAvisoCorUmid = "alerta-seco";
+    exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCorUmid);
   } else if (umid <= limitesUmid.muito_seco) {
     grauDeAvisoUmid = "perigo seco";
-    grauDeAvisoCor = "perigo-seco";
-    exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCor);
+    grauDeAvisoCorUmid = "perigo-seco";
+    exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCorUmid);
   }
 
   var card;
 
   if (idTransporte == 1) {
     temp_caminhao_1.innerHTML = temp + "°C";
+    temp_caminhao_1.classList.add(grauDeAvisoCorTemp);
     umid_caminhao_1.innerHTML = umid + "%";
+    umid_caminhao_1.classList.add(grauDeAvisoCorUmid);
     card = card_1;
   } else if (idTransporte == 2) {
     temp_caminhao_2.innerHTML = temp + "°C";
+    temp_caminhao_2.classList.add(grauDeAvisoCorTemp);
     umid_caminhao_2.innerHTML = umid + "%";
+    umid_caminhao_2.classList.add(grauDeAvisoCorUmid);
     card = card_2;
   } else if (idTransporte == 3) {
     temp_caminhao_3.innerHTML = temp + "°C";
+    temp_caminhao_3.classList.add(grauDeAvisoCorTemp);
     umid_caminhao_3.innerHTML = umid + "%";
+    umid_caminhao_3.classList.add(grauDeAvisoCorUmid);
     card = card_3;
   } else if (idTransporte == 4) {
     temp_caminhao_4.innerHTML = temp + "°C";
+    temp_caminhao_4.classList.add(grauDeAvisoCorTemp);
     umid_caminhao_4.innerHTML = umid + "%";
+    umid_caminhao_4.classList.add(grauDeAvisoCorUmid);
     card = card_4;
   } else if (idTransporte == 5) {
     temp_caminhao_5.innerHTML = temp + "°C";
+    temp_caminhao_5.classList.add(grauDeAvisoCorTemp);
     umid_caminhao_5.innerHTML = umid + "%";
+    umid_caminhao_5.classList.add(grauDeAvisoCorUmid);
     card = card_5;
   }
 
@@ -113,8 +129,8 @@ function alertar(resposta, idTransporte) {
   card.className = classe_umidade;
 }
 
-function exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCor) {
-  alertas.push({ temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCor });
+function exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCorTemp) {
+  alertas.push({ temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCorTemp });
 
   exibirCards("temperatura");
 
@@ -122,8 +138,8 @@ function exibirAlertaTemp(temp, idTransporte, grauDeAvisoTemp, grauDeAvisoCor) {
   // que pode ser inserido clicando com o seu teclado em alt+255 ou pelo código adicionado acima.
 }
 
-function exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCor) {
-  alertas.push({ umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCor });
+function exibirAlertaUmid(umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCorUmid) {
+  alertas.push({ umid, idTransporte, grauDeAvisoUmid, grauDeAvisoCorUmid });
 
   exibirCards("umidade");
 
@@ -147,10 +163,10 @@ function transformarEmDivTemp({
   idTransporte,
   temp,
   grauDeAvisoTemp,
-  grauDeAvisoCor,
+  grauDeAvisoCorTemp,
 }) {
   return `<div class="notificacoes">
-  <div class="bolinha-cor ${grauDeAvisoCor}"></div>
+  <div class="bolinha-cor ${grauDeAvisoCorTemp}"></div>
     <div class="coluna">
       <h5>Caminhão ${idTransporte} está em estado de ${grauDeAvisoTemp}!</h5>
     <h5>Temperatura: ${temp}°C</h5>  
@@ -162,10 +178,10 @@ function transformarEmDivUmid({
   idTransporte,
   umid,
   grauDeAvisoUmid,
-  grauDeAvisoCor,
+  grauDeAvisoCorUmid,
 }) {
  return `<div class="notificacoes">
-            <div class="bolinha-cor ${grauDeAvisoCor}"></div>
+            <div class="bolinha-cor ${grauDeAvisoCorUmid}"></div>
               <div class="coluna">
                 <h5>Caminhão ${idTransporte} está em estado de ${grauDeAvisoUmid}!</h5>
               <h5>Umidade: ${umid}%</h5>  

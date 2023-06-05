@@ -72,11 +72,6 @@ ion-icon:hover {
   cursor: pointer;
 }
 
-.menu ul li a img:hover {
-  width: 120px;
-  transition: 0.3s;
-}
-
 .menu ul li:hover {
   font-size: 20px;
   transition: 0.3s;
@@ -601,4 +596,10 @@ canvas {
   border-radius: 50%;
   display: flex;
   align-self: center;
+}
+
+.header-left h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
