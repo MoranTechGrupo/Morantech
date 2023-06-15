@@ -82,15 +82,6 @@ ion-icon:hover {
   justify-content: center;
 }
 
-/* .janela .alerta {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  z-index: 10;
-  overflow: hidden;
-  height: 100vh;
-} */
-
 .dash-right {
   width: 80vw;
   height: 100%;
@@ -98,110 +89,9 @@ ion-icon:hover {
   color: #000;
 }
 
-.dash-right .avisos {
-  width: 100%;
-  /* border: 3px solid pink; */
-  color: rgb(216, 216, 216);
-  font-family: "Exo 2", sans-serif;
-}
-
-.dash-right .avisos .container .div-form {
-  width: 100%;
-}
-
-.dash-right .avisos .container .div-form #form_postagem {
-  width: 100%;
-}
-
-.dash-right .avisos .div-form label {
-  width: 100%;
-}
-
-.dash-right .avisos .div-form input {
-  width: 100%;
-  border-radius: 5px;
-}
-
-.dash-right .avisos .div-form textarea {
-  width: 100%;
-  /* color: #E6005A; */
-  border: 3px solid #e6005a;
-  background-color: white;
-  border-radius: 5px;
-}
-
-.dash-right .avisos .div-form button {
-  cursor: pointer;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 10px 15px;
-  color: white;
-  background-color: #e6005a;
-  width: 120px;
-}
-
-.publicacao-btn-editar {
-  cursor: pointer;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 14px;
-  padding: 5px 8px;
-  color: white;
-  background-color: #e6005a;
-  width: 80px;
-}
-
-.publicacao {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: stretch;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  border-bottom: 3px solid #e6005a;
-  padding: 20px;
-}
-
-.publicacao > *:not(:last-child) {
-  padding: 0 0 10px 0;
-}
-
-.div-results {
-  width: 100%;
-}
-
-.div-results .feed-container {
-  background-color: #212124;
-  border-radius: 5px;
-  margin-bottom: 80px;
-}
-
-.div-buttons {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.div-buttons > * {
-  margin-left: 30px;
-}
-
-/* pagina graficos */
-
 .dash-header {
   background-color: #ffd5d58a;
 }
-
-/* .dash #alerta {
-  position: absolute;
-  top: 80px;
-  right: 0px;
-  z-index: 10;
-  overflow: auto;
-  height: 100vh;
-} */
 
 .dash #alerta::-webkit-scrollbar {
   display: none;
@@ -289,7 +179,6 @@ ion-icon:hover {
 .cards h1 {
   font-size: 22px;
   width: 100%;
-  /* border-bottom: solid black 2px; */
   text-align: center;
   font-weight: 700;
   margin-top: 10px;
@@ -322,12 +211,6 @@ ion-icon:hover {
   width: 100%;
   height: 100%;
 }
-
-/* .cor-alerta {
-  width: 13%;
-  height: 30%;
-  border-radius: 50%;
-} */
 
 .btns-dash {
   display: flex;
@@ -367,7 +250,6 @@ ion-icon:hover {
   padding: 7px;
   outline: none;
   border: none;
-  
   color: #fff;
   font-weight: 800;
   box-shadow: 0px 0px 5px #414141;
@@ -385,7 +267,6 @@ ion-icon:hover {
   padding: 7px;
   outline: none;
   border: none;
-
   color: #fff;
   font-weight: 800;
   box-shadow: 0px 0px 5px #414141;
@@ -426,19 +307,10 @@ canvas {
   height: 100% !important;
 }
 
-.notificacoes .aviso.success {
-  background-image: linear-gradient(to right, #0bbe327e, #6dc46a 50%);
-}
-
-.notificacoes .aviso.error {
-  background-image: linear-gradient(to right, #d10a0a67, #cd6f6f 50%);
-}
-
 .notificacoes {
   background-color: #fff;
   color: #000;
   width: 100%;
-  /* max-height: 100px; */
   padding: 16px 17px;
   margin-bottom: 10px;
   animation: show_aviso 0.3s ease forwards;
@@ -446,68 +318,11 @@ canvas {
   gap: 10px;
 }
 
-.notificacoes .coluna {
-  display: flex;
-  flex-direction: column;
-}
-
-.notificacoes :where(.aviso, .coluna) {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.aviso .coluna i {
-  font-size: 25px;
-}
-
-.aviso .coluna span {
-  color: #000;
-  font-size: 1.07rem;
-  margin-left: 12px;
-}
-
-.aviso i:last-child {
-  color: #38393c;
-  cursor: pointer;
-}
-
-.aviso i:last-child:hover {
-  color: #cbcbcb;
-}
-
-/* .notificacoes::before {
-  position: absolute;
-  content: "";
-  height: 3px;
-  width: 100%;
-  bottom: 0px;
-  left: 0px;
-  animation: progress 3s linear forwards;
-} */
-
 @keyframes progress {
   100% {
     width: 0%;
   }
 }
-
-.aviso.success::before {
-  background: #0cb130;
-}
-
-.aviso.error::before {
-  background: #f12d2d;
-}
-
-.aviso.success .coluna i {
-  color: #0abf30;
-}
-
-.aviso.error .coluna i {
-  color: #e24d4c;
-}
-
 
 .janela {
   width: 100%;

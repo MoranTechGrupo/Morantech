@@ -26,10 +26,6 @@ const serial = async (valoresDht11Umidade, valoresDht11Temperatura) => {
       .createPool({
         // altere!
         // CREDENCIAIS DO BANCO - MYSQL WORKBENCH
-        /*  host: "10.18.32.140",
-         user: "teste",
-         password: "urubu100",
-         database: "morantech", */
         host: "10.18.33.159",
         database: "morantech",
         user: "select",
@@ -105,15 +101,14 @@ const serial = async (valoresDht11Umidade, valoresDht11Temperatura) => {
           // altere!
           // Este insert irá inserir os dados na tabela "medida"
           // -> altere nome da tabela e colunas se necessário
-          // Este insert irá inserir dados de fk_aquario id=1 (fixo no comando do insert abaixo)
-          // >> Importante! você deve ter o aquario de id 1 cadastrado.
-          sqlquery = `INSERT INTO medida (dht11_umidade, dht11_temperatura, luminosidade, lm35_temperatura, chave, momento, fk_aquario) VALUES (${dht11Umidade}, ${dht11Temperatura}, ${luminosidade}, ${lm35Temperatura}, ${chave}, CURRENT_TIMESTAMP, 1)`;
+          sqlquery = `INSERT INTO medida (fkSensor, temperatura, umidade, datahora) VALUES (${fkSensor}, ${temperatura}, ${umidade}, ${datahora})`;
 
           // CREDENCIAIS DO BANCO REMOTO - SQL SERVER
           // Importante! você deve ter criado o usuário abaixo com os comandos presentes no arquivo
           // "script-criacao-usuario-sqlserver.sql", presente neste diretório.
-          const connStr =
-            "Server=servidor-acquatec.database.windows.net;Database=bd-acquatec;User Id=usuarioParaAPIArduino_datawriter;Password=#Gf_senhaParaAPI;";
+          
+          // const connStr =
+          //   "Server=servidor-acquatec.database.windows.net;Database=bd-acquatec;User Id=usuarioParaAPIArduino_datawriter;Password=#Gf_senhaParaAPI;";
 
           function inserirComando(conn, sqlquery) {
             conn.query(sqlquery);

@@ -1,4 +1,4 @@
-create database Morantech;
+create database morantech;
 use Morantech;
 
 show tables;
@@ -17,6 +17,14 @@ telefone varchar(15) not null,
 statusEmp char(1)
 );
 
+insert into empresa values
+(null, 'Trans morango S.A', '78.745.125/0001-56', 'transMorango@gmail.com', 'moranguete123', 2, '(11) 2487-7845', 'A'),
+(null, 'Morangos Delícia Ltda', '12.345.678/0001-90', 'morangoDelicia@gmail.com', 'moranDelicia001', 3, '(21) 98765-4321', 'A'),
+(null, 'Fazenda Morango Feliz S.A', '23.456.789/0001-12', 'fazendaMoran@gmail.com', 'FazendaMorann543', 1, '(31) 2765-4321', 'A'),
+(null, 'Morango Doce Sabor Eireli', '34.567.890/0001-34', 'DoceSabor@gmail.com', 'SaborDoce111', 5, '(41) 98765-9321', 'A'),
+(null, 'Morangos Frescos Ltda', '45.678.901/0001-56', 'MorangosFrescos@gmail.com', 'Frescos836', 4, '(51) 93623-1235', 'A');
+
+
 -- endereços Empresas --
 
 
@@ -33,6 +41,12 @@ UF char(2),
 cep varchar(9)
 );
 
+insert into endereco values 
+(null, 1, 'Alamada das Cerejeiras', 'Joanna Darc', '203', 'São Paulo', 'SP', null),
+(null, 2, 'Avenida Ouro Preto', 'Boa Esperança', '403', 'Belford Roxo', 'RJ', '26100-231'),
+(null, 3, 'Rua Jacareípe', 'Vila Presidente Vargas', '543', 'Belo horizonte', 'MG', '31950-210'),
+(null, 4, 'Praça Avelina Vieira', 'Gleba Palhano', '49', 'Londrina', 'PR', null),
+(null, 5, 'Avenida Alexandre Rizzo', 'DESVIO RIZZO', '2248', 'Caxias do Sul', 'RS', '95110-000');
 
 -- Usuario --
 
@@ -59,6 +73,13 @@ fkEmp int,
 constraint fkEmp foreign key (fkEmp) 
 references empresa (idEmpresa)
 );
+
+insert into transporte values
+(null, 'ABC-1234','Scania', 1), 
+(null, 'DEF-5678', 'Mercedes-Benz',2), 
+(null, 'GHI-9012', 'Volvo', 3), 
+(null, 'JKL-3456', 'Ford', 4), 
+(null, 'MNO-7890', 'Volkswagen', 5);
 
 -- Sensor --
 
@@ -96,6 +117,25 @@ dataHora timestamp
 );
 
 alter table dadosSensor modify column dataHora datetime default current_timestamp;
+
+insert into dadosSensor values
+	(null, 1, 10.00, 88.00, default),
+	(null, 1, 6.00, 93.00, default),
+	(null, 1, 2.00, 98.00, default),
+	(null, 1, 14.00, 84.00, default),
+	(null, 1, 25.00, 76.00, default);
+    
+
+-- Parametros -- 
+
+create table parametro (
+idParametro int,
+minimo decimal(5,2),
+maximo decimal(5,2),
+fkTransporte int,
+constraint fktrans foreign key (fkTransporte) references transporte(idTransporte),
+constraint pkPara primary key (idParametro , fkTransporte)
+);
 
 -- feedBacks --
 create table feedback (
